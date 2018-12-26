@@ -159,7 +159,7 @@ CLEAN :
 CPP_PROJ=/nologo /MT /w /W0 /EHsc /D __VC13__ $(IPATH) /O2 /I "..\..\..\cint" /I "..\..\src" /I\
  "..\..\lib\vcstream" /I "..\..\lib\stdstrct" /D "NDEBUG" /D "WIN32" /D\
  "_WINDOWS" /D "G__VISUAL" /D "G__WIN32" /D "G__SHAREDLIB" /D "G__REDIRECTIO" /D\
- "G__P2FCAST" /Fp"$(INTDIR)/libcint.pch" /Fo"$(INTDIR)/" /c 
+ "G__P2FCAST" /Fp"$(INTDIR)/libcint.pch" /Fo"$(INTDIR)/" /c /D G__ASM_DBG
 CPP_OBJS=.\Release/
 CPP_SBRS=
 # ADD BASE MTL /nologo /D "NDEBUG" /win32
@@ -361,7 +361,7 @@ CLEAN :
 CPP_PROJ=/nologo /MTd /W3 /Gm /EHsc /D __VC13__ $(IPATH) /Zi /Od /I "..\..\..\cint" /I "..\..\src" /I\
  "..\..\lib\vcstream" /I "..\..\lib\stdstrct" /D "_DEBUG" /D "WIN32" /D\
  "_WINDOWS" /D "G__VISUAL" /D "G__WIN32" /D "G__SHAREDLIB" /D "G__REDIRECTIO" /D\
- "G__P2FCAST" /D "G__ASM_DBG" /Fp"$(INTDIR)/libcint.pch" /Fo"$(INTDIR)/" /Fd"$(INTDIR)/" /c 
+ "G__P2FCAST" /D "G__ASM_DBG" /Fp"$(INTDIR)/libcint.pch" /Fo"$(INTDIR)/" /Fd"$(INTDIR)/" /c /D G__ASM_DBG
 CPP_OBJS=.\Debug/
 CPP_SBRS=
 # ADD BASE MTL /nologo /D "_DEBUG" /win32
@@ -2007,3 +2007,4 @@ DEP_CPP_TOKEN=\
 # End Target
 # End Project
 ################################################################################
+

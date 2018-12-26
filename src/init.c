@@ -2122,10 +2122,10 @@ void G__platformMacro()
   sprintf(temp,"G__NO_STDLIBS=%ld",(long)G__NO_STDLIBS); G__add_macro(temp);
 #endif
 #ifdef G__NATIVELONGLONG
-  sprintf(temp,"G__NATIVELONGLONG=%ld",(long)G__NATIVELONGLONG); G__add_macro(temp);
+  sprintf(temp,"G__NATIVELONGLONG=%lld",(long long)G__NATIVELONGLONG); G__add_macro(temp);
 #endif
-  
-  sprintf(temp,"int& G__cintv6=*(int*)(%ld);",(long)(&G__cintv6)); G__exec_text(temp);
+  //todo 64bit
+  sprintf(temp,"int& G__cintv6=0;",(G__int64)(&G__cintv6)); G__exec_text(temp);
 }
 
 /******************************************************************
@@ -2180,9 +2180,9 @@ void G__set_stdio()
   G__constvar = 0;
 
 #ifdef G__DUMPFILE
-  G__globalvarpointer = (long)(&G__dumpfile);
-  G__var_type='E';
-  G__getexpr("G__dumpfile=0");
+  //G__globalvarpointer = (long)(&G__dumpfile);
+  //G__var_type='E';
+  //G__getexpr("G__dumpfile=0");
 #endif
   G__globalvarpointer = G__PVOID;
 

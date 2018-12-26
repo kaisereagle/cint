@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcint", "libcint.vcxproj", "{7502737B-4DC2-4BAF-A220-C476091AF2CA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cint", "..\cint\cint.vcproj", "{D5EF7F71-6DB9-4496-BED0-53419F6E4222}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7502737B-4DC2-4BAF-A220-C476091AF2CA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7502737B-4DC2-4BAF-A220-C476091AF2CA}.Debug|Win32.Build.0 = Debug|Win32
+		{7502737B-4DC2-4BAF-A220-C476091AF2CA}.Release|Win32.ActiveCfg = Release|Win32
+		{7502737B-4DC2-4BAF-A220-C476091AF2CA}.Release|Win32.Build.0 = Release|Win32
+		{D5EF7F71-6DB9-4496-BED0-53419F6E4222}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D5EF7F71-6DB9-4496-BED0-53419F6E4222}.Debug|Win32.Build.0 = Debug|Win32
+		{D5EF7F71-6DB9-4496-BED0-53419F6E4222}.Release|Win32.ActiveCfg = Release|Win32
+		{D5EF7F71-6DB9-4496-BED0-53419F6E4222}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84478D22-27E8-4307-997A-9087067475B1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7502737B-4DC2-4BAF-A220-C476091AF2CA}</ProjectGuid>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27625.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/libcint.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..;..;..\..\lib\vc7strm;..\..\lib\stdstrct;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;G__NEWSTDHEADER;G__VISUAL;G__WIN32;G__SHAREDLIB;G__REDIRECTIO;G__P2FCAST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\Release/libcint.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0411</Culture>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release/libcint.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/libcint.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..;..;..\..\lib\vc7strm;..\..\lib\stdstrct;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;G__NEWSTDHEADER;G__VISUAL;G__WIN32;G__SHAREDLIB;G__REDIRECTIO;G__P2FCAST;G__ASM_DBG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile>.\Debug/libcint.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0411</Culture>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>.\Debug/libcint.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>.\libcint.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/libcint.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>.\Debug/libcint.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug/libcint.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\MAIN\G__SETUP.C" />
+    <ClCompile Include="..\API.CXX" />
+    <ClCompile Include="..\APIIF.CXX" />
+    <ClCompile Include="..\AUXU.C" />
+    <ClCompile Include="..\BASECLS.CXX" />
+    <ClCompile Include="..\BC_ASSIGN.CXX" />
+    <ClCompile Include="..\BC_AUTOOBJ.CXX" />
+    <ClCompile Include="..\BC_CFUNC.CXX" />
+    <ClCompile Include="..\BC_DEBUG.CXX" />
+    <ClCompile Include="..\BC_EH.CXX" />
+    <ClCompile Include="..\BC_EXEC.CXX" />
+    <ClCompile Include="..\BC_INST.CXX" />
+    <ClCompile Include="..\BC_PARSE.CXX" />
+    <ClCompile Include="..\BC_READER.CXX" />
+    <ClCompile Include="..\BC_TYPE.CXX" />
+    <ClCompile Include="..\BC_VTBL.CXX" />
+    <ClCompile Include="..\CALLFUNC.CXX" />
+    <ClCompile Include="..\CAST.C" />
+    <ClCompile Include="..\CLASS.CXX" />
+    <ClCompile Include="..\DATAMBR.CXX" />
+    <ClCompile Include="..\DEBUG.C" />
+    <ClCompile Include="..\DECL.C" />
+    <ClCompile Include="..\DISP.C" />
+    <ClCompile Include="..\DUMP.C" />
+    <ClCompile Include="..\END.C" />
+    <ClCompile Include="..\ERROR.C" />
+    <ClCompile Include="..\EXPR.C" />
+    <ClCompile Include="..\FREAD.C" />
+    <ClCompile Include="..\FUNC.C" />
+    <ClCompile Include="..\GCOLL.C" />
+    <ClCompile Include="..\GLOBAL1.C" />
+    <ClCompile Include="..\GLOBAL2.C" />
+    <ClCompile Include="..\G__CFUNC.C" />
+    <ClCompile Include="..\IFUNC.C" />
+    <ClCompile Include="..\INHERIT.C" />
+    <ClCompile Include="..\INIT.C" />
+    <ClCompile Include="..\INPUT.C" />
+    <ClCompile Include="..\INTRPT.C" />
+    <ClCompile Include="..\LOADFILE.C" />
+    <ClCompile Include="..\MACRO.C" />
+    <ClCompile Include="..\MALLOC.C" />
+    <ClCompile Include="..\MEMTEST.C" />
+    <ClCompile Include="..\METHOD.CXX" />
+    <ClCompile Include="..\METHODAR.CXX" />
+    <ClCompile Include="..\NEW.C" />
+    <ClCompile Include="..\NEWLINK.C" />
+    <ClCompile Include="..\OLDLINK.C" />
+    <ClCompile Include="..\OPR.C" />
+    <ClCompile Include="..\PARSE.C" />
+    <ClCompile Include="..\PAUSE.C" />
+    <ClCompile Include="..\PCODE.C" />
+    <ClCompile Include="..\PRAGMA.C" />
+    <ClCompile Include="..\QUOTE.C" />
+    <ClCompile Include="..\SCRUPTO.C" />
+    <ClCompile Include="..\SHL.C" />
+    <ClCompile Include="..\SIZEOF.C" />
+    <ClCompile Include="..\STDSTRCT.C" />
+    <ClCompile Include="..\STRUCT.C" />
+    <ClCompile Include="..\STUB.C" />
+    <ClCompile Include="..\TMPLT.C" />
+    <ClCompile Include="..\Token.cxx" />
+    <ClCompile Include="..\TYPE.CXX" />
+    <ClCompile Include="..\TYPEDEF.C" />
+    <ClCompile Include="..\TYPEDF.CXX" />
+    <ClCompile Include="..\VAL2A.C" />
+    <ClCompile Include="..\VALUE.C" />
+    <ClCompile Include="..\VAR.C" />
+    <ClCompile Include="..\vc7strm.cxx" />
+    <ClCompile Include="..\WINNT.C" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libcint.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Api.h" />
+    <ClInclude Include="..\Apiif.h" />
+    <ClInclude Include="..\BaseCls.h" />
+    <ClInclude Include="..\bc_assign.h" />
+    <ClInclude Include="..\bc_autoobj.h" />
+    <ClInclude Include="..\bc_cfunc.h" />
+    <ClInclude Include="..\bc_debug.h" />
+    <ClInclude Include="..\bc_eh.h" />
+    <ClInclude Include="..\bc_exec.h" />
+    <ClInclude Include="..\bc_exec_asm.h" />
+    <ClInclude Include="..\bc_inst.h" />
+    <ClInclude Include="..\bc_linkdef.h" />
+    <ClInclude Include="..\bc_parse.h" />
+    <ClInclude Include="..\bc_reader.h" />
+    <ClInclude Include="..\bc_type.h" />
+    <ClInclude Include="..\bc_vtbl.h" />
+    <ClInclude Include="..\CallFunc.h" />
+    <ClInclude Include="..\Class.h" />
+    <ClInclude Include="..\DataMbr.h" />
+    <ClInclude Include="..\memtest.h" />
+    <ClInclude Include="..\Method.h" />
+    <ClInclude Include="..\MethodAr.h" />
+    <ClInclude Include="..\stdstrct.h" />
+    <ClInclude Include="..\Token.h" />
+    <ClInclude Include="..\Type.h" />
+    <ClInclude Include="..\Typedf.h" />
+    <ClInclude Include="..\vcstrm.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

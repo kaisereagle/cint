@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3d863be2-d428-4d45-a616-88aa69a269d8}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat;for;f90</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2d4e2c8e-0ce5-4a93-b040-903a9c549689}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;fi;fd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{a47dd531-85cc-4ac7-bbab-69036473917f}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\API.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\APIIF.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AUXU.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BASECLS.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_ASSIGN.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_AUTOOBJ.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_CFUNC.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_DEBUG.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_EH.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_EXEC.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_INST.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_PARSE.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_READER.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_TYPE.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BC_VTBL.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CALLFUNC.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CAST.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CLASS.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DATAMBR.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DEBUG.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DECL.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DISP.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DUMP.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\END.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ERROR.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EXPR.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FREAD.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FUNC.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\G__CFUNC.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MAIN\G__SETUP.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GCOLL.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GLOBAL1.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GLOBAL2.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IFUNC.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INHERIT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INIT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INPUT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INTRPT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\LOADFILE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MACRO.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MALLOC.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MEMTEST.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\METHOD.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\METHODAR.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NEW.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NEWLINK.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OLDLINK.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OPR.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PARSE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PAUSE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PCODE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PRAGMA.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QUOTE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SCRUPTO.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SHL.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SIZEOF.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\STDSTRCT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\STRUCT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\STUB.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TMPLT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Token.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TYPE.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TYPEDEF.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TYPEDF.CXX">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\VAL2A.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\VALUE.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\VAR.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WINNT.C">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libcint.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Apiif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\BaseCls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_assign.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_autoobj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_cfunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_eh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_exec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_exec_asm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_inst.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_linkdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_parse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bc_vtbl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CallFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Class.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DataMbr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\memtest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Method.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MethodAr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\stdstrct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Token.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Typedf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\unistd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vcstrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

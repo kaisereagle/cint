@@ -881,7 +881,8 @@ struct G__p2p {
 typedef struct {
   union {
     double d;
-    long    i; /* used to be int */
+	//todo 64bit
+    G__int64    i; /* used to be int */
     struct G__p2p reftype;
     char ch;
     short sh;
@@ -899,7 +900,7 @@ typedef struct {
   int tagnum;
   int typenum;
 #ifdef G__REFERENCETYPE2
-  long ref;
+  G__int64 ref;
 #endif
 #ifndef G__OLDIMPLEMENTATION1259
   G__SIGNEDCHAR_T isconst;

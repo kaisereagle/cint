@@ -62,7 +62,8 @@ long value; /* used to be int */
 void G__letint(buf,type,value)
 G__value *buf;
 int type;
-long value; /* used to be int */
+//todo 64bit
+G__int64 value; /* used to be int */
 {
 	buf->type=type;
 	buf->obj.i=value;
@@ -522,7 +523,7 @@ G__value p;
     if(G__asm_noverflow) G__asm_inst[G__asm_cp-1]=(long)G__asm_tovalue_H;
     break;
   case 'I':
-    result.obj.i = (long)(*(int *)(p.obj.i));
+	  result.obj.i = (long)(*(int *)(p.obj.i));
     if(G__asm_noverflow) G__asm_inst[G__asm_cp-1]=(long)G__asm_tovalue_I;
     break;
   case 'K':

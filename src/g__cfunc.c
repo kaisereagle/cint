@@ -136,7 +136,7 @@ G__COMPLETIONLIST G__completionlist[] = {
 #if defined(ceil) || !defined(G__FUNCPOINTER)
 	{"ceil",NULL},
 #else
-	{"ceil",(void (*)())ceil},
+	{"ceil",NULL},//{"ceil",(void (*)())ceil}, 64bit èCê≥ 
 #endif
 #if defined(clearerr) || !defined(G__FUNCPOINTER)
 	{"clearerr",NULL},
@@ -228,7 +228,7 @@ G__COMPLETIONLIST G__completionlist[] = {
 #if defined(floor) || !defined(G__FUNCPOINTER)
 	{"floor",NULL},
 #else
-	{"floor",(void (*)())floor},
+	{"floor",NULL},//{"floor",(void (*)())floor},64bitèCê≥
 #endif
 #if defined(fmod) || !defined(G__FUNCPOINTER)
 	{"fmod",NULL},

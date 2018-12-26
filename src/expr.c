@@ -1741,7 +1741,8 @@ char *item;
       /* G__letdouble(&result3,c,G__atodouble(item)); */
     }
     else {
-      unsigned long xxx;
+		//todo
+      unsigned long long xxx;
        if('u'==c) { /* long long */
           c='n';
           G__letLonglong(&result3,c,G__expr_strtoll(item,NULL,10));
@@ -1749,7 +1750,7 @@ char *item;
           c='m';
           G__letULonglong(&result3,c,G__expr_strtoull(item,NULL,10));
        } else {
- 	 xxx=strtoul(item,NULL,10);
+		   xxx = strtoull(item, NULL, 10);
  	 if(xxx>LONG_MAX && ('i'==c||'l'==c) ) --c;
  	 if(xxx==ULONG_MAX) {
  	   char ulongmax[100];
