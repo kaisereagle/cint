@@ -1,0 +1,8 @@
+
+..\..\makecint.exe : makecint.c
+	bcc32 $(BCCINC) $(BCCLIB) -O2 -emakecint.exe makecint.c
+	move makecint.exe ..\..\makecint.exe
+
+
+clean : 
+	del ..\..\makecint.exe

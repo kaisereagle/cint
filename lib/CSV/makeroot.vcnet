@@ -1,0 +1,130 @@
+##############################################################################
+# Application dependent parameters
+##############################################################################
+
+APPNAME	= Excel
+
+INC     = $(ROOTSYS)\cint\include
+DICT	= $(APPNAME)Dict
+LINKDEF	= LinkDef
+LIBNAME	= lib$(APPNAME)
+HEADER   = Excel.h FileStrCollection.h $(INC)\ReadF.h $(INC)\EasyExp.h Stat.h Value.h Clustering.h
+
+################
+OBJECT	= $(APPNAME).obj FileStrCollection.obj ReadF.obj EasyExp.obj StatEasyExp.obj Stat.obj Value.obj winposix.obj Clustering.obj $(DICT).obj
+
+##############################################################################
+# Common parameters
+##############################################################################
+
+MFCPATH		= "C:\Program Files (x86)\Microsoft Visual Studio\VC98\Lib"
+
+CPP		= cl
+CPPOPT		= -DWIN32  -D_WIN32 -D_MT -D_DLL -D__ROOT__ -MD -EHsc -nologo -GR \
+		-DWIN32  -DVISUAL_CPLUSPLUS -D_WINDOWS -I$(ROOTSYS)/include -G5 
+CPPDEBUG	= -O2 -MD 
+#CPPDEBUG	= -Z7 -MDd
+
+BINDLIB		= BINDEXPLIB
+LIB		= lib /LIBPATH:$(MFCPATH) -nologo -MACHINE:IX86
+
+LD		= link 
+LDOPT1		= /NODEFAULTLIB /INCREMENTAL:NO /PDB:NONE /RELEASE /NOLOGO \
+			-entry:_DllMainCRTStartup@12 -dll 
+LDDEBUG		= -opt:ref
+#LDDEBUG	= -debug
+LDOPT2		= /NODEFAULTLIB /INCREMENTAL:NO /PDB:NONE /RELEASE \
+		/NOLOGO -subsystem:console,4.0 -nologo /LIBPATH:$(MFCPATH)
+
+#SYSLIB		= kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib \
+#		advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib  \
+#		libc.lib msvcrt.lib #mcvcprt.lib
+
+#SYSLIB		= kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib \
+#		advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib \
+#		libc.lib msvcrt.lib msvcprt.lib /nologo /dll
+
+SYSLIB		= kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib \
+		advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib \
+		msvcrt.lib msvcprt.lib /nologo /dll
+
+ROOTLIB 	= $(ROOTSYS)/lib/libCore.lib  $(ROOTSYS)/lib/libCint.lib \
+		$(ROOTSYS)/lib/libHist.lib  $(ROOTSYS)/lib/libGraf.lib \
+		$(ROOTSYS)/lib/libGraf3d.lib  $(ROOTSYS)/lib/libGpad.lib \
+		$(ROOTSYS)/lib/libTree.lib  $(ROOTSYS)/lib/libRint.lib \
+		$(ROOTSYS)/lib/libPostscript.lib  $(ROOTSYS)/lib/libMatrix.lib \
+		$(ROOTSYS)/lib/libPhysics.lib -out:libSimCUtil.dll
+
+ROOTCINT	= rootcint
+
+RM		= del
+
+##############################################################################
+# make rules
+##############################################################################
+
+
+$(LIBNAME).dll : $(OBJECT) 
+	$(BINDLIB) $(LIBNAME) $(OBJECT) > $(LIBNAME).def
+	$(LIB) $(OBJECT) -def:$(LIBNAME).def -out:$(LIBNAME).lib
+	$(LD) $(LDOPT1) $(LDDEBUG) $(LDOPT2) $(OBJECT) $(LIBNAME).exp $(SYSLIB) $(ROOTLIB) -out:$(LIBNAME).dll
+
+
+#$(LIBNAME).lib : $(OBJECT) $(LIBNAME).def
+#	$(LIB) $(OBJECT) -def:$(LIBNAME).def -out:$(LIBNAME).lib
+
+
+#$(LIBNAME).def : 
+#	$(BINDLIB) $(LIBNAME) $(OBJECT) > $(LIBNAME).def
+
+
+$(APPNAME).obj : $(APPNAME).cxx $(APPNAME).h $(INC)\EasyExp.cxx $(INC)\EasyExp.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -c $(APPNAME).cxx
+
+StrCollection.obj : StrCollection.cxx StrCollection.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -o StrCollection.obj -c StrCollection.cxx
+
+FileStrCollection.obj : FileStrCollection.cxx FileStrCollection.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -o FileStrCollection.obj -c FileStrCollection.cxx
+
+ReadF.obj : $(INC)\ReadF.cxx $(INC)\ReadF.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -o ReadF.obj -c $(INC)\ReadF.cxx
+
+EasyExp.obj : EasyExp.cxx EasyExp.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -o EasyExp.obj -c EasyExp.cxx
+
+StatEasyExp.obj : StatEasyExp.cxx StatEasyExp.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -o StatEasyExp.obj -c StatEasyExp.cxx
+
+Stat.obj : Stat.cxx Stat.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -c Stat.cxx
+
+Value.obj : Value.cxx Value.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -c Value.cxx
+
+Clustering.obj : Clustering.cxx Clustering.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -c Clustering.cxx
+
+winposix.obj : winposix.c winposix.h 
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -c winposix.c
+
+$(DICT).obj : $(DICT).cxx $(DICT).h
+	$(CPP) $(CPPOPT) $(CPPDEBUG) -c $(DICT).cxx
+
+
+$(DICT).cxx : $(APPNAME).h $(HEADER) $(LINKDEF).h EasyExp.h
+	$(ROOTCINT) -f $@ -c $(APPNAME).h FileStrCollection.h StrCollection.h Clustering.h StatEasyExp.h $(LINKDEF).h
+
+clean :
+	$(RM) $(LIBNAME).obj
+	$(RM) $(OBJECT).*
+	$(RM) $(DICT).*
+
+
+####################################
+#   	rootcint -f $@ -c SimCUtil.h SimCUtilLinkDef.h
+#	cl -DWIN32  -D_WIN32 -D_MT -D_DLL -MD -EHsc -nologo -GR -DWIN32  -DVISUAL_CPLUSPLUS -D_WINDOWS -IC:\ROOT/include -G5 -O2 -MD -c SimCUtil.cxx
+#	cl -DWIN32  -D_WIN32 -D_MT -D_DLL -MD -EHsc -nologo -GR -DWIN32  -DVISUAL_CPLUSPLUS -D_WINDOWS -IC:\ROOT/include -G5 -O2 -MD -c SimCUtilDict.cxx
+#	BINDEXPLIB  libSimCUtil SimCUtil.obj SimCUtilDict.obj > libSimCUtil.def
+#	lib -nologo -MACHINE:IX86 SimCUtil.obj SimCUtilDict.obj -def:libSimCUtil.def -out:libSimCUtil.lib
+#	link /NODEFAULTLIB /INCREMENTAL:NO /PDB:NONE /RELEASE /NOLOGO -entry:_DllMainCRTStartup@12 -dll -opt:ref /NODEFAULTLIB /INCREMENTAL:NO /PDB:NONE /RELEASE /NOLOGO -subsystem:console,4.0 -nologo SimCUtil.obj SimCUtilDict.obj libSimCUtil.exp kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib  libc.lib msvcrt.lib /nologo /dll C:\ROOT/lib/libCore.lib  C:\ROOT/lib/libCint.lib C:\ROOT/lib/libHist.lib  C:\ROOT/lib/libGraf.lib C:\ROOT/lib/libGraf3d.lib  C:\ROOT/lib/libGpad.lib C:\ROOT/lib/libTree.lib  C:\ROOT/lib/libRint.lib C:\ROOT/lib/libPostscript.lib  C:\ROOT/lib/libMatrix.lib C:\ROOT/lib/libPhysics.lib -out:libSimCUtil.dll

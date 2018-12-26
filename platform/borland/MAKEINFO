@@ -1,0 +1,47 @@
+############################################################
+# platform/borland/MAKEINFO -> MAKEINFO
+#  Platform dependent informaiton for Borland C++Builder3.0
+# Note: 
+#  There is a problem with '-Sr -Sc' keep comment option for BC++
+#  preprocessor when dealing with windows.h. So this is not added
+#  as CPREP option
+############################################################
+
+# Tools
+RM	    = del
+CP	    = copy
+KRCC        = bcc32
+CC          = bcc32
+CPP         = bcc32 -P
+LD          = bcc32
+CPREP       = cpp32
+CPPPREP     = cpp32 -Sr -Sc
+
+# Compiler and linker option
+SYSMACRO    = -DG__ANSI -DG__BORLAND
+OTHMACRO    = -DG__P2FCAST -DG__REDIRECTIO -DG__DETECT_NEWDEL -DG__POSIX
+SYSIPATH    =
+
+# libraries
+CINTLIB     = $(CINTSYSDIR)\libcint.lib
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .cpp
+CPPHDRPOST  = .h
+OBJPOST     = .obj
+DLLPOST     = .dll
+
+
+
+
+
+##########################################################
+# Control default behavior of cint command line input
+##########################################################
+#INPUTMODE = C++
+#INPUTMODE = root
+INPUTMODE = cint
+#INPUTMODELOCK = on
+INPUTMODELOCK = off

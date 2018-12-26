@@ -1,0 +1,5 @@
+makecint -mk makefile -dl iostream.dll -H iostrm.h fstrm.h strstrm.h LinkDef.h
+make -f makefile
+mv iostream.dll ../../include/iostream.dll
+make -f makefile clean
+rm \#*

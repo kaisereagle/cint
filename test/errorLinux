@@ -1,0 +1,87 @@
+
+[?1034hFILE:t2002.cxx LINE:28 cint> debug
+G__asm_dbg=1
+FILE:t2002.cxx LINE:28 cint> c
+Loop compile start FILE:t2002.cxx LINE:30
+  0: LD_VAR  i index=0 paran=0
+  5: LD 3 from ff
+  7: OP2  '<' 60
+  9: CNDJMP assigned later
+  b: CL  FILE:t2002.cxx LINE:30
+  d: LD_VAR  b2 index=1 paran=0
+ 12: PUSHSTROS
+ 13: SETSTROS
+ 14: ADDSTROS 24
+ 16: LD_FUNC C++ compiled ~A paran=0
+ 1b: ADDSTROS -24
+ 1d: ADDSTROS 0
+ 1f: LD_FUNC C++ compiled ~vector<void*,allocator<void*> > paran=0
+ 24: ADDSTROS 0
+ 26: LD_FUNC C++ compiled vector<void*,allocator<void*> > paran=0
+Note: Bytecode compiler suspended(off) and resumed(on) FILE:t2002.cxx LINE:31
+ 2b: LD_FUNC C++ compiled A paran=0
+Note: Bytecode compiler suspended(off) and resumed(on) FILE:t2002.cxx LINE:31
+new p=0x1954158 gvp=0x1954158 PVOID=0xffffffff
+ 30: POPSTROS
+ 31: CL  FILE:t2002.cxx LINE:31
+ 33: CL  FILE:t2002.cxx LINE:32
+ 35: PUSHSTROS
+ 36: LD_VAR  b2 index=1 paran=0
+ 3b: SETSTROS
+ 3c: LD_IFUNC disp paran=0
+ 44: POPSTROS
+ 45: LD_VAR  i index=0 paran=0
+ 4a: OP1  13
+ 4c: JMP 0
+ 45: INCJMP  i++ optimized
+Optimize 3 start
+  0: LD_VAR index=0 paran=0 point p i
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+  5: LD 3 from ff 
+  7: OP2 '<'60 
+  9: CNDJMP to 4e
+  b: CL t2002.cxx:30
+  d: LD_VAR index=1 paran=0 point p b2
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 12: PUSHSTROS
+ 13: SETSTROS
+ 14: ADDSTROS 24
+ 16: LD_FUNC compiled paran=0
+ 1b: ADDSTROS -24
+ 1d: ADDSTROS 0
+ 1f: LD_FUNC compiled paran=0
+ 24: ADDSTROS 0
+ 26: LD_FUNC compiled paran=0
+ 2b: LD_FUNC compiled paran=0
+ 30: POPSTROS
+ 31: CL t2002.cxx:31
+ 33: CL t2002.cxx:32
+ 35: PUSHSTROS
+ 36: LD_VAR index=1 paran=0 point p b2
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 3b: SETSTROS
+ 3c: LD_IFUNC disp paran=0
+ 44: POPSTROS
+ 45: INCJMP *(int*)0x1949790+1 to 0
+ 49: NOP
+ 4a: NOP
+ 4b: NOP
+ 4c: JMP 0
+ 4e: RETURN
+Bytecode loop compilation successful FILE:t2002.cxx LINE:30
+LOOP COMPILE EXECUTION START
+  0,0: LDST_VAR_P index=0 ldst=0 i -> 1 105 -1
+  5,1: LD 3,3 from ff c25ba370,c25bd340
+  7,2: OP2_OPTIMIZED i:1:4.94066e-324 i:3:1.4822e-323 -> i:1
+  9,1: CNDJMP 1 to 4e
+  b,0: CL t2002.cxx:30
+autostack=0 scope=0 
+  d,0: LDST_VAR_P index=1 ldst=0 b2 -> 26558784 117 103
+ 12,1: PUSHSTROS 0x0 strosp=0
+ 13,1: SETSTROS 0x1954140
+ 14,0: ADDSTROS 24
+ 16,0: LD_FUNC compiled paran=0
+G__operator_delete p=0x1954158 gvp=0xffffffffffffffff PVOID=0xffffffff
+B
+this=0x1954140 &vv=0x1954140 0 &aobj=0x1954158
+this=0x1954158  &a=0x1954158 1  &b=0x1954160 1.2

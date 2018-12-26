@@ -1,0 +1,97 @@
+
+EasyExp library public interface
+
+
+class EasyExp {
+ public:
+  // data member
+  vector<string> argv;
+  // constant
+  enum Mode { Auto, RegEx , Exact };
+
+  // constructors/destructor
+  EasyExp() {} 
+  EasyExp(const EasyExp& a) ;
+  EasyExp(const char* pattern,Mode mode=Auto);
+  EasyExp(const char* pattern,const char* replace,Mode mode=Auto);
+  ~EasyExp();
+
+  void clear(int del=1);
+  void clear_replace();
+
+  void compile(const char* pattern,Mode mode=Auto);
+  bool match(const char *s,bool icase=false)  ;
+  vector<string>  match(const vector<string>& in,bool icase=false)  ;
+  vector<string> _match(const vector<string>& in,bool icase=false)  ;
+
+  void compile_replace(const char* pattern,const char* r,Mode mode=Auto) ;
+  bool replace(const char *in,string& out,bool icase=false)  ;
+
+  virtual int complexity() const ;
+
+  void disp(FILE* fp=stdout) const;
+  static void help() ;
+
+
+
+ ///////////////////////////////////////
+  // pattern modificaitons
+  bool pattern_inversion(const char *s,string& out,bool icase=false)  ;
+  void pattern_generalization() ;
+  int pattern_optimization() ;
+  unsigned int pattern_splitting_size() const ;
+  vector<EasyExp> pattern_splitting(int index=-1) const ;
+
+  // expression back-annotatation
+  string backannotation() const;
+};
+
+
+class Scandir {
+ public:
+  Scandir() ;
+  Scandir(const string& expr,int isdir=0,int icase=0) ;
+  Scandir(const char *expr,int isdir=0,int icase=0) ;
+  int scan(const string& expr,int isdir=0,int icase=0) ;
+  int scan(char* expr,int isdir=0,int icase=0) ;
+  void clear() ;
+  void init() ;
+  void rewind() ;
+  string next() ;
+  const char* Next() ;
+
+  size_t size() ;
+  void disp(FILE *fp=stdout) const ;
+  void setvervose(int in) ;
+
+  int scandisp(const string& expr,int isdir=0,int icase=0,FILE *fp=stdout) ;
+  int scandisp(const char* expr,int isdir=0,int icase=0,FILE *fp=stdout) ;
+
+  void getfullpath(vector<string>& v) ;
+  void get(vector<string>& v) ;
+  void getfname(vector<string>& v) ; 
+  void getpath(vector<string>& v) ; 
+  map<string,int>& get() ;
+};
+
+
+string EasyExpSynthesis(const vector<string>& matchs
+       			,const vector<string>& unmatchs
+			,int mode=0,int LIST_LIMIT=100) ;
+
+
+unsigned int EasyExp_num_threads=4;
+unsigned int EasyExp_num_threads_limit=64;
+unsigned int EasyExp_thread_timeout = 1000000;
+
+
+## Things to do
+
+1. const char* or const string&
+
+2. replace interface
+   vector<string> replace(const vector<string>& in,bool icase=false)
+
+3. Scandir method naming
+    getfullpath(), getfname(), getpath() ???
+

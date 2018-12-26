@@ -1,0 +1,79 @@
+
+##############################################################################
+# Application dependent parameters
+##############################################################################
+ROOTSYS = /opt/root
+
+APPNAME	= KmeansEM
+
+DICT	= $(APPNAME)Dict
+LINKDEF	= LinkDef
+LIBNAME	= $(APPNAME)
+HEADER   = Vector.h KmeansEM.h MatrixCalc.h
+MACRO   = -D__ROOT__ -D_LINUX_ 
+EIGENDIR = /mnt/hgfs/C/Tools/Eigen
+CP	= cp
+
+################
+OBJECT	= $(DICT).o
+
+##############################################################################
+# Common parameters
+##############################################################################
+
+CC		= gcc 
+CPP		= g++ 
+CPPOPT		= -Wall -fPIC -pthread -I$(ROOTSYS)/include -I$(EIGENDIR)
+CPPDEBUG	= -O
+
+#LIB		= -L$(ROOTSYS)/lib -lCore -lCint -lHist -lGraf -lGraf3d -lGpad 
+#+ 		  -lTree -lRint -lPostscript -lMatrix -lPhysics -pthread
+
+LD		= g++
+LDOPT1		= -shared -I$(EIGENDIR)
+LDDEBUG		= -O 
+LDOPT2		= 
+
+ROOTCINT	= rootcint
+
+RM		= rm
+
+##############################################################################
+# make rules
+##############################################################################
+
+$(ROOTSYS)/cint/cint/include/$(APPNAME).dll : $(LIBNAME).dll 
+	$(CP) $(LIBNAME).dll $(ROOTSYS)/cint/cint/include/$(APPNAME).dll
+
+$(LIBNAME).dll : $(OBJECT) 
+	$(LD) $(LDOPT1) $(LDDEBUG) $(LDOPT2) $(OBJECT) -o $@
+
+#$(LIBNAME).lib : $(OBJECT) $(LIBNAME).def
+#	$(LIB) $(OBJECT) -def:$(LIBNAME).def -out:$(LIBNAME).lib
+
+
+#$(LIBNAME).def : 
+#	$(BINDLIB) $(LIBNAME) $(OBJECT) > $(LIBNAME).def
+
+#Vector.h : /mnt/hgfs/C/cint_linux/lib/NVector/Vector.h
+#	$(CP) /mnt/hgfs/C/cint_linux/lib/NVector/Vector.h Vector.h
+Vector.h : /mnt/hgfs/C/cint/lib/NVector/Vector.h
+	$(CP) /mnt/hgfs/C/cint/lib/NVector/Vector.h Vector.h
+
+$(DICT).o : $(DICT).cxx $(DICT).h $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c $(DICT).cxx
+
+$(DICT).cxx : $(HEADER) $(LINKDEF).h 
+	$(ROOTCINT) -f $@ -c $(MACRO) $(HEADER) $(LINKDEF).h
+
+clean :
+	@$(RM) $(OBJECT)
+	@$(RM) $(DICT).*
+#	@$(RM) $(LIBNAME).o
+
+
+####################################
+#rootcint -f SimCDict.cxx -c SimCUtil.h SimCUtilLinkDef.h
+#g++ -O -Wall -fPIC -pthread -I/users/dc/gotom/root/include -c Event.cxx
+#g++ -O -Wall -fPIC -pthread -I/users/dc/gotom/root/include -c EventDict.cxx
+#g++ -shared -O Event.o EventDict.o -o libEvent.so

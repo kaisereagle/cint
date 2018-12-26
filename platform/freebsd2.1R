@@ -1,0 +1,43 @@
+############################################################
+# platform/freebsd2.1R
+#  Platform dependent information for FreeBSD 2.1R
+#  Maybe good for later version too
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = cq
+KRCC        = gcc -traditional
+CC          = gcc
+CPP         = g++
+LD          = g++
+CPREP       = gcc -E -C
+CPPPREP     = g++ -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -fPIC
+LDDLLOPT    = -nostartfiles -nostdlib -Wl,-Bshareable
+OPTIMIZE    = -O
+LDOPT       = -ltermcap -lm
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL -DG__DLL_SYM_UNDERSCORE
+OTHMACRO    = -DRTLD_LAZY=1
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl

@@ -1,0 +1,246 @@
+cpp0.cxx 
+cpp1.cxx 
+cpp2.cxx 
+cpp3.cxx 
+cpp4.cxx 
+cpp5.cxx 
+cpp6.cxx 
+cpp8.cxx 
+refassign.cxx 
+ostream.cxx 
+setw0.cxx 
+inherit0.cxx 
+inherit1.cxx 
+inherit2.cxx 
+virtualfunc0.cxx 
+virtualfunc1.cxx 
+virtualfunc2.cxx 
+oprovld0.cxx 
+oprovld2.cxx 
+constary.cxx 
+const.cxx 
+scope0.cxx 
+idxscope0.cxx 
+access0.cxx 
+staticmem0.cxx 
+staticmem1.cxx 
+  4c  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235809 Sigma = 0.485602
+  4i  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235772 Sigma = 0.485564
+  6c  X : N = 26 Sum = 518.6 Mean = 19.9462 Var = 11.8601 Sigma = 3.44385
+  6i  X : N = 26 Sum = 518.6 Mean = 19.9462 Var = 11.8601 Sigma = 3.44384
+  8c  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235809 Sigma = 0.485602
+  8i  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235772 Sigma = 0.485564
+ 10c  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816496
+ 10i  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816497
+ 12c  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816496
+ 12i  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816497
+staticary.cxx 
+minexam.cxx 
+btmplt.cxx 
+loopcompile1.cxx 
+loopcompile2.cxx 
+loopcompile3.cxx 
+loopcompile4.cxx 
+loopcompile5.cxx 
+mfstatic.cxx 
+new0.cxx 
+template0.cxx 
+template1.cxx 
+template2.cxx 
+template4.cxx 
+template5.cxx 
+template6.cxx 
+template3.cxx 
+minherit0.cxx 
+enumscope.cxx 
+baseconv0.cxx 
+friend0.cxx 
+anonunion.cxx 
+init1.cxx 
+init2.cxx 
+include.cxx 
+eh1.cxx 
+ifs.cxx 
+bitfield.cxx 
+cout1.cxx 
+explicitdtor.cxx 
+nick3.cxx 
+nick4.cxx 
+nick4.cxx -DDEST
+telea0.cxx 
+ 12c copy ctor
+ 13c copy ctor
+ 14c copy ctor
+ 15c copy ctor
+ 16c copy ctor
+ 27c operator =
+ 28c operator =
+ 29c operator =
+ 30c operator =
+ 31c operator =
+ 32c operator =
+ 33c operator =
+ 34c operator =
+ 35c operator =
+ 36c operator =
+telea1.cxx 
+telea2.cxx 
+  2i b1=6.28 b2=4.76444e-306
+  3c b1=2 b2=6.28
+  4c ~B()
+  6i c1=16.28 c2=nan
+  8c c1=3 c2=16.28
+  9c ~C()
+ 10i d1=26.28 d2=4.57355e+233
+ 13c d1=4 d2=26.28
+ 14c ~D()
+ 15c ~C()
+ 16c ~B()
+ 14i b1=6.28 b2=2.90522e-310
+ 20c b1=2 b2=6.28
+ 21c ~B()
+ 18i b1=6.28 b2=2.90522e-310
+ 25c b1=2 b2=6.28
+ 26c ~B()
+ 22i b1=6.28 b2=2.90522e-310
+ 30c b1=2 b2=6.28
+ 31c ~B()
+ 26i b1=6.28 b2=2.90522e-310
+ 35c b1=2 b2=6.28
+ 36c ~B()
+ 30i b1=6.28 b2=2.90522e-310
+ 40c b1=2 b2=6.28
+ 41c ~B()
+ 34i c1=16.28 c2=2.90522e-310
+ 45c c1=3 c2=16.28
+ 46c ~C()
+ 38i c1=16.28 c2=2.90522e-310
+ 50c c1=3 c2=16.28
+ 51c ~C()
+ 42i c1=16.28 c2=0
+ 55c c1=3 c2=16.28
+ 56c ~C()
+ 46i c1=16.28 c2=2.90522e-310
+ 60c c1=3 c2=16.28
+ 61c ~C()
+ 50i c1=16.28 c2=2.90522e-310
+ 65c c1=3 c2=16.28
+ 66c ~C()
+ 54i d1=26.28 d2=2.90522e-310
+ 56i ~A()
+ 57i a1=1 a2=3.14
+ 58i d1=26.28 d2=2.90522e-310
+ 71c ~D()
+ 72c ~C()
+ 73c ~B()
+ 62i d1=26.28 d2=0
+ 64i ~A()
+ 65i a1=1 a2=3.14
+ 66i d1=26.28 d2=0
+ 78c ~D()
+ 79c ~C()
+ 80c ~B()
+ 70i d1=26.28 d2=0
+ 84c d1=4 d2=26.28
+ 85c ~D()
+ 86c ~C()
+ 87c ~B()
+ 89c a1=1 a2=3.14
+ 90c d1=4 d2=26.28
+ 91c d1=4 d2=26.28
+ 92c ~D()
+ 93c ~C()
+ 94c ~B()
+ 95c ~A()
+ 96c a1=1 a2=3.14
+ 97c d1=4 d2=26.28
+ 98c d1=4 d2=26.28
+ 99c ~D()
+100c ~C()
+101c ~B()
+102c ~A()
+telea3.cxx 
+ 13c a1=1 a2=3.14
+ 14c b1=2.2 b2=6.28
+ 15c a1=2.2 a2=6.28
+ 16c b1=2.2 b2=6.28
+ 17c a1=0 a2=0
+ 18c b1=2.2 b2=6.28
+ 19c a1=2.2 a2=6.28
+ 20c b1=2.2 b2=6.28
+ 21c a1=0 a2=0
+ 22c b1=2.2 b2=6.28
+ 23c a1=2.2 a2=6.28
+ 24c b1=2.2 b2=6.28
+ 25c a1=0 a2=0
+ 26c b1=2.2 b2=6.28
+ 27c a1=2.2 a2=6.28
+ 28c b1=2.2 b2=6.28
+ 29c a1=0 a2=0
+ 30c b1=2.2 b2=6.28
+ 31c a1=2.2 a2=6.28
+ 32c b1=2.2 b2=6.28
+ 33c a1=0 a2=0
+ 34c b1=2.2 b2=6.28
+ 35c a1=2.2 a2=6.28
+ 36c b1=2.2 b2=6.28
+ 37c a1=0 a2=0
+ 38c b1=2.2 b2=6.28
+ 39c a1=2.2 a2=6.28
+ 40c b1=2.2 b2=6.28
+ 41c a1=0 a2=0
+ 42c b1=2.2 b2=6.28
+ 43c a1=2.2 a2=6.28
+ 44c b1=2.2 b2=6.28
+telea5.cxx 
+  1c 1.2
+  1i -1.07432e+09
+  2c 0
+  2i -1.07432e+09
+  3c 1.2
+  3i -1.07432e+09
+  4c 2.4
+  4i -1.07432e+09
+  5c 3.6
+  5i -1.07432e+09
+  6c 4.8
+  6i -1.07432e+09
+telea6.cxx 
+telea7.cxx 
+fwdtmplt.cxx 
+VPersonTest.cxx 
+  1c company country0
+  1i 
+  2c name syozoku1
+  2i cint> 
+  3c company country2
+  3i !!! Process killed by interrupt. signal(2)
+  4c name syozoku3
+  5c company country4
+  6c company country0
+  7c name syozoku1
+  8c company country2
+  9c name syozoku3
+ 10c company country4
+convopr0.cxx 
+  1i abcde123
+  2i <abcde>
+  3i a=123
+  4i p=abcde
+  5i abcde123
+  6i <abcde>
+  7i a=123
+  8i p=abcde
+  9i abcde123
+ 10i <abcde>
+ 11i a=123
+ 12i p=abcde
+ 13i abcde123
+ 14i <abcde>
+ 15i a=123
+ 16i p=abcde
+ 17i abcde123
+ 18i <abcde>
+ 19i a=123
+ 20i p=abcde
+nstmplt1.cxx 

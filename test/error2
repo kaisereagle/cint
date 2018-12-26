@@ -1,0 +1,1646 @@
+ -t : trace execution
+LOADING file=virtualfunc2.cxx:virtualfunc2.cxx:
+LOADING file=stdio.h:/Users/gotom/src/cint/include/stdio.h:
+LOADING file=bool.h:/Users/gotom/src/cint/include/bool.h:
+LOADING file=stdfunc.dll:/Users/gotom/src/cint/include/stdfunc.dll:
+/Users/gotom/src/cint/include/stdfunc.dll:DLLREV=30051515
+  This cint accepts DLLREV=30051501~30051599 and creates 30051515
+!!! Generating copy constructor A(const A&)
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR  a index=0 paran=0
+  8: POPSTROS
+  9: ST_MSTR  a index=0 paran=0
+  e: POP
+  f: PUSHCPY
+ 10: PUSHSTROS
+ 11: SETSTROS
+ 12: LD_MSTR  G__virtualinfo index=1 paran=0
+ 17: POPSTROS
+ 18: ST_MSTR  G__virtualinfo index=1 paran=0
+ 1d: POP
+ 1e: LD 5 from ff
+ 20: ST_MSTR  G__virtualinfo index=1 paran=0
+ 25 : RTN_FUNC 0
+ 27: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR index=0 paran=0 point p a
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+  8: POPSTROS
+  9: ST_MSTR index=0 paran=0 point p a
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  e: POP
+  f: PUSHCPY
+ 10: PUSHSTROS
+ 11: SETSTROS
+ 12: LD_MSTR index=1 paran=0 point p G__virtualinfo
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 17: POPSTROS
+ 18: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 1d: POP
+ 1e: LD 5 from ff 
+ 20: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 25: RTN_FUNC 0
+ 27: RETURN
+!!! Generating implicit A::operator=
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR  a index=0 paran=0
+  8: POPSTROS
+  9: ST_MSTR  a index=0 paran=0
+  e: POP
+  f: PUSHCPY
+ 10: PUSHSTROS
+ 11: SETSTROS
+ 12: LD_MSTR  G__virtualinfo index=1 paran=0
+ 17: POPSTROS
+ 18: ST_MSTR  G__virtualinfo index=1 paran=0
+ 1d: POP
+ 1e: LD_THIS v
+ 20 : RTN_FUNC 1
+ 22: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR index=0 paran=0 point p a
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+  8: POPSTROS
+  9: ST_MSTR index=0 paran=0 point p a
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  e: POP
+  f: PUSHCPY
+ 10: PUSHSTROS
+ 11: SETSTROS
+ 12: LD_MSTR index=1 paran=0 point p G__virtualinfo
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 17: POPSTROS
+ 18: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 1d: POP
+ 1e: LD_THIS A
+ 20: RTN_FUNC 1
+ 22: RETURN
+ match0 u tagnum5 0x0 : u tagnum5 1
+!!! Generating copy constructor B(const B&)
+  0: PUSHCPY
+  1: BASECONV 5 0
+  4: LD_FUNC bytecode A paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR  b index=0 paran=0
+ 12: POPSTROS
+ 13: ST_MSTR  b index=0 paran=0
+ 18: POP
+ 19: LD 6 from ff
+ 1b: ST_MSTR  G__virtualinfo index=1 paran=0
+ 20 : RTN_FUNC 0
+ 22: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 5 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR index=0 paran=0 point p b
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 12: POPSTROS
+ 13: ST_MSTR index=0 paran=0 point p b
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 18: POP
+ 19: LD 6 from ff 
+ 1b: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 20: RTN_FUNC 0
+ 22: RETURN
+ match0 u tagnum5 0x0 : u tagnum5 1
+!!! Generating implicit B::operator=
+  0: PUSHCPY
+  1: BASECONV 5 0
+  4: LD_FUNC bytecode operator= paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR  b index=0 paran=0
+ 12: POPSTROS
+ 13: ST_MSTR  b index=0 paran=0
+ 18: POP
+ 19: LD_THIS v
+ 1b : RTN_FUNC 1
+ 1d: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 5 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR index=0 paran=0 point p b
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 12: POPSTROS
+ 13: ST_MSTR index=0 paran=0 point p b
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 18: POP
+ 19: LD_THIS B
+ 1b: RTN_FUNC 1
+ 1d: RETURN
+ match0 u tagnum6 0x0 : u tagnum6 1
+!!! Generating copy constructor C(const C&)
+  0: PUSHCPY
+  1: BASECONV 6 0
+  4: LD_FUNC bytecode B paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR  c index=0 paran=0
+ 12: POPSTROS
+ 13: ST_MSTR  c index=0 paran=0
+ 18: POP
+ 19: LD 7 from ff
+ 1b: ST_MSTR  G__virtualinfo index=1 paran=0
+ 20 : RTN_FUNC 0
+ 22: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 6 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR index=0 paran=0 point p c
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 12: POPSTROS
+ 13: ST_MSTR index=0 paran=0 point p c
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 18: POP
+ 19: LD 7 from ff 
+ 1b: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 20: RTN_FUNC 0
+ 22: RETURN
+ match0 u tagnum6 0x0 : u tagnum6 1
+!!! Generating implicit C::operator=
+  0: PUSHCPY
+  1: BASECONV 6 0
+  4: LD_FUNC bytecode operator= paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR  c index=0 paran=0
+ 12: POPSTROS
+ 13: ST_MSTR  c index=0 paran=0
+ 18: POP
+ 19: LD_THIS v
+ 1b : RTN_FUNC 1
+ 1d: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 6 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: PUSHSTROS
+  c: SETSTROS
+  d: LD_MSTR index=0 paran=0 point p c
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 12: POPSTROS
+ 13: ST_MSTR index=0 paran=0 point p c
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 18: POP
+ 19: LD_THIS C
+ 1b: RTN_FUNC 1
+ 1d: RETURN
+!!! Generating copy constructor D(const D&)
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR  d index=0 paran=0
+  8: POPSTROS
+  9: ST_MSTR  d index=0 paran=0
+  e: POP
+  f : RTN_FUNC 0
+ 11: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR index=0 paran=0 point p d
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+  8: POPSTROS
+  9: ST_MSTR index=0 paran=0 point p d
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  e: POP
+  f: RTN_FUNC 0
+ 11: RETURN
+!!! Generating implicit D::operator=
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR  d index=0 paran=0
+  8: POPSTROS
+  9: ST_MSTR  d index=0 paran=0
+  e: POP
+  f: LD_THIS v
+ 11 : RTN_FUNC 1
+ 13: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: PUSHSTROS
+  2: SETSTROS
+  3: LD_MSTR index=0 paran=0 point p d
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+  8: POPSTROS
+  9: ST_MSTR index=0 paran=0 point p d
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  e: POP
+  f: LD_THIS D
+ 11: RTN_FUNC 1
+ 13: RETURN
+ match0 u tagnum8 0x0 : u tagnum8 1
+ match0 u tagnum7 0x0 : u tagnum7 1
+!!! Generating copy constructor E(const E&)
+  0: PUSHCPY
+  1: BASECONV 8 0
+  4: LD_FUNC bytecode D paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 7 4
+  e: ADDSTROS 4
+ 10: LD_FUNC bytecode C paran=1
+ 15: ADDSTROS -4
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR  e index=0 paran=0
+ 20: POPSTROS
+ 21: ST_MSTR  e index=0 paran=0
+ 26: POP
+ 27: ADDSTROS 4
+ 29: LD 9 from ff
+ 2b: ST_MSTR  G__virtualinfo index=1 paran=0
+ 30: ADDSTROS -4
+ 32 : RTN_FUNC 0
+ 34: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 8 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 7 4
+  e: ADDSTROS 4
+ 10: LD_FUNC  paran=1
+ 15: ADDSTROS -4
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR index=0 paran=0 point p e
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 20: POPSTROS
+ 21: ST_MSTR index=0 paran=0 point p e
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 26: POP
+ 27: ADDSTROS 4
+ 29: LD 9 from ff 
+ 2b: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 30: ADDSTROS -4
+ 32: RTN_FUNC 0
+ 34: RETURN
+ match0 u tagnum8 0x0 : u tagnum8 1
+ match0 u tagnum7 0x0 : u tagnum7 1
+!!! Generating implicit E::operator=
+  0: PUSHCPY
+  1: BASECONV 8 0
+  4: LD_FUNC bytecode operator= paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 7 4
+  e: ADDSTROS 4
+ 10: LD_FUNC bytecode operator= paran=1
+ 15: ADDSTROS -4
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR  e index=0 paran=0
+ 20: POPSTROS
+ 21: ST_MSTR  e index=0 paran=0
+ 26: POP
+ 27: LD_THIS v
+ 29 : RTN_FUNC 1
+ 2b: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 8 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 7 4
+  e: ADDSTROS 4
+ 10: LD_FUNC  paran=1
+ 15: ADDSTROS -4
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR index=0 paran=0 point p e
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 20: POPSTROS
+ 21: ST_MSTR index=0 paran=0 point p e
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 26: POP
+ 27: LD_THIS E
+ 29: RTN_FUNC 1
+ 2b: RETURN
+ match0 u tagnum7 0x0 : u tagnum7 1
+ match0 u tagnum8 0x0 : u tagnum8 1
+!!! Generating copy constructor F(const F&)
+  0: PUSHCPY
+  1: BASECONV 7 0
+  4: LD_FUNC bytecode C paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 8 24
+  e: ADDSTROS 24
+ 10: LD_FUNC bytecode D paran=1
+ 15: ADDSTROS -24
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR  f index=0 paran=0
+ 20: POPSTROS
+ 21: ST_MSTR  f index=0 paran=0
+ 26: POP
+ 27: LD 10 from ff
+ 29: ST_MSTR  G__virtualinfo index=1 paran=0
+ 2e : RTN_FUNC 0
+ 30: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 7 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 8 24
+  e: ADDSTROS 24
+ 10: LD_FUNC  paran=1
+ 15: ADDSTROS -24
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR index=0 paran=0 point p f
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 20: POPSTROS
+ 21: ST_MSTR index=0 paran=0 point p f
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 26: POP
+ 27: LD 10 from ff 
+ 29: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 2e: RTN_FUNC 0
+ 30: RETURN
+ match0 u tagnum7 0x0 : u tagnum7 1
+ match0 u tagnum8 0x0 : u tagnum8 1
+!!! Generating implicit F::operator=
+  0: PUSHCPY
+  1: BASECONV 7 0
+  4: LD_FUNC bytecode operator= paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 8 24
+  e: ADDSTROS 24
+ 10: LD_FUNC bytecode operator= paran=1
+ 15: ADDSTROS -24
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR  f index=0 paran=0
+ 20: POPSTROS
+ 21: ST_MSTR  f index=0 paran=0
+ 26: POP
+ 27: LD_THIS v
+ 29 : RTN_FUNC 1
+ 2b: RETURN
+Optimize 3 start
+  0: PUSHCPY
+  1: BASECONV 7 0
+  4: LD_FUNC  paran=1
+  9: POP
+  a: PUSHCPY
+  b: BASECONV 8 24
+  e: ADDSTROS 24
+ 10: LD_FUNC  paran=1
+ 15: ADDSTROS -24
+ 17: POP
+ 18: PUSHCPY
+ 19: PUSHSTROS
+ 1a: SETSTROS
+ 1b: LD_MSTR index=0 paran=0 point p f
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 20: POPSTROS
+ 21: ST_MSTR index=0 paran=0 point p f
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 26: POP
+ 27: LD_THIS F
+ 29: RTN_FUNC 1
+ 2b: RETURN
+PRE-RUN END
+
+47   main() {  0: ENTERSCOPE
+
+48     A o  1: CL  FILE:virtualfunc2.cxx LINE:48
+obja;  3: PUTAUTOOBJ
+  6: LD 1 from ff
+  8: SETARYINDEX
+  a: LD_LVAR  obja index=0 paran=0
+  f: PUSHSTROS
+ 10: SETSTROS
+ 11: LD_FUNC bytecode A paran=0
+ 16: POPSTROS
+ 17: RESETARYINDEX
+
+49     B o 19: CL  FILE:virtualfunc2.cxx LINE:49
+objb; 1b: PUTAUTOOBJ
+ 1e: LD 1 from fe
+ 20: SETARYINDEX
+ 22: LD_LVAR  objb index=1 paran=0
+ 27: PUSHSTROS
+ 28: SETSTROS
+ 29: LD_FUNC bytecode B paran=0
+ 2e: POPSTROS
+ 2f: RESETARYINDEX
+
+50     C o 31: CL  FILE:virtualfunc2.cxx LINE:50
+objc; 33: PUTAUTOOBJ
+ 36: LD 1 from fd
+ 38: SETARYINDEX
+ 3a: LD_LVAR  objc index=2 paran=0
+ 3f: PUSHSTROS
+ 40: SETSTROS
+ 41: LD_FUNC bytecode C paran=0
+ 46: POPSTROS
+ 47: RESETARYINDEX
+
+51     E o 49: CL  FILE:virtualfunc2.cxx LINE:51
+obje; 4b: PUTAUTOOBJ
+ 4e: LD 1 from fc
+ 50: SETARYINDEX
+ 52: LD_LVAR  obje index=3 paran=0
+ 57: PUSHSTROS
+ 58: SETSTROS
+ 59: LD_FUNC bytecode E paran=0
+ 5e: POPSTROS
+ 5f: RESETARYINDEX
+
+52     F o 61: CL  FILE:virtualfunc2.cxx LINE:52
+objf; 63: PUTAUTOOBJ
+ 66: LD 1 from fb
+ 68: SETARYINDEX
+ 6a: LD_LVAR  objf index=4 paran=0
+ 6f: PUSHSTROS
+ 70: SETSTROS
+ 71: LD_FUNC bytecode F paran=0
+ 76: POPSTROS
+ 77: RESETARYINDEX
+
+53   
+54     A * 79: CL  FILE:virtualfunc2.cxx LINE:54
+p[5] = 7b: LD 0 from fa
+ 7d: LD_LVAR  p index=5 paran=1
+ { &obja , 82: LD_LVAR  obja index=0 paran=0
+ 87: TOPVALUE
+ 88: LETNEWVAL
+ 89: OP1  14
+ &objb , 8b: LD_LVAR  objb index=1 paran=0
+ 90: TOPVALUE
+ 91: CAST to U
+ 96: LETNEWVAL
+ 97: OP1  14
+ &objc , 99: LD_LVAR  objc index=2 paran=0
+ 9e: TOPVALUE
+ 9f: CAST to U
+ a4: LETNEWVAL
+ a5: OP1  14
+ &obje } a7: LD_LVAR  obje index=3 paran=0
+ ac: TOPVALUE
+ ad: CAST to U
+ b2: LETNEWVAL
+ b3: OP1  14
+ b5: LD 0 from f9
+ b7: LETNEWVAL
+ b8: OP1  14
+;
+55     p[ ba: CL  FILE:virtualfunc2.cxx LINE:55
+3] = &obje; bc: LD_LVAR  obje index=3 paran=0
+ c1: TOPVALUE
+ c2: LD 3 from f8
+ c4: REWINDSTACK 1
+ c6: CAST to U
+ cb: REWINDSTACK -1
+ cd: ST_VAR  p[3] index=5 paran=1
+ cd: ST_LVAR  p[3] index=5 paran=1
+
+56     p[ d2: CL  FILE:virtualfunc2.cxx LINE:56
+4] = &objf; d4: LD_LVAR  objf index=4 paran=0
+ d9: TOPVALUE
+ da: LD 4 from f7
+ dc: REWINDSTACK 1
+ de: CAST to U
+ e3: REWINDSTACK -1
+ e5: ST_VAR  p[4] index=5 paran=1
+ e5: ST_LVAR  p[4] index=5 paran=1
+
+57   
+58     for( ea: CL  FILE:virtualfunc2.cxx LINE:58
+int i ec: CL  FILE:virtualfunc2.cxx LINE:58
+i=0; ee: LD 0 from f6
+ f0: ST_LVAR  i index=0 paran=0
+i<5; f5: LD_LVAR  i index=0 paran=0
+ fa: LD 5 from f5
+ fc: OP2  '<' 60
+ fe: CNDJMP assigned later
+i++)100: ENTERSCOPE
+ {101: CL  FILE:virtualfunc2.cxx LINE:58
+
+59       p[103: CL  FILE:virtualfunc2.cxx LINE:59
+i]->f(i);105: PUSHSTROS
+106: LD_LVAR  i index=0 paran=0
+10b: LD_LVAR  p[i] index=5 paran=1
+110: SETSTROS
+111: SETMEMFUNCENV
+112: LD_LVAR  i index=0 paran=0
+117: RECMEMFUNCENV
+118: LD_FUNC virtual f paran=1
+11d: POPSTROS
+
+60     }11e: CL  FILE:virtualfunc2.cxx LINE:60
+120: EXITSCOPE
+121: LD_LVAR  i index=0 paran=0
+126: OP1  13
+128: JMP to 0
+Optimize 3 start
+ f5: LD_LVAR index=0 paran=0 point p i
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ fa: LD 5 from f5 
+ fc: OP2 '<'60 
+ fe: CNDJMP to 12a
+100: ENTERSCOPE
+101: CL virtualfunc2.cxx:58
+103: CL virtualfunc2.cxx:59
+105: PUSHSTROS
+106: LD_LVAR index=0 paran=0 point p i
+LDST_VAR_INDEX (1) optimized
+110: SETSTROS
+111: SETMEMFUNCENV
+112: LD_LVAR index=0 paran=0 point p i
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+117: RECMEMFUNCENV
+118: LD_FUNC compiled paran=1
+11d: POPSTROS
+11e: CL virtualfunc2.cxx:60
+120: EXITSCOPE
+121: LD_LVAR index=0 paran=0 point p i
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+126: OP1 272
+128: JMP f5
+12a: RETURN
+
+61   
+62     return 012a: CL  FILE:virtualfunc2.cxx LINE:62
+0;12c: LD 0 from f4
+12e : RTN_FUNC 1
+
+63   }130: CL  FILE:virtualfunc2.cxx LINE:63
+132: EXITSCOPE
+133 : RTN_FUNC 0
+135: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: CL virtualfunc2.cxx:48
+  3: PUTAUTOOBJ
+  6: LD 1 from ff 
+  8: SETARYINDEX
+  a: LD_LVAR index=0 paran=0 point p obja
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+  f: PUSHSTROS
+ 10: SETSTROS
+ 11: LD_FUNC  paran=0
+ 16: POPSTROS
+ 17: RESETARYINDEX
+ 19: CL virtualfunc2.cxx:49
+ 1b: PUTAUTOOBJ
+ 1e: LD 1 from fe 
+ 20: SETARYINDEX
+ 22: LD_LVAR index=1 paran=0 point p objb
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 27: PUSHSTROS
+ 28: SETSTROS
+ 29: LD_FUNC  paran=0
+ 2e: POPSTROS
+ 2f: RESETARYINDEX
+ 31: CL virtualfunc2.cxx:50
+ 33: PUTAUTOOBJ
+ 36: LD 1 from fd 
+ 38: SETARYINDEX
+ 3a: LD_LVAR index=2 paran=0 point p objc
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 3f: PUSHSTROS
+ 40: SETSTROS
+ 41: LD_FUNC  paran=0
+ 46: POPSTROS
+ 47: RESETARYINDEX
+ 49: CL virtualfunc2.cxx:51
+ 4b: PUTAUTOOBJ
+ 4e: LD 1 from fc 
+ 50: SETARYINDEX
+ 52: LD_LVAR index=3 paran=0 point p obje
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 57: PUSHSTROS
+ 58: SETSTROS
+ 59: LD_FUNC  paran=0
+ 5e: POPSTROS
+ 5f: RESETARYINDEX
+ 61: CL virtualfunc2.cxx:52
+ 63: PUTAUTOOBJ
+ 66: LD 1 from fb 
+ 68: SETARYINDEX
+ 6a: LD_LVAR index=4 paran=0 point p objf
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 6f: PUSHSTROS
+ 70: SETSTROS
+ 71: LD_FUNC  paran=0
+ 76: POPSTROS
+ 77: RESETARYINDEX
+ 79: CL virtualfunc2.cxx:54
+ 7b: LD 0 from fa 
+ 7d: LD_LVAR index=5 paran=1 point P p
+ 82: LD_LVAR index=0 paran=0 point p obja
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 87: TOPVALUE
+ 88: LETNEWVAL
+ 89: OP1 14
+ 8b: LD_LVAR index=1 paran=0 point p objb
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 90: TOPVALUE
+ 91: CAST to U type-1 tag5
+ 96: LETNEWVAL
+ 97: OP1 14
+ 99: LD_LVAR index=2 paran=0 point p objc
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 9e: TOPVALUE
+ 9f: CAST to U type-1 tag5
+ a4: LETNEWVAL
+ a5: OP1 14
+ a7: LD_LVAR index=3 paran=0 point p obje
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ ac: TOPVALUE
+ ad: CAST to U type-1 tag5
+ b2: LETNEWVAL
+ b3: OP1 14
+ b5: LD 0 from f9 
+ b7: LETNEWVAL
+ b8: OP1 14
+ ba: CL virtualfunc2.cxx:55
+ bc: LD_LVAR index=3 paran=0 point p obje
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ c1: TOPVALUE
+ c2: LD 3 from f8 
+ c4: REWINDSTACK 1
+ c6: CAST to U type-1 tag5
+ cb: REWINDSTACK -1
+ cd: ST_LVAR index=5 paran=1 point p p
+  G__ST_VAR optimized 9 G__LDST_LVAR_P
+ d2: CL virtualfunc2.cxx:56
+ d4: LD_LVAR index=4 paran=0 point p objf
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ d9: TOPVALUE
+ da: LD 4 from f7 
+ dc: REWINDSTACK 1
+ de: CAST to U type-1 tag5
+ e3: REWINDSTACK -1
+ e5: ST_LVAR index=5 paran=1 point p p
+  G__ST_VAR optimized 9 G__LDST_LVAR_P
+ ea: CL virtualfunc2.cxx:58
+ ec: CL virtualfunc2.cxx:58
+ ee: LD 0 from f6 
+ f0: ST_LVAR index=0 paran=0 point p i
+  G__ST_VAR optimized 8 G__LDST_LVAR_P
+ f5: LDST_LVAR_P index=0 i
+ fa: LD 5 from f5 
+ fc: OP2_OPTIMIZED 
+ fe: CNDJMP to 12a
+100: ENTERSCOPE
+101: CL virtualfunc2.cxx:58
+103: CL virtualfunc2.cxx:59
+105: PUSHSTROS
+106: LDST_VAR_INDEX index=5 p
+110: SETSTROS
+111: SETMEMFUNCENV
+112: LDST_LVAR_P index=0 i
+117: RECMEMFUNCENV
+118: LD_FUNC compiled paran=1
+11d: POPSTROS
+11e: CL virtualfunc2.cxx:60
+120: EXITSCOPE
+121: LDST_LVAR_P index=0 i
+126: OP1_OPTIMIZED 
+128: JMP f5
+12a: CL virtualfunc2.cxx:62
+12c: LD 0 from f4 
+12e: RTN_FUNC 1
+130: CL virtualfunc2.cxx:63
+132: EXITSCOPE
+133: RTN_FUNC 0
+135: RETURN
+tmpobj=0x0 scope1
+Running bytecode function main inst=2afea0->83ca00 stack=2b3f80->bffa1000
+LOOP COMPILE EXECUTION START
+  0,2: ENTERSCOPE
+  1,2: CL virtualfunc2.cxx:48
+autostack=0 scope=2 
+  3,0: PUTAUTOOBJ
+  6,0: LD 1,1 from ff bffa1000,bffa2fe0
+  8,1: SETARYINDEX
+  a,0: LDST_LVAR_P index=0 ldst=0 obja 17842832 1.48192e-303
+  f,1: PUSHSTROS 0x0 strosp=0
+ 10,1: SETSTROS 0x1104290
+ 11,0: LD_FUNC  paran=0
+
+6    A::A() {  0: ENTERSCOPE
+  1: LD 5 from ff
+  3: ST_MSTR  G__virtualinfo index=1 paran=0
+ a =  8: CL  FILE:virtualfunc2.cxx LINE:6
+ 1;  a: LD 1 from fe
+  c: ST_MSTR  a index=0 paran=0
+ } 11: CL  FILE:virtualfunc2.cxx LINE:6
+ 13: EXITSCOPE
+ 14 : RTN_FUNC 0
+ 16: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: LD 5 from ff 
+  3: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  8: CL virtualfunc2.cxx:6
+  a: LD 1 from fe 
+  c: ST_MSTR index=0 paran=0 point p a
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 11: CL virtualfunc2.cxx:6
+ 13: EXITSCOPE
+ 14: RTN_FUNC 0
+ 16: RETURN
+tmpobj=0x0 scope3
+Running bytecode function A::A inst=83ca00->1104870 stack=bffa1000->bff71980
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD 5,5 from ff bff71980,bff73960
+  3,1: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=1104290
+  8,1: CL virtualfunc2.cxx:6
+autostack=1 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)
+  a,0: LD 1,1 from fe bff71980,bff73940
+  c,1: LDST_MSTR_P index=0 ldst=1 a stos=1104290
+ 11,1: CL virtualfunc2.cxx:6
+autostack=1 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)
+ 13,0: EXITSCOPE
+autostack=1 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)
+ 14,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function A::A restore inst=83ca00 stack=bffa1000
+autostack=1 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)
+ 16,0: POPSTROS 0x0 strosp=1
+ 17,0: RESETARYINDEX
+ 19,0: CL virtualfunc2.cxx:49
+autostack=1 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)
+ 1b,0: PUTAUTOOBJ
+ 1e,0: LD 1,1 from fe bffa1000,bffa2fc0
+ 20,1: SETARYINDEX
+ 22,0: LDST_LVAR_P index=1 ldst=0 objb 17842840 1.48193e-303
+ 27,1: PUSHSTROS 0x0 strosp=0
+ 28,1: SETSTROS 0x1104298
+ 29,0: LD_FUNC  paran=0
+
+15   B::B() {  0: ENTERSCOPE
+  1: LD_FUNC bytecode A paran=0
+  6: LD 6 from ff
+  8: ST_MSTR  G__virtualinfo index=1 paran=0
+ b =  d: CL  FILE:virtualfunc2.cxx LINE:15
+ 2;  f: LD 2 from fe
+ 11: ST_MSTR  b index=0 paran=0
+ } 16: CL  FILE:virtualfunc2.cxx LINE:15
+ 18: EXITSCOPE
+ 19 : RTN_FUNC 0
+ 1b: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: LD_FUNC  paran=0
+  6: LD 6 from ff 
+  8: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  d: CL virtualfunc2.cxx:15
+  f: LD 2 from fe 
+ 11: ST_MSTR index=0 paran=0 point p b
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 16: CL virtualfunc2.cxx:15
+ 18: EXITSCOPE
+ 19: RTN_FUNC 0
+ 1b: RETURN
+tmpobj=0x0 scope3
+Running bytecode function B::B inst=83ca00->1104970 stack=bffa1000->bff71980
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope5
+Running bytecode function A::A inst=1104970->1104870 stack=bff71980->bff42320
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD 5,5 from ff bff42320,bff44300
+  3,1: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=1104298
+  8,1: CL virtualfunc2.cxx:6
+autostack=2 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+  a,0: LD 1,1 from fe bff42320,bff442e0
+  c,1: LDST_MSTR_P index=0 ldst=1 a stos=1104298
+ 11,1: CL virtualfunc2.cxx:6
+autostack=2 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+ 13,0: EXITSCOPE
+autostack=2 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+ 14,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function A::A restore inst=1104970 stack=bff71980
+autostack=2 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+  6,1: LD 6,6 from ff bff71980,bff73960
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=1104298
+  d,2: CL virtualfunc2.cxx:15
+autostack=2 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+  f,0: LD 2,2 from fe bff71980,bff73940
+ 11,1: LDST_MSTR_P index=0 ldst=1 b stos=1104298
+ 16,1: CL virtualfunc2.cxx:15
+autostack=2 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=2 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::B restore inst=83ca00 stack=bffa1000
+autostack=2 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+ 2e,0: POPSTROS 0x0 strosp=1
+ 2f,0: RESETARYINDEX
+ 31,0: CL virtualfunc2.cxx:50
+autostack=2 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)
+ 33,0: PUTAUTOOBJ
+ 36,0: LD 1,1 from fd bffa1000,bffa2fa0
+ 38,1: SETARYINDEX
+ 3a,0: LDST_LVAR_P index=2 ldst=0 objc 17842856 1.48195e-303
+ 3f,1: PUSHSTROS 0x0 strosp=0
+ 40,1: SETSTROS 0x11042a8
+ 41,0: LD_FUNC  paran=0
+
+25   C::C() {  0: ENTERSCOPE
+  1: LD_FUNC bytecode B paran=0
+  6: LD 7 from ff
+  8: ST_MSTR  G__virtualinfo index=1 paran=0
+ c =  d: CL  FILE:virtualfunc2.cxx LINE:25
+ 3;  f: LD 3 from fe
+ 11: ST_MSTR  c index=0 paran=0
+ } 16: CL  FILE:virtualfunc2.cxx LINE:25
+ 18: EXITSCOPE
+ 19 : RTN_FUNC 0
+ 1b: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: LD_FUNC  paran=0
+  6: LD 7 from ff 
+  8: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  d: CL virtualfunc2.cxx:25
+  f: LD 3 from fe 
+ 11: ST_MSTR index=0 paran=0 point p c
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 16: CL virtualfunc2.cxx:25
+ 18: EXITSCOPE
+ 19: RTN_FUNC 0
+ 1b: RETURN
+tmpobj=0x0 scope3
+Running bytecode function C::C inst=83ca00->1104ab0 stack=bffa1000->bff71980
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope5
+Running bytecode function B::B inst=1104ab0->1104970 stack=bff71980->bff42320
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope7
+Running bytecode function A::A inst=1104970->1104870 stack=bff42320->bff12cc0
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD 5,5 from ff bff12cc0,bff14ca0
+  3,1: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042a8
+  8,1: CL virtualfunc2.cxx:6
+autostack=3 scope=8 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+  a,0: LD 1,1 from fe bff12cc0,bff14c80
+  c,1: LDST_MSTR_P index=0 ldst=1 a stos=11042a8
+ 11,1: CL virtualfunc2.cxx:6
+autostack=3 scope=8 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 13,0: EXITSCOPE
+autostack=3 scope=7 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 14,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function A::A restore inst=1104970 stack=bff42320
+autostack=3 scope=7 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+  6,1: LD 6,6 from ff bff42320,bff44300
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042a8
+  d,2: CL virtualfunc2.cxx:15
+autostack=3 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+  f,0: LD 2,2 from fe bff42320,bff442e0
+ 11,1: LDST_MSTR_P index=0 ldst=1 b stos=11042a8
+ 16,1: CL virtualfunc2.cxx:15
+autostack=3 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=3 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::B restore inst=1104ab0 stack=bff71980
+autostack=3 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+  6,1: LD 7,7 from ff bff71980,bff73960
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042a8
+  d,2: CL virtualfunc2.cxx:25
+autostack=3 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+  f,0: LD 3,3 from fe bff71980,bff73940
+ 11,1: LDST_MSTR_P index=0 ldst=1 c stos=11042a8
+ 16,1: CL virtualfunc2.cxx:25
+autostack=3 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=3 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function C::C restore inst=83ca00 stack=bffa1000
+autostack=3 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 46,0: POPSTROS 0x0 strosp=1
+ 47,0: RESETARYINDEX
+ 49,0: CL virtualfunc2.cxx:51
+autostack=3 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)
+ 4b,0: PUTAUTOOBJ
+ 4e,0: LD 1,1 from fc bffa1000,bffa2f80
+ 50,1: SETARYINDEX
+ 52,0: LDST_LVAR_P index=3 ldst=0 obje 17842880 1.48199e-303
+ 57,1: PUSHSTROS 0x0 strosp=0
+ 58,1: SETSTROS 0x11042c0
+ 59,0: LD_FUNC  paran=0
+
+38   E::E() {  0: ENTERSCOPE
+  1: LD_FUNC bytecode D paran=0
+  6: ADDSTROS 4
+  8: LD_FUNC bytecode C paran=0
+  d: ADDSTROS -4
+  f: ADDSTROS 4
+ 11: LD 9 from ff
+ 13: ST_MSTR  G__virtualinfo index=1 paran=0
+ 18: ADDSTROS -4
+ e = 1a: CL  FILE:virtualfunc2.cxx LINE:38
+ 5; 1c: LD 5 from fe
+ 1e: ST_MSTR  e index=0 paran=0
+ } 23: CL  FILE:virtualfunc2.cxx LINE:38
+ 25: EXITSCOPE
+ 26 : RTN_FUNC 0
+ 28: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: LD_FUNC  paran=0
+  6: ADDSTROS 4
+  8: LD_FUNC  paran=0
+  d: ADDSTROS -4
+  f: ADDSTROS 4
+ 11: LD 9 from ff 
+ 13: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 18: ADDSTROS -4
+ 1a: CL virtualfunc2.cxx:38
+ 1c: LD 5 from fe 
+ 1e: ST_MSTR index=0 paran=0 point p e
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 23: CL virtualfunc2.cxx:38
+ 25: EXITSCOPE
+ 26: RTN_FUNC 0
+ 28: RETURN
+tmpobj=0x0 scope3
+Running bytecode function E::E inst=83ca00->1104c70 stack=bffa1000->bff71980
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+
+31   D::D() {  0: ENTERSCOPE
+ d =  1: CL  FILE:virtualfunc2.cxx LINE:31
+ 4;  3: LD 4 from ff
+  5: ST_MSTR  d index=0 paran=0
+ }  a: CL  FILE:virtualfunc2.cxx LINE:31
+  c: EXITSCOPE
+  d : RTN_FUNC 0
+  f: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: CL virtualfunc2.cxx:31
+  3: LD 4 from ff 
+  5: ST_MSTR index=0 paran=0 point p d
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+  a: CL virtualfunc2.cxx:31
+  c: EXITSCOPE
+  d: RTN_FUNC 0
+  f: RETURN
+tmpobj=0x0 scope5
+Running bytecode function D::D inst=1104c70->1104d60 stack=bff71980->bff42320
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: CL virtualfunc2.cxx:31
+autostack=4 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  3,0: LD 4,4 from ff bff42320,bff44300
+  5,1: LDST_MSTR_P index=0 ldst=1 d stos=11042c0
+  a,1: CL virtualfunc2.cxx:31
+autostack=4 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  c,0: EXITSCOPE
+autostack=4 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function D::D restore inst=1104c70 stack=bff71980
+autostack=4 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  6,1: ADDSTROS 4
+  8,1: LD_FUNC  paran=0
+tmpobj=0x0 scope5
+Running bytecode function C::C inst=1104c70->1104ab0 stack=bff71980->bff42320
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope7
+Running bytecode function B::B inst=1104ab0->1104970 stack=bff42320->bff12cc0
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope9
+Running bytecode function A::A inst=1104970->1104870 stack=bff12cc0->bfee3660
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD 5,5 from ff bfee3660,bfee5640
+  3,1: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042c4
+  8,1: CL virtualfunc2.cxx:6
+autostack=4 scope=10 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  a,0: LD 1,1 from fe bfee3660,bfee5620
+  c,1: LDST_MSTR_P index=0 ldst=1 a stos=11042c4
+ 11,1: CL virtualfunc2.cxx:6
+autostack=4 scope=10 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 13,0: EXITSCOPE
+autostack=4 scope=9 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 14,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function A::A restore inst=1104970 stack=bff12cc0
+autostack=4 scope=9 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  6,1: LD 6,6 from ff bff12cc0,bff14ca0
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042c4
+  d,2: CL virtualfunc2.cxx:15
+autostack=4 scope=8 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  f,0: LD 2,2 from fe bff12cc0,bff14c80
+ 11,1: LDST_MSTR_P index=0 ldst=1 b stos=11042c4
+ 16,1: CL virtualfunc2.cxx:15
+autostack=4 scope=8 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=4 scope=7 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::B restore inst=1104ab0 stack=bff42320
+autostack=4 scope=7 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  6,1: LD 7,7 from ff bff42320,bff44300
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042c4
+  d,2: CL virtualfunc2.cxx:25
+autostack=4 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  f,0: LD 3,3 from fe bff42320,bff442e0
+ 11,1: LDST_MSTR_P index=0 ldst=1 c stos=11042c4
+ 16,1: CL virtualfunc2.cxx:25
+autostack=4 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=4 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function C::C restore inst=1104c70 stack=bff71980
+autostack=4 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+  d,2: ADDSTROS -4
+  f,2: ADDSTROS 4
+ 11,2: LD 9,9 from ff bff71980,bff73960
+ 13,3: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042c4
+ 18,3: ADDSTROS -4
+ 1a,3: CL virtualfunc2.cxx:38
+autostack=4 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 1c,0: LD 5,5 from fe bff71980,bff73940
+ 1e,1: LDST_MSTR_P index=0 ldst=1 e stos=11042c0
+ 23,1: CL virtualfunc2.cxx:38
+autostack=4 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 25,0: EXITSCOPE
+autostack=4 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 26,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function E::E restore inst=83ca00 stack=bffa1000
+autostack=4 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 5e,0: POPSTROS 0x0 strosp=1
+ 5f,0: RESETARYINDEX
+ 61,0: CL virtualfunc2.cxx:52
+autostack=4 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)
+ 63,0: PUTAUTOOBJ
+ 66,0: LD 1,1 from fb bffa1000,bffa2f60
+ 68,1: SETARYINDEX
+ 6a,0: LDST_LVAR_P index=4 ldst=0 objf 17842912 1.48203e-303
+ 6f,1: PUSHSTROS 0x0 strosp=0
+ 70,1: SETSTROS 0x11042e0
+ 71,0: LD_FUNC  paran=0
+
+44   F::F() {  0: ENTERSCOPE
+  1: LD_FUNC bytecode C paran=0
+  6: ADDSTROS 24
+  8: LD_FUNC bytecode D paran=0
+  d: ADDSTROS -24
+  f: LD 10 from ff
+ 11: ST_MSTR  G__virtualinfo index=1 paran=0
+ f = 16: CL  FILE:virtualfunc2.cxx LINE:44
+ 6; 18: LD 6 from fe
+ 1a: ST_MSTR  f index=0 paran=0
+ } 1f: CL  FILE:virtualfunc2.cxx LINE:44
+ 21: EXITSCOPE
+ 22 : RTN_FUNC 0
+ 24: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: LD_FUNC  paran=0
+  6: ADDSTROS 24
+  8: LD_FUNC  paran=0
+  d: ADDSTROS -24
+  f: LD 10 from ff 
+ 11: ST_MSTR index=1 paran=0 point p G__virtualinfo
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 16: CL virtualfunc2.cxx:44
+ 18: LD 6 from fe 
+ 1a: ST_MSTR index=0 paran=0 point p f
+  G__ST_MSTR optimized 8 G__LDST_MSTR_P
+ 1f: CL virtualfunc2.cxx:44
+ 21: EXITSCOPE
+ 22: RTN_FUNC 0
+ 24: RETURN
+tmpobj=0x0 scope3
+Running bytecode function F::F inst=83ca00->1104e20 stack=bffa1000->bff71980
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope5
+Running bytecode function C::C inst=1104e20->1104ab0 stack=bff71980->bff42320
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope7
+Running bytecode function B::B inst=1104ab0->1104970 stack=bff42320->bff12cc0
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD_FUNC  paran=0
+tmpobj=0x0 scope9
+Running bytecode function A::A inst=1104970->1104870 stack=bff12cc0->bfee3660
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: LD 5,5 from ff bfee3660,bfee5640
+  3,1: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042e0
+  8,1: CL virtualfunc2.cxx:6
+autostack=5 scope=10 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  a,0: LD 1,1 from fe bfee3660,bfee5620
+  c,1: LDST_MSTR_P index=0 ldst=1 a stos=11042e0
+ 11,1: CL virtualfunc2.cxx:6
+autostack=5 scope=10 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 13,0: EXITSCOPE
+autostack=5 scope=9 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 14,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function A::A restore inst=1104970 stack=bff12cc0
+autostack=5 scope=9 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  6,1: LD 6,6 from ff bff12cc0,bff14ca0
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042e0
+  d,2: CL virtualfunc2.cxx:15
+autostack=5 scope=8 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  f,0: LD 2,2 from fe bff12cc0,bff14c80
+ 11,1: LDST_MSTR_P index=0 ldst=1 b stos=11042e0
+ 16,1: CL virtualfunc2.cxx:15
+autostack=5 scope=8 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=5 scope=7 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::B restore inst=1104ab0 stack=bff42320
+autostack=5 scope=7 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  6,1: LD 7,7 from ff bff42320,bff44300
+  8,2: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042e0
+  d,2: CL virtualfunc2.cxx:25
+autostack=5 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  f,0: LD 3,3 from fe bff42320,bff442e0
+ 11,1: LDST_MSTR_P index=0 ldst=1 c stos=11042e0
+ 16,1: CL virtualfunc2.cxx:25
+autostack=5 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 18,0: EXITSCOPE
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 19,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function C::C restore inst=1104e20 stack=bff71980
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  6,1: ADDSTROS 24
+  8,1: LD_FUNC  paran=0
+tmpobj=0x0 scope5
+Running bytecode function D::D inst=1104e20->1104d60 stack=bff71980->bff42320
+LOOP COMPILE EXECUTION START
+  0,0: ENTERSCOPE
+  1,0: CL virtualfunc2.cxx:31
+autostack=5 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  3,0: LD 4,4 from ff bff42320,bff44300
+  5,1: LDST_MSTR_P index=0 ldst=1 d stos=11042f8
+  a,1: CL virtualfunc2.cxx:31
+autostack=5 scope=6 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  c,0: EXITSCOPE
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function D::D restore inst=1104e20 stack=bff71980
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  d,2: ADDSTROS -24
+  f,2: LD 10,10 from ff bff71980,bff73960
+ 11,3: LDST_MSTR_P index=1 ldst=1 G__virtualinfo stos=11042e0
+ 16,3: CL virtualfunc2.cxx:44
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 18,0: LD 6,6 from fe bff71980,bff73940
+ 1a,1: LDST_MSTR_P index=0 ldst=1 f stos=11042e0
+ 1f,1: CL virtualfunc2.cxx:44
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 21,0: EXITSCOPE
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 22,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function F::F restore inst=83ca00 stack=bffa1000
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 76,0: POPSTROS 0x0 strosp=1
+ 77,0: RESETARYINDEX
+ 79,0: CL virtualfunc2.cxx:54
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 7b,0: LD 0,0 from fa bffa1000,bffa2f40
+ 7d,1: LD_LVAR index=5 paran=1 point P return=1.78429e+07
+ 82,1: LDST_LVAR_P index=0 ldst=0 obja 17842832 1.48192e-303
+ 87,2: TOPVALUE 1104290
+ 88,2: LETNEWVAL
+ 89,1: OP1_OPTIMIZED U:17842944 -> U:17842948
+ 8b,1: LDST_LVAR_P index=1 ldst=0 objb 17842840 1.48193e-303
+ 90,2: TOPVALUE 1104298
+ 91,2: CAST to U
+ 96,2: LETNEWVAL
+ 97,1: OP1_OPTIMIZED U:17842948 -> U:17842952
+ 99,1: LDST_LVAR_P index=2 ldst=0 objc 17842856 1.48195e-303
+ 9e,2: TOPVALUE 11042a8
+ 9f,2: CAST to U
+ a4,2: LETNEWVAL
+ a5,1: OP1_OPTIMIZED U:17842952 -> U:17842956
+ a7,1: LDST_LVAR_P index=3 ldst=0 obje 17842880 1.48199e-303
+ ac,2: TOPVALUE 11042c0
+ ad,2: CAST to U
+ b2,2: LETNEWVAL
+ b3,1: OP1_OPTIMIZED U:17842956 -> U:17842960
+ b5,1: LD 0,0 from f9 bffa1000,bffa2f20
+ b7,2: LETNEWVAL
+ b8,1: OP1_OPTIMIZED U:17842960 -> U:17842964
+ ba,1: CL virtualfunc2.cxx:55
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ bc,0: LDST_LVAR_P index=3 ldst=0 obje 17842880 1.48199e-303
+ c1,1: TOPVALUE 11042c0
+ c2,1: LD 3,3 from f8 bffa1000,bffa2f00
+ c4,2: REWINDSTACK 1
+ c6,1: CAST to U
+ cb,1: REWINDSTACK -1
+ cd,2: LDST_LVAR_P index=5 ldst=1 p 17842884 1.48199e-303
+ d2,1: CL virtualfunc2.cxx:56
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ d4,0: LDST_LVAR_P index=4 ldst=0 objf 17842912 1.48203e-303
+ d9,1: TOPVALUE 11042e0
+ da,1: LD 4,4 from f7 bffa1000,bffa2ee0
+ dc,2: REWINDSTACK 1
+ de,1: CAST to U
+ e3,1: REWINDSTACK -1
+ e5,2: LDST_LVAR_P index=5 ldst=1 p 17842912 1.48203e-303
+ ea,1: CL virtualfunc2.cxx:58
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ ec,0: CL virtualfunc2.cxx:58
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ ee,0: LD 0,0 from f6 bffa1000,bffa2ec0
+ f0,1: LDST_LVAR_P index=0 ldst=1 i 0 0
+ f5,1: LDST_LVAR_P index=0 ldst=0 i 0 0
+ fa,2: LD 5,5 from f5 bffa1000,bffa2ea0
+ fc,3: OP2_OPTIMIZED i:0 i:5 -> i:1
+ fe,2: CNDJMP 1 to 12a
+100,1: ENTERSCOPE
+101,1: CL virtualfunc2.cxx:58
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+103,0: CL virtualfunc2.cxx:59
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+105,0: PUSHSTROS 0x0 strosp=0
+106,0: LDST_VAR_INDEX index=5 p
+110,1: SETSTROS 0x1104290
+111,0: SETMEMFUNCENV 1104290 <- 0 0
+112,0: LDST_LVAR_P index=0 ldst=0 i 0 0
+117,1: RECMEMFUNCENV 0 <- bffa05a0 0
+118,1: LD_FUNC compiled paran=1
+
+7    A::f(int xx) {  0: ENTERSCOPE
+  1: ST_LVAR  x index=0 paran=0
+  6: POP
+
+8        printf(  7: CL  FILE:virtualfunc2.cxx LINE:8
+"A::f(%d) %d\n",x,a);  9: LD 0x1104f40(A::f(%d) %d
+) from ff
+  b: LD_LVAR  x index=0 paran=0
+ 10: LD_MSTR  a index=0 paran=0
+ 15: LD_FUNC library printf paran=3
+
+9      } 1a: CL  FILE:virtualfunc2.cxx LINE:9
+ 1c: EXITSCOPE
+ 1d : RTN_FUNC 0
+ 1f: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: ST_LVAR index=0 paran=0 point p x
+  G__ST_VAR optimized 8 G__LDST_LVAR_P
+  6: POP
+  7: CL virtualfunc2.cxx:8
+  9: LD 1.78461e+07 from ff 
+  b: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 10: LD_MSTR index=0 paran=0 point p a
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 15: LD_FUNC printf paran=3
+ 1a: CL virtualfunc2.cxx:9
+ 1c: EXITSCOPE
+ 1d: RTN_FUNC 0
+ 1f: RETURN
+tmpobj=0x0 scope4
+Running bytecode function A::f inst=83ca00->1104fb0 stack=bffa1000->bff71970
+LOOP COMPILE EXECUTION START
+  0,1: ENTERSCOPE
+  1,1: LDST_LVAR_P index=0 ldst=1 x 0 0
+  6,1: POP 0 -> 8.6231e+06
+  7,0: CL virtualfunc2.cxx:8
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  9,0: LD 1.78461e+07,17846080 from ff bff71970,bff73950
+  b,1: LDST_LVAR_P index=0 ldst=0 x 0 0
+ 10,2: LDST_MSTR_P index=0 ldst=0 a stos=1104290
+ 15,3: LD_FUNC printf paran=3
+ 1a,1: CL virtualfunc2.cxx:9
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1c,0: EXITSCOPE
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function A::f restore inst=83ca00 stack=bffa1000
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+11d,0: POPSTROS 0x0 strosp=1
+11e,0: CL virtualfunc2.cxx:60
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+120,0: EXITSCOPE
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+121,0: LDST_LVAR_P index=0 ldst=0 i 0 0
+126,1: OP1_OPTIMIZED i:0 -> i:0
+128,1: JMP f5
+ f5,1: LDST_LVAR_P index=0 ldst=0 i 1 2.122e-314
+ fa,2: LD 5,5 from f5 bffa1000,bffa2ea0
+ fc,3: OP2_OPTIMIZED i:1 i:5 -> i:1
+ fe,2: CNDJMP 1 to 12a
+100,1: ENTERSCOPE
+101,1: CL virtualfunc2.cxx:58
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+103,0: CL virtualfunc2.cxx:59
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+105,0: PUSHSTROS 0x0 strosp=0
+106,0: LDST_VAR_INDEX index=5 p
+110,1: SETSTROS 0x1104298
+111,0: SETMEMFUNCENV 1104298 <- 0 0
+112,0: LDST_LVAR_P index=0 ldst=0 i 1 2.122e-314
+117,1: RECMEMFUNCENV 0 <- bffa05a0 0
+118,1: LD_FUNC compiled paran=1
+
+16   B::f(int xx) {  0: ENTERSCOPE
+  1: ST_LVAR  x index=0 paran=0
+  6: POP
+
+17       printf(  7: CL  FILE:virtualfunc2.cxx LINE:17
+"B::f(%d) %d\n",x,b);  9: LD 0x1104f70(B::f(%d) %d
+) from ff
+  b: LD_LVAR  x index=0 paran=0
+ 10: LD_MSTR  b index=0 paran=0
+ 15: LD_FUNC library printf paran=3
+
+18     } 1a: CL  FILE:virtualfunc2.cxx LINE:18
+ 1c: EXITSCOPE
+ 1d : RTN_FUNC 0
+ 1f: RETURN
+Optimize 3 start
+  0: ENTERSCOPE
+  1: ST_LVAR index=0 paran=0 point p x
+  G__ST_VAR optimized 8 G__LDST_LVAR_P
+  6: POP
+  7: CL virtualfunc2.cxx:17
+  9: LD 1.78461e+07 from ff 
+  b: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 10: LD_MSTR index=0 paran=0 point p b
+  G__LD_MSTR optimized 6 G__LDST_MSTR_P
+ 15: LD_FUNC printf paran=3
+ 1a: CL virtualfunc2.cxx:18
+ 1c: EXITSCOPE
+ 1d: RTN_FUNC 0
+ 1f: RETURN
+tmpobj=0x0 scope4
+Running bytecode function B::f inst=83ca00->11051b0 stack=bffa1000->bff71970
+LOOP COMPILE EXECUTION START
+  0,1: ENTERSCOPE
+  1,1: LDST_LVAR_P index=0 ldst=1 x 1 2.122e-314
+  6,1: POP 1 -> 8.6231e+06
+  7,0: CL virtualfunc2.cxx:17
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  9,0: LD 1.78461e+07,17846128 from ff bff71970,bff73950
+  b,1: LDST_LVAR_P index=0 ldst=0 x 1 2.122e-314
+ 10,2: LDST_MSTR_P index=0 ldst=0 b stos=1104298
+ 15,3: LD_FUNC printf paran=3
+ 1a,1: CL virtualfunc2.cxx:18
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1c,0: EXITSCOPE
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::f restore inst=83ca00 stack=bffa1000
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+11d,0: POPSTROS 0x0 strosp=1
+11e,0: CL virtualfunc2.cxx:60
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+120,0: EXITSCOPE
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+121,0: LDST_LVAR_P index=0 ldst=0 i 1 2.122e-314
+126,1: OP1_OPTIMIZED i:1 -> i:1
+128,1: JMP f5
+ f5,1: LDST_LVAR_P index=0 ldst=0 i 2 4.24399e-314
+ fa,2: LD 5,5 from f5 bffa1000,bffa2ea0
+ fc,3: OP2_OPTIMIZED i:2 i:5 -> i:1
+ fe,2: CNDJMP 1 to 12a
+100,1: ENTERSCOPE
+101,1: CL virtualfunc2.cxx:58
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+103,0: CL virtualfunc2.cxx:59
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+105,0: PUSHSTROS 0x0 strosp=0
+106,0: LDST_VAR_INDEX index=5 p
+110,1: SETSTROS 0x11042a8
+111,0: SETMEMFUNCENV 11042a8 <- 0 0
+112,0: LDST_LVAR_P index=0 ldst=0 i 2 4.24399e-314
+117,1: RECMEMFUNCENV 0 <- bffa05a0 0
+118,1: LD_FUNC compiled paran=1
+tmpobj=0x0 scope4
+Running bytecode function B::f inst=83ca00->11051b0 stack=bffa1000->bff71970
+LOOP COMPILE EXECUTION START
+  0,1: ENTERSCOPE
+  1,1: LDST_LVAR_P index=0 ldst=1 x 2 4.24399e-314
+  6,1: POP 2 -> 8.6231e+06
+  7,0: CL virtualfunc2.cxx:17
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  9,0: LD 1.78461e+07,17846128 from ff bff71970,bff73950
+  b,1: LDST_LVAR_P index=0 ldst=0 x 2 4.24399e-314
+ 10,2: LDST_MSTR_P index=0 ldst=0 b stos=11042a8
+ 15,3: LD_FUNC printf paran=3
+ 1a,1: CL virtualfunc2.cxx:18
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1c,0: EXITSCOPE
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::f restore inst=83ca00 stack=bffa1000
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+11d,0: POPSTROS 0x0 strosp=1
+11e,0: CL virtualfunc2.cxx:60
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+120,0: EXITSCOPE
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+121,0: LDST_LVAR_P index=0 ldst=0 i 2 4.24399e-314
+126,1: OP1_OPTIMIZED i:2 -> i:2
+128,1: JMP f5
+ f5,1: LDST_LVAR_P index=0 ldst=0 i 3 6.36599e-314
+ fa,2: LD 5,5 from f5 bffa1000,bffa2ea0
+ fc,3: OP2_OPTIMIZED i:3 i:5 -> i:1
+ fe,2: CNDJMP 1 to 12a
+100,1: ENTERSCOPE
+101,1: CL virtualfunc2.cxx:58
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+103,0: CL virtualfunc2.cxx:59
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+105,0: PUSHSTROS 0x0 strosp=0
+106,0: LDST_VAR_INDEX index=5 p
+110,1: SETSTROS 0x11042c4
+111,0: SETMEMFUNCENV 11042c4 <- 0 0
+112,0: LDST_LVAR_P index=0 ldst=0 i 3 6.36599e-314
+117,1: RECMEMFUNCENV 0 <- bffa05a0 0
+118,1: LD_FUNC compiled paran=1
+tmpobj=0x0 scope4
+Running bytecode function B::f inst=83ca00->11051b0 stack=bffa1000->bff71970
+LOOP COMPILE EXECUTION START
+  0,1: ENTERSCOPE
+  1,1: LDST_LVAR_P index=0 ldst=1 x 3 6.36599e-314
+  6,1: POP 3 -> 8.6231e+06
+  7,0: CL virtualfunc2.cxx:17
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  9,0: LD 1.78461e+07,17846128 from ff bff71970,bff73950
+  b,1: LDST_LVAR_P index=0 ldst=0 x 3 6.36599e-314
+ 10,2: LDST_MSTR_P index=0 ldst=0 b stos=11042c4
+ 15,3: LD_FUNC printf paran=3
+ 1a,1: CL virtualfunc2.cxx:18
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1c,0: EXITSCOPE
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::f restore inst=83ca00 stack=bffa1000
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+11d,0: POPSTROS 0x0 strosp=1
+11e,0: CL virtualfunc2.cxx:60
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+120,0: EXITSCOPE
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+121,0: LDST_LVAR_P index=0 ldst=0 i 3 6.36599e-314
+126,1: OP1_OPTIMIZED i:3 -> i:3
+128,1: JMP f5
+ f5,1: LDST_LVAR_P index=0 ldst=0 i 4 8.48798e-314
+ fa,2: LD 5,5 from f5 bffa1000,bffa2ea0
+ fc,3: OP2_OPTIMIZED i:4 i:5 -> i:1
+ fe,2: CNDJMP 1 to 12a
+100,1: ENTERSCOPE
+101,1: CL virtualfunc2.cxx:58
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+103,0: CL virtualfunc2.cxx:59
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+105,0: PUSHSTROS 0x0 strosp=0
+106,0: LDST_VAR_INDEX index=5 p
+110,1: SETSTROS 0x11042e0
+111,0: SETMEMFUNCENV 11042e0 <- 0 0
+112,0: LDST_LVAR_P index=0 ldst=0 i 4 8.48798e-314
+117,1: RECMEMFUNCENV 0 <- bffa05a0 0
+118,1: LD_FUNC compiled paran=1
+tmpobj=0x0 scope4
+Running bytecode function B::f inst=83ca00->11051b0 stack=bffa1000->bff71970
+LOOP COMPILE EXECUTION START
+  0,1: ENTERSCOPE
+  1,1: LDST_LVAR_P index=0 ldst=1 x 4 8.48798e-314
+  6,1: POP 4 -> 8.6231e+06
+  7,0: CL virtualfunc2.cxx:17
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+  9,0: LD 1.78461e+07,17846128 from ff bff71970,bff73950
+  b,1: LDST_LVAR_P index=0 ldst=0 x 4 8.48798e-314
+ 10,2: LDST_MSTR_P index=0 ldst=0 b stos=11042e0
+ 15,3: LD_FUNC printf paran=3
+ 1a,1: CL virtualfunc2.cxx:18
+autostack=5 scope=5 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1c,0: EXITSCOPE
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+ 1d,0: RTN_FUNC 0
+returns NULL
+Exit bytecode function B::f restore inst=83ca00 stack=bffa1000
+autostack=5 scope=4 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+11d,0: POPSTROS 0x0 strosp=1
+11e,0: CL virtualfunc2.cxx:60
+autostack=5 scope=3 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+120,0: EXITSCOPE
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+121,0: LDST_LVAR_P index=0 ldst=0 i 4 8.48798e-314
+126,1: OP1_OPTIMIZED i:4 -> i:4
+128,1: JMP f5
+ f5,1: LDST_LVAR_P index=0 ldst=0 i 5 1.061e-313
+ fa,2: LD 5,5 from f5 bffa1000,bffa2ea0
+ fc,3: OP2_OPTIMIZED i:5 i:5 -> i:0
+ fe,2: CNDJMP 0 to 12a
+12a,1: CL virtualfunc2.cxx:62
+autostack=5 scope=2 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+12c,0: LD 0,0 from f4 bffa1000,bffa2e80
+12e,1: RTN_FUNC 1
+returns (int)0
+Exit bytecode function main restore inst=2afea0 stack=2b3f80
+autostack=5 scope=1 (0x1104290,tagnum5,num1,scope2,heap0)(0x1104298,tagnum6,num1,scope2,heap0)(0x11042a8,tagnum7,num1,scope2,heap0)(0x11042c0,tagnum9,num1,scope2,heap0)(0x11042e0,tagnum10,num1,scope2,heap0)
+
+freetemp 0:(NULL)0x0x0 

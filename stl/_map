@@ -1,0 +1,326 @@
+#if !defined(G__MAP_DLL) && !defined(G__NOCINTDLL)
+#pragma include_noerr <pair.dll>
+#pragma include_noerr <map.dll>
+#pragma include_noerr <map2.dll>
+#endif
+
+#ifdef __MAKECINT__
+#include <prec_stl/map>
+#else
+//#include <prec_stl/map>
+//#include <_map.h>  // cint can not instantiate map template body
+#ifndef G__OLDIMPLEMENTATION2103
+
+//#define G__MAP1
+#define G__MAP2
+#if defined(G__MAP2)
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+// interpreted map emulation version2 
+//   emulate as map<key,pair<Key,val>* >
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+template<class Key, class T> class map {
+  public:
+   /////////////////////////////////////////////////////////
+   typedef map<Key,void*>::size_type size_type;
+   typedef pair<Key,T> value_type;
+   class iterator {
+    public: 
+     iterator() { }
+     iterator(const iterator& x) { m_iter=x.m_iter; }
+     iterator& operator=(const iterator& x) { m_iter=x.m_iter; return(*this); }
+     value_type& operator*() 
+      {pair<Key,void*> *pa = &(*m_iter); return(*(value_type*)pa->second);}
+     value_type* operator->() 
+      {pair<Key,void*> *pa = &(*m_iter); return((value_type*)pa->second);}
+     map::iterator& operator++() { ++m_iter; return(*this); }
+     map::iterator operator++(int) { iterator i(m_iter++); return(i); }
+     map::iterator& operator--() { --m_iter; return(*this); }
+     map::iterator operator--(int) { iterator i(m_iter--); return(i); }
+     bool operator==(const map::iterator& x) { return(m_iter==x.m_iter); }
+     bool operator!=(const map::iterator& x) { return(m_iter!=x.m_iter); }
+
+    //private:
+     iterator(const map<Key,void*>::iterator& x) { m_iter=x; }
+     map<Key,void*>::iterator m_iter;
+   };
+   /////////////////////////////////////////////////////////
+   class reverse_iterator {
+    public: 
+     reverse_iterator() { }
+     reverse_iterator(const reverse_iterator& x) { m_iter=x.m_iter; }
+     reverse_iterator& operator=(const reverse_iterator& x) 
+        { m_iter=x.m_iter; return(*this); }
+     value_type& operator*() 
+      {pair<Key,void*> *pa = &(*m_iter); return(*(value_type*)pa->second);}
+     value_type* operator->() 
+      {pair<Key,void*> *pa = &(*m_iter); return((value_type*)pa->second);}
+     map::reverse_iterator& operator++() { ++m_iter; return(*this); }
+     map::reverse_iterator operator++(int) 
+        { reverse_iterator i(m_iter++); return(i); }
+     map::reverse_iterator& operator--() { --m_iter; return(*this); }
+     map::reverse_iterator operator--(int) 
+        { reverse_iterator i(m_iter--); return(i); }
+     bool operator==(const map::reverse_iterator& x) 
+        { return(m_iter==x.m_iter); }
+     bool operator!=(const map::reverse_iterator& x) 
+        { return(m_iter!=x.m_iter); }
+
+    //private:
+     reverse_iterator(const map<Key,void*>::reverse_iterator& x) { m_iter=x; }
+     map<Key,void*>::reverse_iterator m_iter;
+   };
+   /////////////////////////////////////////////////////////
+   ~map() { 
+     map<Key,void*>::reverse_iterator rfirst = m_map.rbegin();
+     map<Key,void*>::reverse_iterator rlast  = m_map.rend();
+     value_type* p;
+     while(rfirst!=rlast) {
+       pair<Key,void*> *pp = &(*rfirst);
+       p = (value_type*)pp->second;
+       delete p;
+       ++rfirst;
+     }
+   }
+   void _copy(const map& x) {
+     map<Key,void*>::iterator first = x.m_map.begin();
+     map<Key,void*>::iterator last  = x.m_map.end();
+     value_type* p;
+     while(first!=last) {
+       pair<Key,void*> *pp = &(*first);
+       p = new value_type(*(value_type*)pp->second);
+       m_map[pp->first] = (void*)p;
+       ++first;
+     }
+   }
+   map() { }
+   map(const map& x) {_copy(x);}
+   map& operator=(const map& x) {_copy(x); return(*this);}
+   map::iterator begin() { iterator i(m_map.begin()); return(i); }
+   map::iterator end() { iterator i(m_map.end()); return(i); }
+   map::reverse_iterator rbegin() 
+     { reverse_iterator i(m_map.rbegin()); return(i); }
+   map::reverse_iterator rend() 
+     { reverse_iterator i(m_map.rend()); return(i); }
+   bool empty() const { return(m_map.empty()); }
+   map<Key,void*>::size_type size() const { return(m_map.size()); }
+   map<Key,void*>::size_type max_size() const { return(m_map.max_size()); }
+   T& operator[](const Key& key) {
+     value_type* p=(value_type*)m_map[key];
+     if(!p) {
+       p = new value_type;
+       p->first=key;
+       m_map[key]=p;
+     }
+     return(p->second);
+   }
+   //pair<map,bool> insert(T& x) {}
+   //map::iterator insert(map::iterator position,T& x) {}
+   void erase(map::iterator position) { 
+     map<Key,void*>::iterator pos = position.m_iter;
+     value_type* p=(value_type*)((*pos).second);
+     delete p;
+     m_map.erase(pos);
+   }
+   map::size_type erase(const Key& key) { 
+     value_type* p=(value_type*)m_map[key];
+     delete p;
+     return(m_map.erase(key)); 
+   }
+   void erase(map::iterator first,map::iterator last) { 
+     map<Key,void*>::iterator fst = first.m_iter;
+     map<Key,void*>::iterator lst = last.m_iter;
+     value_type* p;
+     while(fst!=lst) {
+       p=(value_type*)((*fst).second);
+       delete p;
+       ++fst;
+     }
+     fst = first.m_iter;
+     m_map.erase(fst,lst); 
+   }
+   void swap(map& x) { m_map.swap(x.m_map); }
+   void clear() { 
+     map<string,void*>::reverse_iterator rfirst = m_map.rbegin();
+     map<string,void*>::reverse_iterator rlast  = m_map.rend();
+     value_type* p;
+     while(rfirst!=rlast) {
+       pair<Key,void*> *pp = &(*rfirst);
+       p = (value_type*)pp->second;
+       delete p;
+       ++rfirst;
+     }
+     m_map.clear(); 
+   }
+   map::iterator find(const Key& key) { return(m_map.find()); }
+   map::size_type count(const Key& key) const { return(m_map.count()); }
+   map::iterator lower_bound(const Key& key) { return(m_map.lower_bound()); }
+   map::iterator upper_bound(const Key& key) { return(m_map.upper_bound()); }
+  //private:
+   map<Key,void*> m_map;
+};
+
+#elif defined(G__MAP1)
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+// interpreted map emulation version1 
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+template<class Key, class T> struct _pair {
+  _pair() { }
+  _pair(const Key& key,const T& val) { first=key; second=val; }
+  //_pair(const pair<Key,T>& x) { first=x.first; second=x.second; }
+  _pair(const _pair& x) { first=x.first; second=x.second; }
+  _pair& operator=(const _pair& x) 
+     { first=x.first; second=x.second; return(*this); }
+
+  Key first;
+  T   second;
+
+  _pair(const pair<Key,void*>& x) { first=x.first; second=*(T*)x.second; }
+};
+
+template<class Key, class T> class map {
+  public:
+   /////////////////////////////////////////////////////////
+   typedef map<Key,void*>::size_type size_type;
+   typedef _pair<Key,T> value_type;
+   class iterator {
+    public: 
+     iterator() { }
+     iterator(const iterator& x) { m_iter=x.m_iter; }
+     iterator& operator=(const iterator& x) { m_iter=x.m_iter; return(*this); }
+     // CAUTION: operator*() has to return value_type&
+     value_type operator*() {value_type a(*m_iter); return(a);}
+     //value_type* operator->() {value_type a(*m_iter); return(&a);}
+     map::iterator& operator++() { ++m_iter; return(*this); }
+     map::iterator operator++(int) { iterator i(m_iter++); return(i); }
+     map::iterator& operator--() { --m_iter; return(*this); }
+     map::iterator operator--(int) { iterator i(m_iter--); return(i); }
+     bool operator==(const map::iterator& x) { return(m_iter==x.m_iter); }
+     bool operator!=(const map::iterator& x) { return(m_iter!=x.m_iter); }
+
+     iterator(const map<Key,void*>::iterator& x) { m_iter=x; }
+    //private:
+     map<Key,void*>::iterator m_iter;
+   };
+   /////////////////////////////////////////////////////////
+   class reverse_iterator {
+    public: 
+     reverse_iterator() { }
+     reverse_iterator(const reverse_iterator& x) { m_iter=x.m_iter; }
+     reverse_iterator& operator=(const reverse_iterator& x) 
+        { m_iter=x.m_iter; return(*this); }
+     value_type operator*() {value_type a(*m_iter); return(a);}
+     //value_type* operator->() {value_type a(*m_iter); return(&a);}
+     map::reverse_iterator& operator++() { ++m_iter; return(*this); }
+     map::reverse_iterator operator++(int) 
+        { reverse_iterator i(m_iter++); return(i); }
+     map::reverse_iterator& operator--() { --m_iter; return(*this); }
+     map::reverse_iterator operator--(int) 
+        { reverse_iterator i(m_iter--); return(i); }
+     bool operator==(const map::reverse_iterator& x) 
+        { return(m_iter==x.m_iter); }
+     bool operator!=(const map::reverse_iterator& x) 
+        { return(m_iter!=x.m_iter); }
+
+     reverse_iterator(const map<Key,void*>::reverse_iterator& x) { m_iter=x; }
+    //private:
+     map<Key,void*>::reverse_iterator m_iter;
+   };
+   /////////////////////////////////////////////////////////
+   ~map() { 
+     map<string,void*>::reverse_iterator rfirst = m_map.rbegin();
+     map<string,void*>::reverse_iterator rlast  = m_map.rend();
+     T* p;
+     while(rfirst!=rlast) {
+       p = (T*)(*rfirst).second;
+       delete p;
+       ++rfirst;
+     }
+   }
+   void _copy(const map& x) {
+     map<string,void*>::iterator first = x.m_map.begin();
+     map<string,void*>::iterator last  = x.m_map.end();
+     T* p;
+     while(first!=last) {
+       p = new T(*(T*)(*first).second);
+       m_map[(*first).first] = (void*)p;
+       ++first;
+     }
+   }
+   map() { }
+   map(const map& x) {_copy(x);}
+   map& operator=(const map& x) {_copy(x); return(*this);}
+   map::iterator begin() { iterator i(m_map.begin()); return(i); }
+   map::iterator end() { iterator i(m_map.end()); return(i); }
+   map::reverse_iterator rbegin() 
+     { reverse_iterator i(m_map.rbegin()); return(i); }
+   map::reverse_iterator rend() 
+     { reverse_iterator i(m_map.rend()); return(i); }
+   bool empty() const { return(m_map.empty()); }
+   map<Key,void*>::size_type size() const { return(m_map.size()); }
+   map<Key,void*>::size_type max_size() const { return(m_map.max_size()); }
+   T& operator[](const Key& key) {
+     T* p=(T*)m_map[key];
+     if(!p) {
+       p = new T;
+       m_map[key]=p;
+     }
+     return(*p);
+   }
+   //pair<map,bool> insert(T& x) {}
+   //map::iterator insert(map::iterator position,T& x) {}
+   void erase(map::iterator position) { 
+     map<Key,void*>::iterator pos = position.m_iter;
+     T* p=(T*)((*pos).second);
+     delete p;
+     m_map.erase(pos);
+   }
+   map::size_type erase(const Key& key) { 
+     T* p=(T*)m_map[key];
+     delete p;
+     return(m_map.erase(key)); 
+   }
+   void erase(map::iterator first,map::iterator last) { 
+     map<Key,void*>::iterator fst = first.m_iter;
+     map<Key,void*>::iterator lst = last.m_iter;
+     T* p;
+     while(fst!=lst) {
+       p=(T*)((*fst).second);
+       delete p;
+       ++fst;
+     }
+     fst = first.m_iter;
+     m_map.erase(fst,lst); 
+   }
+   void swap(map& x) { m_map.swap(x.m_map); }
+   void clear() { 
+     map<string,void*>::reverse_iterator rfirst = m_map.rbegin();
+     map<string,void*>::reverse_iterator rlast  = m_map.rend();
+     T* p;
+     while(rfirst!=rlast) {
+       p = (T*)(*rfirst).second;
+       delete p;
+       ++rfirst;
+     }
+     m_map.clear(); 
+   }
+   map::iterator find(const Key& key) { return(m_map.find()); }
+   map::size_type count(const Key& key) const { return(m_map.count()); }
+   map::iterator lower_bound(const Key& key) { return(m_map.lower_bound()); }
+   map::iterator upper_bound(const Key& key) { return(m_map.upper_bound()); }
+  //private:
+   map<Key,void*> m_map;
+};
+#endif
+
+#else
+template <class Key, class T, 
+          class Compare=less<Key>,
+          class Allocator=allocator<pair<const Key, T> > > class map;
+#endif
+#endif
+
+#include <_multimap>

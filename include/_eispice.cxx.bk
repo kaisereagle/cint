@@ -1,0 +1,475 @@
+///////////////////////////////////////////////////////////////////////////
+// _eispice.cxx
+//
+//  Open source eispice interface with CINT
+//  
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+#include <eispice.dll>
+#include <CSV.h>
+#include <NVector.h>
+#include <vector>
+#include <string>
+
+int vervose=0;
+int prompt=0;
+///////////////////////////////////////////////////////////////////////
+void print(FILE *outFile, double *data, char **variables, int numVariables) {
+	int i;
+	for(i = 1; i < numVariables; i++) {
+	 fprintf(outFile, "%s = %g\n", variables[i], data[i]);
+	}
+}
+
+///////////////////////////////////////////////////////////////////////
+void plot(FILE *outFile, double *data, char **variables, int numPoints, 
+	  int numVariables,const char* fname=__FILE__) {
+  int i, j, comma;
+  
+  if(vervose>1) {
+    fprintf(outFile, "#!gnuplot\n");
+    fprintf(outFile, "set data style line\n");
+    fprintf(outFile, "set grid\n");
+    
+    fprintf(outFile, "set xlabel \"Time (s)\"\n");
+    fprintf(outFile, "set term x11 0 font clean persist\n");
+    fprintf(outFile, "plot ");
+    
+    comma = 0;
+    for(i = 1; i < numVariables; i++) {
+      if(comma) {
+	fprintf(outFile, ",");
+      } else {
+	comma = 1;
+      }
+      fprintf(outFile, "'-' title \"%s\" lw 2\\\n", variables[i]);
+    }
+    fprintf(outFile, "\n");
+    
+    for(i = 1; i < numVariables; i++) {
+      for(j = 0; j < numPoints*numVariables; j += numVariables) {
+	fprintf(outFile, "%e\t%e\n", data[j], data[j + i]);
+      }
+      fprintf(outFile, "e\n");
+    }
+  }
+
+  ////////////////////////////////////////////////////////////
+  string xname,title;
+  vector<string> vname,iname;
+  DVector x,tmp;
+  DMatrix V,I;
+  xname="Time (s)";
+  for(j = 0; j < numPoints*numVariables; j += numVariables) x.push_back(data[j]);
+  for(i = 1; i < numVariables; i++) {
+    tmp.clear();
+    for(j = 0; j < numPoints*numVariables;j+=numVariables) tmp.push_back(data[j+i]);
+    if(strncmp(variables[i],"v(",2)==0) {
+      vname.push_back(variables[i]);
+      V.push_back(tmp);
+    }
+    else if(strncmp(variables[i],"i(",2)==0) {
+      iname.push_back(variables[i]);
+      I.push_back(tmp);
+    }
+  }
+  plot << fname << x << xname;
+  for(i=0;i<I.size();i++) plot << I[i] << iname[i];
+  plot << "A\n";
+
+  plot << fname << x << xname;
+  for(i=0;i<V.size();i++) plot << V[i] << vname[i];
+  plot << "V\n";
+
+
+  cintgraph_stop();
+}
+
+///////////////////////////////////////////////////////////////////////
+void ExitFailureIf(int stat) {
+  if(stat) {
+    printf("EISPICE failure\n");
+    G__pause();
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+void Error(const char* msg,ReadF& f) {
+  fprintf(stderr,"Error: %s '%s'\n",msg,f.argv[0]);
+}
+
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+class component {
+protected:
+  int stat;
+public:
+  component() { }
+  virtual ~component() { }
+};
+
+////////////////////////////////////////////////////////////////////////
+class nonlinear : public component {
+  string m_eq;
+  char   m_type;
+public:
+  nonlinear(ReadF& f,simulator_ *simulator) {
+    if(f.argc<4) Error("Not enough argument",f);
+    for(int i=4;i<=f.argc;i++) m_eq = f.argv[i];
+    string tmp = f.argv[1]; m_type = tmp[1];
+    stat=simulatorAddNonlinearSource(simulator,f.argv[1],f.argv[2],f.argv[3]
+				     ,m_type,m_eq.c_str());
+  }
+};
+
+double k = 1.36e-23;
+double T = 300;
+double q = 1.6e-19;
+double q_TK = q/k/T;
+class diode : public component {
+  double m_is;
+  double m_cjo;
+public:
+  diode(ReadF& f,simulator_ *simulator) {
+    if(f.argc<4) Error("Not enough argument",f);
+    m_is = atof(f.argv[4]);
+    m_cjo = atof(f.argv[5]);
+    char iv[100],cap[100], ivdesig[100], cdesig[100];
+    sprintf(ivdesig,"i_%s",f.argv[1]);
+    sprintf(cdesig,"c_%s",f.argv[1]);
+    sprintf(iv,"%g*(exp((v(%s)-v(%s))/39.2)-1)",m_is,f.argv[2],f.argv[3]);
+    stat=simulatorAddNonlinearSource(simulator,ivdesig,f.argv[2],f.argv[3]
+				     ,'i',iv);
+    //sprintf(cap,"%g*(v(%s)-v(%s)+5)",m_cjo,f.argv[2],f.argv[3]);
+    //stat=simulatorAddNonlinearSource(simulator,cdesig,f.argv[2],f.argv[3] ,'c',cap);
+  }
+};
+
+class resistor : public component {
+  double m_r;
+public:
+  resistor(ReadF& f,simulator_ *simulator) {
+    if(f.argc<4) Error("Not enough argument",f);
+    m_r = atof(f.argv[4]);
+    stat=simulatorAddResistor(simulator,f.argv[1],f.argv[2],f.argv[3],&m_r);
+  }
+};
+
+class capacitor : public component {
+  double m_c;
+public:
+  capacitor(ReadF& f,simulator_ *simulator) {
+    if(f.argc<4) Error("Not enough argument",f);
+    m_c = atof(f.argv[4]);
+    stat=simulatorAddCapacitor(simulator,f.argv[1],f.argv[2],f.argv[3],&m_c);
+  }
+};
+
+class inductor : public component {
+  double m_l;
+public:
+  inductor(ReadF& f,simulator_ *simulator) {
+    if(f.argc<4) Error("Not enough argument",f);
+    m_l = atof(f.argv[4]);
+    stat=simulatorAddInductor(simulator,f.argv[1],f.argv[2],f.argv[3],&m_l);
+  }
+};
+
+class transmissionline : public component {
+  double m_z0;
+  double m_zd;
+  double m_loss;
+public:
+  transmissionline(ReadF& f,simulator_ *simulator) {
+    if(f.argc<8) Error("Not enough argument",f);
+    m_z0 = atof(f.argv[6]);
+    m_zd = atof(f.argv[7]);
+    m_loss = atof(f.argv[8]);
+    stat=simulatorAddTLine(simulator,f.argv[1] // desig
+			   ,f.argv[2],f.argv[3] // t1+, t1-
+			   ,f.argv[4],f.argv[5] // t2+, t2-
+			   ,&m_z0,&m_zd,&m_loss);
+  }
+};
+
+////////////////////////////////////////////////////////////////////////
+EasyExp edc("dc");
+EasyExp eac("ac");
+EasyExp epwl("pwl");
+EasyExp epulse("pulse");
+EasyExp esin("sin");
+EasyExp egauss("gauss");
+EasyExp eexp("exp");
+
+class source : public component {
+  char   vitype; // 'v' 'i'
+  char   stimulustype; // 'p' pulse, 'g' gauss, 's' sin, 'l' pwl, 'c' pwc, 'f' fssm
+  vector<double> val;
+  vector<double*> pval;
+  double m_dc;
+  //double m_ac;
+public:
+  source(ReadF& f,simulator_ *simulator) {
+    m_dc = 0;
+    vitype = f.argv[1][0];
+    if(f.argc<8) Error("Not enough argument",f);
+    for(int i=4;i<f.argc;i++) {
+      if(edc.match(f.argv[i])) m_dc = atof(f.argv[++i]);
+      else if(epwl.match(f.argv[i])) {
+	stimulustype =  'l'; 
+	++i; readparam(f,i);
+      }
+      else if(epulse.match(f.argv[i],true)) {
+	stimulustype =  'p'; 
+	++i; readparam(f,i);
+      }
+      else if(egauss.match(f.argv[i],true)) {
+	stimulustype =  'g';
+	++i; readparam(f,i);
+      }
+      else if(esin.match(f.argv[i],true)) {
+	stimulustype =  's';
+	++i; readparam(f,i);
+      }
+      else if(eexp.match(f.argv[i],true)) {
+	stimulustype =  'e';
+	++i; readparam(f,i);
+      }
+    }
+    double *pulse[7];
+    for(i=0;i<7&&i<val.size();i++) pulse[i] = &val[i];
+    stat=simulatorAddSource(simulator,f.argv[1] // desig
+			    ,f.argv[2],f.argv[3] // t1+, t1-
+			    ,vitype,&m_dc,stimulustype,pulse);
+  }
+  void readparam(ReadF& f,int& i) {
+    while(i<=f.argc && strcmp(f.argv[i],")")!=0) {
+      if(strcmp(f.argv[i],"(")==0) ;
+      if(strcmp(f.argv[i],"")==0) ;
+      val.push_back(atof(f.argv[i]));
+      pval.push_back(&val.back());
+      ++i;
+    }
+    while(val.size()<7) {
+      val.push_back(0);
+      pval.push_back(&val.back());
+    }
+  }
+};
+
+////////////////////////////////////////////////////////////////////////
+#if 0
+class mosfet : public component {
+};
+
+class bjt : public component {
+};
+
+class subckt: public component {
+};
+#endif
+
+////////////////////////////////////////////////////////////////////////
+// Analysis
+////////////////////////////////////////////////////////////////////////
+class analysis {
+protected:
+  string  m_title;
+  int stat;
+  simulator_ *p_simulator;
+  double *m_data;
+  char **m_variables;
+  int    m_numPoints;
+  int    m_numVariables;
+  FILE*  m_outFile;
+public:
+  analysis(simulator_* simulator,const string& title) { 
+    m_title = title;
+    p_simulator=simulator; 
+    m_outFile=stdout; 
+  }
+  virtual ~analysis() { }
+  virtual int run() {}
+  virtual int graph() {}
+};
+
+////////////////////////////////////////////////////////////////////////
+class operatingPoint : public analysis {
+public:
+  operatingPoint(simulator_* simulator,const string& title) 
+    : analysis(simulator,title) { }
+  int run() {
+    stat=simulatorRunOperatingPoint(p_simulator
+				    ,&m_data,&m_variables,&m_numPoints,&m_numVariables);
+    return(stat);
+  }
+};
+
+////////////////////////////////////////////////////////////////////////
+class transient : public analysis {
+  double m_tstep;
+  double m_tstop;
+  double m_tstart; // xxx
+  double m_tmax;
+  int    m_restart;
+public:
+  transient(ReadF& f,simulator_ *simulator,const string& title) 
+    : analysis(simulator,title) {
+    m_restart = 0;
+    if(f.argc<3) Error("Not enough argument",f);
+    m_tstep = atof(f.argv[2]);
+    m_tstop = atof(f.argv[3]);
+    m_tstart = atof(f.argv[4]);
+    m_tmax = atof(f.argv[5]);
+  }
+  int run() {
+    stat=simulatorRunTransient(p_simulator,m_tstep,m_tstop,m_tmax,m_restart
+			       ,&m_data,&m_variables,&m_numPoints,&m_numVariables);
+    return(stat);
+  }
+  int graph() {
+    plot(m_outFile, m_data, m_variables, m_numPoints, m_numVariables, m_title.c_str());
+  }
+};
+
+////////////////////////////////////////////////////////////////////////
+// eispice main class
+////////////////////////////////////////////////////////////////////////
+class eispice {
+  string     m_title;
+  simulator_ *p_simulator;
+  string m_outFile;
+  string m_cktFile;
+  vector<component*> vp_component;
+  vector<analysis*>  vp_analysis;
+public:
+  eispice() {
+    p_simulator = NULL;
+    p_simulator = simulatorNew(p_simulator);
+    if(!p_simulator) {
+      printf("Error: eispice, failed creating simulator\n");
+    }
+  }
+  ~eispice() {
+    if(p_simulator) simulatorDestroy(&p_simulator);
+    unsigned int i;
+    for(i=0;i<vp_component.size();i++) delete vp_component[i];
+    for(i=0;i<vp_analysis.size();i++) delete vp_analysis[i];
+  }
+
+  int runAnalysis() {
+    if(!p_simulator) return(255);
+    for(unsigned int i=0;i<vp_analysis.size();i++) {
+      vp_analysis[i]->run();
+      vp_analysis[i]->graph();
+    }
+    return(0);
+  }
+
+  int readCkt(const string& ckt) {
+    if(!p_simulator) return(255);
+    m_cktFile = ckt;
+    ReadF f(m_cktFile.c_str());
+    f.setseparator(" \t");
+    f.setdelimiter("()");
+    f.setquotation("'\"");
+    f.read(); // title line
+    m_title = f.argv[0];
+    while(f.read()) {
+      if(f.argc>0) {
+	if(vervose>0) f.disp();
+	// comment
+	if(f.argv[1][0]=='*') ; // comment line
+	else if(f.argv[1][0]=='/') ; // comment line
+	// command
+	else if(strcmp(f.argv[1],".include")==0) {
+	  readCkt(f.argv[2]);
+	}
+	else if(strcmp(f.argv[1],".end")==0) {
+	  runAnalysis();
+	}
+	else if(strcmp(f.argv[1],".subckt")==0) {
+	}
+	else if(strcmp(f.argv[1],".ends")==0) {
+	}
+
+	// analysis
+	else if(strcmp(f.argv[1],".tran")==0) {
+	  vp_analysis.push_back(new transient(f,p_simulator,m_title));
+	}
+
+	// component
+	else if(tolower(f.argv[1][0])=='n') {
+	  vp_component.push_back(new nonlinear(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='d') {
+	  vp_component.push_back(new diode(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='r') {
+	  vp_component.push_back(new resistor(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='c') {
+	  vp_component.push_back(new capacitor(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='l') {
+	  vp_component.push_back(new inductor(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='t') {
+	  vp_component.push_back(new transmissionline(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='d') {
+	  vp_component.push_back(new diode(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='m') {
+	  vp_component.push_back(new mosfet(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='b') {
+	  vp_component.push_back(new bjt(f,p_simulator));
+	}
+	// source
+	else if(tolower(f.argv[1][0])=='v') {
+	  vp_component.push_back(new source(f,p_simulator));
+	}
+	else if(tolower(f.argv[1][0])=='i') {
+	  vp_component.push_back(new source(f,p_simulator));
+	}
+	// sub circuit
+	else if(tolower(f.argv[1][0])=='x') {
+	  p_component.push_back(new subckt(f,p_simulator));
+	}
+      }
+    }
+    return(0);
+  }
+};
+
+
+////////////////////////////////////////////////////////////////////////
+int main(int argc,char** argv) {
+  eispice spice;
+  for(int i=1;i<argc;i++) {
+    if(argv[i]=='-') {
+      if(strcmp(argv[i],"-p")==0) prompt=1;
+      else if(strcmp(argv[i],"-v")==0) vervose++;
+      else {
+	printf("Usage: cint _eispice.cxx <option> [spice].ckt\n");
+	printf("      -p     : interactive prompt\n");
+	printf("      -v     : vervose mode\n");
+      }
+    }
+    else {
+      spice.readCkt(argv[i]);
+    }
+  }
+  //spice.runAnalysis();
+
+  if(prompt) while(!G__pause());
+  return(0);
+}
+
+
+////////////////////////////////////////////////////////////////////////
+

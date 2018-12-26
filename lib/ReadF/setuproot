@@ -1,0 +1,8 @@
+cp $CINTSYSDIR/include/ReadF.cxx ReadF.cxx
+cp $CINTSYSDIR/include/ReadF.h ReadF.h
+cp $CINTSYSDIR/include/MultiByteChar.h MultiByteChar.h
+
+make -f makeroot.linux clean 
+rm *.o 
+make -f makeroot.linux
+#mv ReadF.dll $ROOTSYS/cint/include/ReadF.dll 

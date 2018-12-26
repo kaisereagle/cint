@@ -1,0 +1,85 @@
+##############################################################
+# $CINTSYSDIR/Makefile.base.sgi
+#
+# Author                 Masaharu Goto
+# Copyright(c) 1995~1999 Masaharu Goto (cint@pcroot.cern.ch)
+#
+# Description:
+#   This file is a base of cint makefile. There are examples
+#  of platform dependent setup information under platform
+#  directory. Do following to create a complete Makefile,
+#
+#  $ cat platform/[YourPlatform] Makefile.base > Makefile
+#
+##############################################################
+CINT_V6     = bc_autoobj.o bc_cfunc.o bc_inst.o bc_parse.o bc_reader.o bc_type.o bc_exec.o bc_vtbl.o bc_eh.o bc_debug.o bc_assign.o
+
+CINTSYSDIR  = .
+
+MACRO       = $(SYSMACRO) $(OTHMACRO)
+
+##############################################################
+# Generate ios enum value specific to the platform
+##############################################################
+include/iosenum.h : cint include/stdio.h makecint include/iosenum.cxx
+	(cd include;rm stdfunc.dll;../cint -I. iosenum.cxx)
+	echo > done
+
+##############################################################
+# Compile makecint executable
+##############################################################
+makecint : tool/makecint.c
+	$(CC) $(MACRO) $(OPTIMIZE) -o makecint tool/makecint.c
+
+##############################################################
+# Generate standard header files
+##############################################################
+include/stdio.h : include/mkincld.c
+	$(CC) -I.. $(MACRO) -o include/mkincld include/mkincld.c
+	(cd include;./mkincld)
+
+##############################################################
+# Link cint executable
+##############################################################
+cint : $(CINTLIB) main/G__setup.o $(MAINO) $(READLINEA) 
+	$(LD) $(OPTIMIZE) -o cint $(MAINO) $(CINTLIB) main/G__setup.o $(READLINEA) $(LDOPT)
+
+##############################################################
+# Compile precompiled library setup function which is blank
+##############################################################
+main/G__setup.o : main/G__setup.c G__ci.h
+	$(CC) $(CLINK) $(CPPLINK) $(MACRO) $(OPTIMIZE) -o G__setup.o -c main/G__setup.c
+	mv G__setup.o main/G__setup.o
+
+##############################################################
+# Compile GNU readline library. This is done only when 
+# READLINEA is set to readline/libreadline.a in platform 
+# dependency file
+##############################################################
+$(CINTSYSDIR)/readline/libreadline.a : readline/*.c readline/*.h
+	(cd readline ; make)
+
+##############################################################
+# Compile cint interpreter core library
+##############################################################
+$(CINTLIB) : G__ci.h src/*.c src/*.cxx *.h src/*.h $(READLINEA)
+	(cd src ; make)
+
+##############################################################
+# Compile cint main function. 
+##############################################################
+$(CINTSYSDIR)/main/G__cppmain.o : main/cppmain.cxx
+	$(CPP) $(OPTIMIZE) $(SYSIPATH) -o $(CINTSYSDIR)/main/G__cppmain.o -c main/cppmain.cxx
+
+$(CINTSYSDIR)/main/G__main.o : main/G__main.c
+	$(CC) $(OPTIMIZE) -o $(CINTSYSDIR)/main/G__main.o -c main/G__main.c
+
+##############################################################
+# Cleanup
+##############################################################
+clean :
+	$(RM) main/*.o cint done core include/mkincld include/stdio.h makecint include/iosenum.h ; (cd src; make clean) ; (cd readline; make clean)
+
+cleanbin :
+	$(RM) src/*.o src/*.a
+

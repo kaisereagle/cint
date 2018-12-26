@@ -1,0 +1,4 @@
+// exception
+namespace std {
+#include <_exception>
+}

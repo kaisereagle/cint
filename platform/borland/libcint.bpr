@@ -1,0 +1,220 @@
+# ---------------------------------------------------------------------------
+!if !$d(BCB)
+BCB = $(MAKEDIR)\..
+!endif
+
+# ---------------------------------------------------------------------------
+# IDE セクション
+# ---------------------------------------------------------------------------
+# プロジェクトメイクファイルの以下のセクションは、IDE によって管理されます。
+# このセクションを変更する場合は、できるだけ IDE を使用するようにして
+# ください。
+# ---------------------------------------------------------------------------
+
+VERSION = BCB.03
+# ---------------------------------------------------------------------------
+PROJECT = libcint.dll
+OBJFILES = libcint.obj ..\..\main\G__setup.obj ..\..\src\debug.obj ..\..\src\Apiif.obj \
+  ..\..\src\auxu.obj ..\..\src\BaseCls.obj ..\..\src\CallFunc.obj \
+  ..\..\src\cast.obj ..\..\src\Class.obj ..\..\src\DataMbr.obj ..\..\src\Api.obj \
+  ..\..\src\input.obj ..\..\src\disp.obj ..\..\src\dump.obj ..\..\src\end.obj \
+  ..\..\src\error.obj ..\..\src\expr.obj ..\..\src\cbstrm.obj \
+  ..\..\src\fread.obj ..\..\src\func.obj ..\..\src\g__cfunc.obj \
+  ..\..\src\gcoll.obj ..\..\src\global1.obj ..\..\src\global2.obj \
+  ..\..\src\ifunc.obj ..\..\src\inherit.obj ..\..\src\init.obj ..\..\src\decl.obj \
+  ..\..\src\winnt.obj ..\..\src\loadfile.obj ..\..\src\macro.obj \
+  ..\..\src\malloc.obj ..\..\src\Method.obj ..\..\src\MethodAr.obj \
+  ..\..\src\new.obj ..\..\src\newlink.obj ..\..\src\oldlink.obj ..\..\src\opr.obj \
+  ..\..\src\parse.obj ..\..\src\pause.obj ..\..\src\pcode.obj \
+  ..\..\src\pragma.obj ..\..\src\quote.obj ..\..\src\scrupto.obj ..\..\src\shl.obj \
+  ..\..\src\sizeof.obj ..\..\src\stdstrct.obj ..\..\src\struct.obj \
+  ..\..\src\stub.obj ..\..\src\tmplt.obj ..\..\src\Token.obj ..\..\src\Type.obj \
+  ..\..\src\typedef.obj ..\..\src\Typedf.obj ..\..\src\val2a.obj \
+  ..\..\src\value.obj ..\..\src\var.obj ..\..\src\intrpt.obj
+RESFILES =
+DEFFILE =
+RESDEPEN = $(RESFILES)
+LIBFILES =
+LIBRARIES =
+SPARELIBS = VCL35.lib
+PACKAGES = VCLX35.bpi VCL35.bpi VCLDB35.bpi VCLDBX35.bpi bcbsmp35.bpi dclocx35.bpi \
+  QRPT35.bpi
+# ---------------------------------------------------------------------------
+PATHCPP = .;..\..\main;..\..\src
+PATHASM = .;
+PATHPAS = .;
+PATHRC = .;
+DEBUGLIBPATH = $(BCB)\lib\debug
+RELEASELIBPATH = $(BCB)\lib\release
+# ---------------------------------------------------------------------------
+CFLAG1 = -WD -O2 -w- -Ve -k- -vi -c -b- -w-par -w-inl -Vx
+CFLAG2 = -D_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;G__DLL_SYM_UNDERSCORE;G__TMPFILE;USEPACKAGES \
+  -I..\..\src;..\..\main;..\..\lib\cbstream;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\lib\stdstrct
+CFLAG3 = -Tkh30000
+PFLAGS = -D_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;G__DLL_SYM_UNDERSCORE;G__TMPFILE;USEPACKAGES \
+  -U..\..\src;..\..\main;$(BCB)\lib\obj;$(BCB)\lib;$(RELEASELIBPATH) \
+  -I..\..\src;..\..\main;..\..\lib\cbstream;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\lib\stdstrct \
+  -$L- -$D- -v -JPHN -M
+RFLAGS = -D_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;G__DLL_SYM_UNDERSCORE;G__TMPFILE;USEPACKAGES \
+  -i..\..\src;..\..\main;..\..\lib\cbstream;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\lib\stdstrct
+AFLAGS = /i..\..\src /i..\..\main /i..\..\lib\cbstream /i$(BCB)\include \
+  /i$(BCB)\include\vcl /i..\.. /i..\..\lib\stdstrct /d_RTLDLL /dG__WIN32 \
+  /dG__ANSI /dG__SHAREDLIB /dG__P2FCAST /dG__DLL_SYM_UNDERSCORE /dG__TMPFILE \
+  /dUSEPACKAGES /mx /w2 /zd
+LFLAGS = -L..\..\src;..\..\main;$(BCB)\lib\obj;$(BCB)\lib;$(RELEASELIBPATH) -aa -Tpd -x \
+  -Gn -Gi
+IFLAGS =
+# ---------------------------------------------------------------------------
+ALLOBJ = c0d32.obj $(PACKAGES) sysinit.obj $(OBJFILES)
+ALLRES = $(RESFILES)
+ALLLIB = $(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib
+# ---------------------------------------------------------------------------
+!ifdef IDEOPTIONS
+
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1041
+CodePage=932
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=4
+Item0=..\..\src;..\..\main;..\..\lib\cbstream;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\lib\stdstrct
+Item1=..\..\src;..\..\main;$(BCB)\include;$(BCB)\include\vcl;..\..;..\..\lib\stdstrct
+Item2=..\..\..\..\cint\src;..\..\..\..\cint\main;$(BCB)\include;$(BCB)\include\vcl;c:\cint;c:\cint\lib\stdstrct
+Item3=..\..\..\..\cint\src;..\..\..\..\cint\main;$(BCB)\include;$(BCB)\include\vcl;c:\cint
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=..\..\src;..\..\main;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\..\..\..\cint\src;..\..\..\..\cint\main;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=9
+Item0=_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;G__DLL_SYM_UNDERSCORE;G__TMPFILE;USEPACKAGES
+Item1=_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;G__DLL_SYM_UNDERSCORE;USEPACKAGES
+Item2=_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;USEPACKAGES
+Item3=_RTLDLL;G__WIN32;G__ANSI;G__SHAREDLIB;G__P2FCAST;USEPACKAGES;_NO_VCL
+Item4=_RTLDLL;G__WIN32;USEPACKAGES;G__ANSI;G__SHAREDLIB;G__P2FCAST
+Item5=_RTLDLL;G__WIN32;USEPACKAGES
+Item6=_RTLDLL;G__WIN32;USEPACKAGES;G__CINTBODY
+Item7=_RTLDLL;USEPACKAGES;G__WIN32
+Item8=_RTLDLL;USEPACKAGES
+
+[HistoryLists\hlHostApplication]
+Count=3
+Item0=C:\cint\platform\borland\cint.exe
+Item1=C:\cint\cint.exe
+Item2=\cint\cint.exe
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=C:\cint\platform\borland\cint.exe
+
+!endif
+
+# ---------------------------------------------------------------------------
+# MAKE セクション
+# ---------------------------------------------------------------------------
+# IDE はプロジェクトファイルのこのセクションは使用していません。
+# コマンドラインの MAKE ユーティリティを使用してビルドするためのものです。
+# ---------------------------------------------------------------------------
+
+.autodepend
+# ---------------------------------------------------------------------------
+!if !$d(BCC32)
+BCC32 = bcc32
+!endif
+
+!if !$d(DCC32)
+DCC32 = dcc32
+!endif
+
+!if !$d(TASM32)
+TASM32 = tasm32
+!endif
+
+!if !$d(LINKER)
+LINKER = ilink32
+!endif
+
+!if !$d(BRCC32)
+BRCC32 = brcc32
+!endif
+# ---------------------------------------------------------------------------
+!if $d(PATHCPP)
+.PATH.CPP = $(PATHCPP)
+.PATH.C   = $(PATHCPP)
+!endif
+
+!if $d(PATHPAS)
+.PATH.PAS = $(PATHPAS)
+!endif
+
+!if $d(PATHASM)
+.PATH.ASM = $(PATHASM)
+!endif
+
+!if $d(PATHRC)
+.PATH.RC  = $(PATHRC)
+!endif
+# ---------------------------------------------------------------------------
+$(PROJECT): $(OBJFILES) $(RESDEPEN) $(DEFFILE)
+    $(BCB)\BIN\$(LINKER) @&&!
+    $(LFLAGS) +
+    $(ALLOBJ), +
+    $(PROJECT),, +
+    $(ALLLIB), +
+    $(DEFFILE), +
+    $(ALLRES)
+!
+# ---------------------------------------------------------------------------
+.pas.hpp:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.pas.obj:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.cpp.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.cxx.obj:
+    $(BCB)\BIN\$(BCC32) -P $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.c.obj:
+    $(BCB)\BIN\$(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.asm.obj:
+    $(BCB)\BIN\$(TASM32) $(AFLAGS) $<, $@
+
+.rc.res:
+    $(BCB)\BIN\$(BRCC32) $(RFLAGS) -fo$@ $<
+# ---------------------------------------------------------------------------

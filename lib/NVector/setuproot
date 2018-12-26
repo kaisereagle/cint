@@ -1,0 +1,5 @@
+make -f makeroot.linux clean 
+rm *.o 
+make -f makeroot.linux
+cp libNVector.dll ../../include/NVector.dll
+

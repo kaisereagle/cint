@@ -1,0 +1,342 @@
+#!/bin/sh
+#############################################################################
+# cint (C/C++ interpreter)
+#############################################################################
+# Shell script , setup
+#############################################################################
+# Description:
+#  cint installation script
+#############################################################################
+#
+# Author                  Masaharu Goto 
+# Copyright(c) 1995~2004  Masaharu Goto (cint@pcroot.cern.ch)
+#
+#  Refer to README file for conditions of using, copying and distributing
+# CINT.
+#
+#############################################################################
+
+#############################################################################
+# Send message to the author.
+# It is OK to remove following, but acknowledgement of installation will be 
+# appreciated. The author promise that the information won't be abused.
+#############################################################################
+
+echo '#######################################################################'
+echo '# setup'
+echo '# C/C++ interpreter installation'
+echo '# Copyright(c) : 1995~2004 Masaharu Goto (cint@pcroot.cern.ch)'
+echo '#######################################################################'
+
+#############################################################################
+# Set shell variables
+#############################################################################
+LANG=C
+os=`uname -s`        # HP-UX,Linux,sunOS,FreeBSD,etc
+rev=`uname -r`       # 7.x,B.08.00,A.09.01,4.1.2,1.1.0,etc
+machine=`uname -m`   # 9000/7xx,9000/8xx,9000/3xx,9000/4xx,i386,i486,etc
+
+PATH=`pwd`:$PATH
+export PATH
+LD_LIBRARY_PATH=.:`pwd`:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+
+#############################################################################
+# Clean old environment if exists
+#############################################################################
+if test -f ./Makefile
+then
+	make clean
+fi
+
+#############################################################################
+# Choose platform information file from platform directory.
+#############################################################################
+echo '# Get platform information file #######################################'
+
+MAKEBASE='Makefile.base'
+
+
+case $# in
+0)
+  case $os in
+  HP-UX)
+    CC -o main/G__cppmain.o -c main/cppmain.cxx
+    if test -r main/G__cppmain.o
+    then
+      platformheader=platform/hpux8
+    else
+      platformheader=platform/hpux8_only_C
+    fi ;;
+  Linux)
+    case $rev in
+    0.*|1.1.*)   platformheader=platform/linux1.1 ;;
+    1.2.*|1.3.*) platformheader=platform/linux1.2 ;;
+    2.0.30)      platformheader=platform/linux_RH4.2 ;;
+    2.0.34)      platformheader=platform/linux_RH5.1 ;;
+    2.2.14*)     platformheader=platform/linux_RH6.2 ;;
+    2.4.18*)     platformheader=platform/linux_RH7.3 ;;
+    2.6.*_64)    platformheader=platform/linux_RH_64_so ;;
+    2.*)         platformheader=platform/linux2.0 ;;
+    *)           platformheader=platform/linux2.0 ;;
+    esac ;;
+  SunOS)
+    case $rev in
+    4.1.*)     platformheader=platform/sunos4_only_C ;;
+    esac ;;
+  UNIX_SV)
+    # NEC EWS4800
+    platformheader=platform/nec_ux_gcc
+    MAKEBASE='Makefile.base.nec'
+    ;;
+  CYGWIN*)
+    platformheader=platform/cygwin51_gcc3_so
+    ;;
+  esac
+  staticheader=''
+  ;;
+1)
+  platformheader=$1
+  staticheader=''
+  ;;
+*) 
+  platformheader=$1
+  staticheader=$1
+  ;;
+esac
+
+case $os in
+CYGWIN*)
+  cp platform/cygwin51/libcint.def src/libcint.def
+  ;;
+esac
+
+# libcint.so version
+#case $platformheader in
+#*_so|*_so_*) MAKEBASE='Makefile.base.so' ;;
+#esac
+
+if test -n "$platformheader"
+then
+    echo
+    echo
+    echo $platformheader 'will be used as MAKEINFO'
+    echo $MAKEBASE 'will be used as Base of Makefile'
+    echo
+    echo
+    echo 'Continue after 5 sec'
+    sleep 5
+else
+    platformheader=platform/gcc_min
+    echo
+    echo '################################################################'
+    echo '# PLATFORM DEPENDENCY FILE IS NOT GIVEN TO SETUP SCRIPT OR DOES'
+    echo '# NOT EXIST.'
+    echo '#'
+    echo '# ' $platformheader 'is temprarily copied as MAKEINFO. This is'
+    echo '# the minimum configuration using gcc/g++. Please look at platform'
+    echo '# directory and find appropriate platform/[YourMachine] and try'
+    echo '#'
+    echo '#   $ sh setup platform/[YourMachine]'
+    echo '#'
+    echo '# Refer to platform/README file for the detail.'
+    echo '# This script will continue with '$platformheader' after 30 sec'
+    echo '# but not guaranteed to be successful.'
+    echo '################################################################'
+    echo
+    sleep 30
+fi
+
+CINTSYSDIR=`pwd`
+export CINTSYSDIR
+
+##############################################################################
+# Platform dependent special handling
+##############################################################################
+case $platformheader in
+platform/hpux*_acc*) 
+  # It is very annoying but HP-aCC does not like ../include
+  echo '# HP-aCC workaround, moving include directory to Include'
+  mv include Include
+  ;;
+esac
+
+##############################################################################
+# Copy platform information and create makefiles
+##############################################################################
+echo '# Copying Makefiles ###################################################'
+
+cp  $platformheader MAKEINFO
+echo '##########################################################' >> MAKEINFO
+echo '# Control default behavior of cint command line input' >> MAKEINFO
+echo '##########################################################' >> MAKEINFO
+echo '#INPUTMODE = C++' >> MAKEINFO
+echo '#INPUTMODE = root' >> MAKEINFO
+echo 'INPUTMODE = cint' >> MAKEINFO
+echo '#INPUTMODELOCK = on' >> MAKEINFO
+echo 'INPUTMODELOCK = off' >> MAKEINFO
+
+echo 'CINTSYSDIR = ' $CINTSYSDIR > src/Makefile
+cat MAKEINFO src/$MAKEBASE >> src/Makefile
+# cat MAKEINFO api/$MAKEBASE > api/Makefile
+cat MAKEINFO readline/$MAKEBASE > readline/Makefile
+
+echo '#' > Makefile
+echo '# CAUTION: This Makefile is generated for specific computer' >> Makefile
+echo '#         platform and user environment. This one may not fit your' >> Makefile
+echo '#         environment. Execute setup script to generate correct' >> Makefile
+echo '#         makefile.' >> Makefile
+echo '#' >> Makefile
+echo 'CINTSYSDIR = ' $CINTSYSDIR >> Makefile
+case $platformheader in
+platform/aix*) 
+        cat MAKEINFO platform/aixMakefileBaseAdd $MAKEBASE platform/aixMakefileBaseAdd >> Makefile ;;
+*) 
+	cat MAKEINFO $MAKEBASE >> Makefile ;;
+esac
+
+##############################################################################
+# Do make
+##############################################################################
+
+echo '# make clean ###########################################################'
+make clean
+
+echo '# make #################################################################'
+make 
+
+##############################################################################
+# Platform dependent special handling
+##############################################################################
+case $platformheader in
+platform/hpux*_acc*) 
+  # It is very annoying but HP-aCC does not like ../include
+  mv Include include
+  echo '### HP-aCC workaround, moving back Include directory to include'
+  echo '### Do make again ###################################################'
+  make 
+  ;;
+esac
+
+#################################################################
+# Build optional software component
+# Following build may fail.
+#################################################################
+echo '# Building optional component. Not guaranteed #########################'
+echo '# Failing following build is not fatal for cint #######################'
+cd $CINTSYSDIR/lib/posix;sh setup
+cd $CINTSYSDIR/lib/longlong;sh setup
+cd $CINTSYSDIR/lib/stdstrct;sh setup
+case $platformheader in
+#platform/hpux*_acc*)    cd $CINTSYSDIR/lib/dll_stl;sh setuphp ;;
+#platform/solaris*_cc5*) cd $CINTSYSDIR/lib/dll_stl;sh setuphp ;;
+*)                      cd $CINTSYSDIR/lib/dll_stl;sh setup   ;;
+esac
+cd $CINTSYSDIR/lib/socket;sh setup
+cd $CINTSYSDIR/lib/ipc;sh setup
+cd $CINTSYSDIR/lib/pthread;sh setup
+cd $CINTSYSDIR/lib/xlib;sh setup
+cd $CINTSYSDIR/lib/gl;sh setup
+cd $CINTSYSDIR/lib/EasyExp;sh setup
+cd $CINTSYSDIR/lib/ReadF;sh setup
+cd $CINTSYSDIR/lib/NVector;sh setup
+cd $CINTSYSDIR/lib/CSV;sh setup
+cd $CINTSYSDIR/lib/Kmeans_EM_VB_FCM;sh setup
+cd $CINTSYSDIR/tool/ifdef;sh setup
+cd $CINTSYSDIR/include; cint iosenum.cxx
+if test -f iosenum.h
+then
+  echo 'iosenum.h created'
+else
+  echo > iosenum.h
+fi
+
+echo '# Failing above build is not fatal for cint ###########################'
+cd $CINTSYSDIR
+
+
+#################################################################
+# CAUTION: THIS BLOCK IS NOT USED NOW.
+# Re-compile cint core as static library if platform header is
+# *_mtso or staticheader is defined
+#################################################################
+case $platformheader in
+*_mtso)
+  staticheader=$platformheader'_core'
+  ;;
+esac
+
+if test -n "$staticheader" && test -r "$staticheader"
+then
+  echo '######################################################################'
+  echo '!!!Re-compile static version of Cint using '$staticheader
+  echo 'CINTSYSDIR = ' $CINTSYSDIR > src/Makefile
+  cat $staticheader src/$MAKEBASE >> src/Makefile
+  # cat $staticheader api/$MAKEBASE > api/Makefile
+  cat $staticheader readline/$MAKEBASE > readline/Makefile
+  
+  echo 'CINTSYSDIR = ' $CINTSYSDIR > Makefile
+  case $platformheader in
+  platform/aix*) 
+        cat $staticheader platform/aixMakefileBaseAdd $MAKEBASE platform/aixMakefileBaseAdd >> Makefile ;;
+  *) 
+	cat $staticheader $MAKEBASE >> Makefile ;;
+  esac
+
+  make clean
+  make 
+fi
+
+
+#################################################################
+# setup GNU readline library .inputrc file
+#################################################################
+if test -f $HOME/.inputrc
+then
+	echo $HOME'/.inputrc already exists'
+else
+	#echo 'Default ' $HOME'/.inputrc generated'
+	#echo 'set editing-mode vi' > $HOME/.inputrc
+	echo 'Create '$HOME'/.inputrc if you wish to use vi-mode with following content.'
+	echo '    set editing-mode vi' 
+fi
+
+##############################################################################
+# Removing temporary files
+##############################################################################
+rm include/IncClustering4.dll
+cint _remove.cxx "**/\#*"
+cint _remove.cxx "**/*.o"
+
+##############################################################################
+# Display message
+##############################################################################
+echo '#######################################################################'
+if test -x cint
+then
+	echo
+	echo Now cint is ready for use. 
+	echo Run uninstall script if you wish to uninstall.
+	echo Set following environment variables.
+	echo
+	echo '	$ CINTSYSDIR='`pwd`
+	echo '	$ PATH=$PATH:$CINTSYSDIR'
+	echo '	$ MANPATH=$MANPATH:$CINTSYSDIR/doc'
+	echo '	$ export PATH CINTSYSDIR MANPATH'
+	echo
+	echo 'You may need to set following variable too'
+	echo '  $ LD_LIBRARY_PATH=.:$CINTSYSDIR:$LD_LIBRARY_PATH'
+	echo '  $ LD_ELF_LIBRARY_PATH=$LD_LIBRARY_PATH'
+	echo '  $ export LD_LIBRARY_PATH LD_ELF_LIBRARY_PATH'
+	echo
+	echo 'Then you can use following commands'
+	echo
+	echo '  $ cint <options> [sourcecode].C'
+	echo '  $ makecint -mk [mkfile] -o [obj] -H [hdr].h -C++ [src].C'
+else
+	echo
+	echo 'Cint installation failed. Contact cint@pcroot.cern.ch' 
+	echo
+fi
+echo '#######################################################################'
+

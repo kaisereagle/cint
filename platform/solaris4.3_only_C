@@ -1,0 +1,47 @@
+############################################################
+# platform/solaris4.3_only_C
+#  Platform dependent information for SOLARIS without C++ compiler
+############################################################
+
+# Tools
+RM	    = /bin/rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = cq
+KRCC        = /opt/SUNWspro/bin/cc
+CC          = /opt/SUNWspro/bin/cc
+CPP         = 
+LD          = /opt/SUNWspro/bin/cc
+CPREP       = /opt/SUNWspro/bin/cc -E -C
+CPPPREP     = 
+
+# Compiler and linker option
+CCDLLOPT    = -KPIC
+LDDLLOPT    = -G
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -ldl -L/usr/ccs/lib -lgen
+SYSMACRO    = -DG__REGEXP1 -DG__UNIX -DG__SHAREDLIB -DG__OSFDLL
+OTHMACRO    = -DG__REDIRECTIO
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__main.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = 
+APIO	    = dmyinit.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = dmystrm.o dmystrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+
+
+

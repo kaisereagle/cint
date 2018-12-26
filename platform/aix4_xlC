@@ -1,0 +1,56 @@
+############################################################
+# platform/aix4_xlC with Jens-Uwe Mager's dlfcn.o
+# Platform dependent information for IBM AIX 4.1 with C++ compiler
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = xlC
+CC          = xlC
+CPP         = xlC -+
+LD          = xlC
+CPREP       = xlC -E
+CPPPREP     = xlC -+ -E
+
+# Compiler and linker option
+CCDLLOPT    = 
+LDDLLOPT    = 
+LDDLL       = /usr/lpp/xlC/bin/makeC++SharedLib -p 0 -bI:`which cint`.exp
+NMOPT       = 
+NM          = /usr/lpp/xlC/bin/makeC++SharedLib $(LDOPT) -p 0 -e $(OBJECT).nm
+#DEBUG       = -g
+DEBUG       = -O -qmaxmem=-1
+OPTIMIZE    = -qchars=signed -qnoro -qnoroconst $(DEBUG) -I$(CINTSYSDIR)/platform/aixdlfcn $(CCDLLOPT)
+LDOPT       = -lm -lPW -lld -lcurses
+DLFCN       = $(CINTSYSDIR)/platform/aixdlfcn/dlfcn.o
+SYSMACRO    = -DG__REGEXP 
+OTHMACRO    = -D_POSIX2_SOURCE -DG__SHAREDLIB -DG__OSFDLL -DG__P2FCAST -DG__REDIRECTIO
+SYSIPATH    =
+TYPES       = -DVOID_SIGHANDLER
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+# CINTSYSDIR used in case when subdirectory/Makefile.base does not define it
+CINTSYSDIR  = ..
+
+
+
+

@@ -1,0 +1,11 @@
+82569
+C:\CINT\PLATFORM\SYMANTEC\TOOL\MAKECINT.PRJ
+makecint.OPN
+novcs
+makecint.DEF
+4
+842777572
+0 0 0 0 0 "makecint.c"
+0 -1 0 0 0 "..\..\..\..\SC\INCLUDE\stdio.h"
+0 -1 0 0 0 "..\..\..\..\SC\INCLUDE\stdlib.h"
+0 -1 0 0 0 "..\..\..\..\SC\INCLUDE\string.h"

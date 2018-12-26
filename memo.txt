@@ -1,0 +1,10 @@
+
+
+
+# compiled class object as interpreted class member
+ - memory allocation in constructor/destructor is not properly handled. 
+   G__glovalvarpointer has to be set to address of the object in order to
+   avoid memory allocation by new/delete.
+ - This was once properly implemented, but now broken with version 6 
+   implementation.
+

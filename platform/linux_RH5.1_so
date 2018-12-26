@@ -1,0 +1,55 @@
+############################################################
+# platform/linux_RH5.1_so
+#  Platform dependent information for LINUX 2.0 RedHat5.1 or later
+#  Build libcint.so instead of G__ci.a
+#  Based on Gunay ARSLEN's contribution
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = gcc -traditional
+CC          = gcc -fexceptions -Wall
+CPP         = g++ -Wall -fguiding-decls
+LD          = g++
+CPREP       = gcc -E -C
+CPPPREP     = g++ -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -fPIC
+LDDLLOPT    = -shared
+OPTIMIZE    = -O  
+LDOPT       = -lm -ldl -lncurses
+SHLIB_OPT   = -Wl,-hlibcint.so
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL -DG__ANSI
+OTHMACRO    = -DG__P2FCAST -DG__REDIRECTIO -DG__DETECT_NEWDEL -DG__POSIX $(CCDLLOPT)
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/libcint.so
+READLINEA   = /usr/lib/libreadline.so
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    = $(CINTSYSDIR)/main/G__setup.o
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+
+
+
+
+
+
+
+

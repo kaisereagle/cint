@@ -1,0 +1,21 @@
+
+  // K-mean, EM 分類改善案
+  // 1 Mode (最頻値) 抽出による K と mean[k] 初期値算出
+  //   1-1 1次元 histogram による次元毎の極大点抽出
+  //   1-2 次元毎の極大点近傍に限定した M 次元 histogramによる M次元mode抽出
+  //    これが言うは易し行うは難し
+  // 2 Mode固定 K-means E step
+  //   2-1 M step の代わりとし mean[k]=mode[k] 設定
+  //   2-2 E step : ユークリッド距離を元に分類を一度だけ行う
+  // 3 Mode固定 EM
+  //   3-1 E step の代わりとして負担率を 2-2 の分類に従ってdata毎に 1,0 割振り
+  //   3-2 M step : mean を計算せず covar (sigma) と 負担率,混合係数を計算する
+  //   3-3 E step : mean, covar, 混合係数を用いて各dataの負担率を計算する
+  //   3-4 M step : mean を計算せず covar (sigma) と 負担率,混合係数を計算する
+  //    ここまでで mean=mode固定 EM法完了
+  //    以後は mean固定を外して EM法
+
+  DHistogram1D h[m_M];
+    h[m].Fill(m_x[n][m])    << 配列添え字順番指定がややこしい。名前で指定できると良い?
+
+

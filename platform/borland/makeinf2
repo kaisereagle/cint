@@ -1,0 +1,168 @@
+########################################################################
+# platform/borland/MAKEINF2 -> MAKEINF2
+# BEGIN: Truncated Borland makefile for makecint makefile synthesis 
+########################################################################
+
+# ---------------------------------------------------------------------------
+PFLAGS = -D_RTLDLL;G__BORLAND;USEPACKAGES -U$(BCB)\lib\obj;$(BCB)\lib;$(RELEASELIBPATH) \
+  -I$(BCB)\include;$(BCB)\include\vcl;\cint -$L- -$D- -v -JPHN -M
+RFLAGS = -D_RTLDLL;G__BORLAND;USEPACKAGES -i$(BCB)\include;$(BCB)\include\vcl;\cint
+AFLAGS = /i$(BCB)\include /i$(BCB)\include\vcl /i\cint /d_RTLDLL /dG__BORLAND \
+  /dUSEPACKAGES /mx /w2 /zd
+# ---------------------------------------------------------------------------
+
+RESFILES =
+DEFFILE =
+RESDEPEN = $(RESFILES)
+LIBRARIES =
+SPARELIBS = VCL35.lib
+PACKAGES = VCLX35.bpi VCL35.bpi VCLDB35.bpi VCLDBX35.bpi bcbsmp35.bpi dclocx35.bpi \
+  QRPT35.bpi
+# ---------------------------------------------------------------------------
+PATHCPP = .;
+PATHASM = .;
+PATHPAS = .;
+PATHRC = .;
+DEBUGLIBPATH = $(BCB)\lib\debug
+RELEASELIBPATH = $(BCB)\lib\release
+# ---------------------------------------------------------------------------
+CFLAG1 = -WD -O2 -Hc -w- -Ve -k- -vi -c -b- -w-par -w-inl -Vx
+CFLAG3 = -Tkh30000
+LFLAGS = -L$(BCB)\lib\obj;$(BCB)\lib;$(RELEASELIBPATH) -aa -Tpd -x -Gn -Gi
+IFLAGS =
+# ---------------------------------------------------------------------------
+ALLOBJ = c0d32.obj $(PACKAGES) sysinit.obj $(OBJFILES)
+ALLRES = $(RESFILES)
+ALLLIB = $(LIBFILES) $(LIBRARIES) import32.lib cp32mti.lib
+# ---------------------------------------------------------------------------
+!ifdef IDEOPTIONS
+
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1041
+CodePage=932
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=$(BCB)\include;$(BCB)\include\vcl;\cint
+Item1=$(BCB)\include;$(BCB)\include\vcl;$(CINTSYSDIR)
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=2
+Item0=_RTLDLL;USEPACKAGES;G__BORLAND
+Item1=_RTLDLL;USEPACKAGES
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+
+!endif
+
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
+.autodepend
+# ---------------------------------------------------------------------------
+!if !$d(BCC32)
+BCC32 = bcc32
+!endif
+
+!if !$d(DCC32)
+DCC32 = dcc32
+!endif
+
+!if !$d(TASM32)
+TASM32 = tasm32
+!endif
+
+!if !$d(LINKER)
+LINKER = ilink32
+!endif
+
+!if !$d(BRCC32)
+BRCC32 = brcc32
+!endif
+# ---------------------------------------------------------------------------
+!if $d(PATHCPP)
+.PATH.CPP = $(PATHCPP)
+.PATH.C   = $(PATHCPP)
+!endif
+
+!if $d(PATHPAS)
+.PATH.PAS = $(PATHPAS)
+!endif
+
+!if $d(PATHASM)
+.PATH.ASM = $(PATHASM)
+!endif
+
+!if $d(PATHRC)
+.PATH.RC  = $(PATHRC)
+!endif
+# ---------------------------------------------------------------------------
+$(PROJECT): $(OBJFILES) $(RESDEPEN) $(DEFFILE)
+    $(LINKER) @&&!
+    $(LFLAGS) +
+    $(ALLOBJ), +
+    $(PROJECT),, +
+    $(ALLLIB), +
+    $(DEFFILE), +
+    $(ALLRES)
+!
+# ---------------------------------------------------------------------------
+.pas.hpp:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.pas.obj:
+    $(BCB)\BIN\$(DCC32) $(PFLAGS) {$< }
+
+.cpp.obj:
+     $(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.cxx.obj:
+     $(BCC32) $(CFLAG1) -P $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.c.obj:
+     $(BCC32) $(CFLAG1) $(CFLAG2) $(CFLAG3) -n$(@D) {$< }
+
+.asm.obj:
+    $(BCB)\BIN\$(TASM32) $(AFLAGS) $<, $@
+
+.rc.res:
+    $(BCB)\BIN\$(BRCC32) $(RFLAGS) -fo$@ $<
+# ---------------------------------------------------------------------------
+
+# END: Truncated Borland makefile for makecint makefile synthesis 

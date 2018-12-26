@@ -1,0 +1,15 @@
+
+
+CC	= gcc
+CPP	= g++
+LD	= g++
+OPT	= -g
+INC	= -I/mnt/hgfs/C/Tools/Eigen
+RM	= rm
+
+EigenTest1 : EigenTest1.cxx
+	$(CPP) $(OPT) $(INC) -o EigenTest1 EigenTest1.cxx
+	./EigenTest1
+
+clean :
+	$(RM) EigenTest1

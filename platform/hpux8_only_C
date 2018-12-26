@@ -1,0 +1,45 @@
+############################################################
+# platform/hpux8_only_C
+#  Platform dependent information for HP-UX without C++ compiler
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = cc
+CC          = cc -Aa
+CPP         = 
+LD          = cc -Aa
+CPREP       = cc -Aa -E
+CPPPREP     =
+
+# Compiler and linker option
+CCDLLOPT    = +Z
+LDDLLOPT    = -b
+OPTIMIZE    = -O
+LDOPT       = -lm -Wl,-E -ldld -lcurses
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -D_POSIX2_SOURCE -D_HPUX_SOURCE
+OTHMACRO    = -DG__REDIRECTIO -DG__POSIX
+SYSIPATH    = -I/opt/CC/include
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__main.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = dmyinit.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = dmystrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+

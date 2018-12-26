@@ -1,0 +1,64 @@
+
+void sample1() {
+
+  Vector1<double> x(-10, 10, 100);
+  Vector1<double> y(-10, 10, 200);
+  SetAxis(x,y);
+
+  Vector1<double> a = sinc(x);
+  Vector1<double> b = cos(y);
+
+  Vector2<double> z = sinc(x+y);
+
+  Vector2<double> 
+
+}
+
+Vector2<double> sin(Vector2<double>& a) {
+}
+
+Vector1<double> sin(Vector1<double>& a) {
+}
+
+Vector2<double> operator+(Vector1<double>& a,Vector1<double>& b) {
+}
+
+Vector1<double> operator+(Vector1<double>& a,Vector1<double>& b) {
+}
+
+vector1, vector2, vector3 ÇÃÇÊÇ§Ç…Ç±Ç∆Ç»ÇÈå^Ç≈éüå≥ÇàµÇ§Ç∆ operator 
+overloading Ç≈ returnå^Ç™àÍà”Ç…åàíËÇ≈Ç´Ç»Ç¢ÅB
+
+---------------------------------------------------------------------
+template<class T>
+class vectorn<T> {
+};
+
+sample2 () {
+  vectorn<double> x(-10, 10, 100);
+  vectorn<double> y(-10, 10, 200);
+  setAxis(x,y);
+
+  vectorn<double> a = sinc(x);
+  vectorn<double> b = cos(y);
+
+  vectorn<double> z = sinc(x+y);
+
+  vectorn<double> 
+}
+
+}
+
+vectorn<double> sin(Vectorn<double>& a) {
+}
+
+vectorn<double> operator+(vectorn<double>& a,vectorn<double>& b) {
+  if(a.axis()==0 || b.axis()==) {
+  }
+  else if(a.axis()==b.axis()) {
+  }
+  else {
+  }
+}
+
+

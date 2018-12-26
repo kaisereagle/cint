@@ -1,0 +1,74 @@
+##############################################################################
+# Application dependent parameters
+##############################################################################
+
+APPNAME	= ReadF
+
+DICT	= $(APPNAME)Dict
+LINKDEF	= LinkDef
+LIBNAME	= $(APPNAME)
+HEADER   = $(APPNAME).h
+
+################
+OBJECT	= $(APPNAME).o  $(DICT).o
+
+##############################################################################
+# Common parameters
+##############################################################################
+
+CC		= gcc 
+CPP		= g++ 
+CPPOPT		= -Wall -fPIC -pthread -I$(ROOTSYS)/include 
+CPPDEBUG	= -O
+
+#LIB		= -L$(ROOTSYS)/lib -lCore -lCint -lHist -lGraf -lGraf3d -lGpad 
+#+ 		  -lTree -lRint -lPostscript -lMatrix -lPhysics -pthread
+
+LD		= g++
+LDOPT1		= -shared 
+LDDEBUG		= -O 
+#LDDEBUG	= -g
+LDOPT2		= 
+
+ROOTCINT	= rootcint
+
+RM		= rm
+MV		= mv
+
+##############################################################################
+# make rules
+##############################################################################
+
+
+$(LIBNAME).dll : $(OBJECT) 
+	$(LD) $(LDOPT1) $(LDDEBUG) $(LDOPT2) $(OBJECT) -o $@
+	$(MV) $(LIBNAME).dll ../../include/$(LIBNAME).dll
+
+
+#$(LIBNAME).lib : $(OBJECT) $(LIBNAME).def
+#	$(LIB) $(OBJECT) -def:$(LIBNAME).def -out:$(LIBNAME).lib
+
+
+#$(LIBNAME).def : 
+#	$(BINDLIB) $(LIBNAME) $(OBJECT) > $(LIBNAME).def
+
+
+$(APPNAME).o : $(APPNAME).cxx $(APPNAME).h
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c $(APPNAME).cxx
+
+$(DICT).o : $(DICT).cxx $(DICT).h
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c $(DICT).cxx
+
+$(DICT).cxx : $(APPNAME).h $(HEADER) $(LINKDEF).h 
+	$(ROOTCINT) -f $@ -c $(MACRO) $(HEADER) $(LINKDEF).h
+
+clean :
+	@$(RM) $(OBJECT)
+	@$(RM) $(DICT).*
+
+
+####################################
+#rootcint -f SimCDict.cxx -c SimCUtil.h SimCUtilLinkDef.h
+#g++ -O -Wall -fPIC -pthread -I/users/dc/gotom/root/include -c Event.cxx
+#g++ -O -Wall -fPIC -pthread -I/users/dc/gotom/root/include -c EventDict.cxx
+#g++ -shared -O Event.o EventDict.o -o libEvent.so

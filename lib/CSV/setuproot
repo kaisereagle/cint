@@ -1,0 +1,25 @@
+cp $CINTSYSDIR/lib/Excel/Excel.h Excel.h
+cp $CINTSYSDIR/lib/Excel/Excel.cxx Excel.cxx
+cp $CINTSYSDIR/lib/Excel/FileStrCollection.h FileStrCollection.h
+cp $CINTSYSDIR/lib/Excel/FileStrCollection.cxx FileStrCollection.cxx
+cp $CINTSYSDIR/include/EasyExp.cxx EasyExp.cxx   
+cp $CINTSYSDIR/include/EasyExp.h EasyExp.h  
+cp $CINTSYSDIR/include/EasyExp.cxx EasyExp.cxx  
+cp $CINTSYSDIR/include/EasyExp.cxx EasyExp.cxx  
+cp $CINTSYSDIR/include/MultiByteChar.h MultiByteChar.h
+cp $CINTSYSDIR/include/EasyExp.h EasyExp.h  
+cp $CINTSYSDIR/include/EasyExp.h EasyExp.h  
+cp $CINTSYSDIR/include/ReadF.cxx ReadF.cxx  
+cp $CINTSYSDIR/include/ReadF.h ReadF.h 
+cp $CINTSYSDIR/lib/Excel/LinkDef.h LinkDef.h 
+#cp $CINTSYSDIR/lib/Excel/makeroot.linux makeroot.linux 
+cp $CINTSYSDIR/lib/posix/exten.c exten.c  
+cp $CINTSYSDIR/lib/posix/exten.h exten.h 
+cp $CINTSYSDIR/lib/posix/posix.h posix.h 
+cp $CINTSYSDIR/lib/NVector/Vector.h Vector.h
+cp $CINTSYSDIR/lib/NVector/Histogram.h Histogram.h 
+make -f makeroot.linux clean 
+rm *.o 
+make -f makeroot.linux
+cp libExcel.dll ../../include/excel.dll
+

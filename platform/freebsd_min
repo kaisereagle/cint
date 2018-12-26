@@ -1,0 +1,48 @@
+############################################################
+# platform/freebsd_min
+#  Platform dependent information for g++ with mininum config
+#  - No shared library
+#  - No readline library
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = gcc -traditional
+CC          = gcc
+CPP         = g++
+LD          = g++
+CPREP       = gcc -E -C
+CPPPREP     = g++ -E -C
+
+# Compiler and linker option
+CCDLLOPT    = 
+LDDLLOPT    = 
+OPTIMIZE    = -O
+LDOPT       = -lm -lreadline
+SYSMACRO    = 
+OTHMACRO    =
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = 
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = 
+
+
+
+

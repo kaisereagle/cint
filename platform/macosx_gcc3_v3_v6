@@ -1,0 +1,52 @@
+############################################################
+# platform/macos_gcc3_v3_v6
+#  Platform dependent information for g++ with mininum config
+#  By Alessandro Pistocchi
+#  It seems like this setup is the absolute minimum. I believe
+#  we can explore much more with MacOSX. Probably, you can get
+#  as much as Linux_xxx. Contribution will be greatly appreciated.
+#  Cint ver6 features turned on
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = cc
+CC          = gcc -Wno-long-double
+CPP         = g++ -Wno-long-double
+LD          = g++ -Wno-long-double
+CPREP       = gcc -E -C -Wno-long-double
+CPPPREP     = g++ -E -C -Wno-long-double
+
+# Compiler and linker option
+CCDLLOPT    = -fno-common
+LDDLLOPT    = -bundle -flat_namespace -undefined suppress
+OPTIMIZE    = -O
+LDOPT       = -lm -ldl -lcurses 
+SYSMACRO    = -DG__SHAREDLIB -DG__OSFDLL -DG__ANSI -DG__ERRORCALLBACK -DG__MACOSX__ -DG__SIGNEDCHAR -DG__LONGBUF -DG__NEWSTDHEADER -DG__CINT_VER6 -DG__NATIVELONGLONG
+OTHMACRO   = -DG__APPLE -DG__P2FCAST -DG__NOPOWEROPR -DG__EXCEPTIONWRAPPER -DG__STD_EXCEPTION 
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = gcc3strm.o stdstrct.o
+PLATFORM    =  
+#CINT_V6     = bc_autoobj.o bc_cfunc.o bc_inst.o bc_parse.o bc_reader.o bc_type.o bc_exec.o bc_vtbl.o bc_eh.o bc_debug.o bc_assign.o
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .so
+ 
+
+
+

@@ -1,0 +1,3 @@
+tar cvf symantec.tar cint.* src/cintlib.* 
+rm symantec.tar.gz
+gzip symantec.tar

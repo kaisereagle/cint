@@ -1,0 +1,58 @@
+##############################################################
+# AIX specific rules BEGIN here.
+# They overwrite the default ones, so don't worry about make
+# warnings "There is more than one set of rules for target ...".
+# The first one ( ours, modified ) is taken.
+##############################################################
+
+CINTSYSDIR  = .
+
+MACRO       = $(SYSMACRO)
+
+OBJECT      = cint
+
+##############################################################
+# all done on AIX
+##############################################################
+#done : $(OBJECT) $(APIA) include/stdio.h makecint
+include/iosenum.h : $(OBJECT) include/stdio.h makecint include/iosenum.cxx
+	if test -r include/iosenum.h; \
+	then \
+		touch include/iosenum.h; \
+	else \
+		(cd include;../cint -I. iosenum.cxx); \
+	fi
+#	mail gotom@jpn.hp.com < MAKEINFO
+	echo > done
+
+##############################################################
+# Link cint as shared on AIX
+##############################################################
+$(OBJECT) : $(CINTLIB) main/G__setup.o $(MAINO) $(READLINEA) $(DLFCN)
+	rm -f shr.o $(OBJECT).nm $(OBJECT).exp
+	$(NM) $(MAINO) $(CINTLIB) main/G__setup.o $(READLINEA) $(DLFCN) $(NMOPT)
+	rm -f shr.o
+	echo "#!" > $(OBJECT).exp ; cat $(OBJECT).nm >> $(OBJECT).exp
+	rm -f $(OBJECT).nm
+	$(LD) $(OPTIMIZE) -bE:$(OBJECT).exp -bM:SRE -o $(OBJECT) $(MAINO) $(CINTLIB) main/G__setup.o $(READLINEA) $(DLFCN) $(LDOPT)
+
+##############################################################
+# Compile Jens-Uwe Mager's dlfcn.o AIX emulation library
+# Sources from <http://www.han.de/~jum/aix/dlfcn.shar>
+##############################################################
+$(CINTSYSDIR)/platform/aixdlfcn/dlfcn.o : $(CINTSYSDIR)/platform/aixdlfcn/dlfcn.c $(CINTSYSDIR)/platform/aixdlfcn/dlfcn.h
+	( cd platform ; $(CC) $(OPTIMIZE) -o aixdlfcn/dlfcn.o -c aixdlfcn/dlfcn.c )
+
+##############################################################
+# Cleanup on AIX
+##############################################################
+clean :
+	$(RM) main/*.o $(CINTSYSDIR)/platform/aixdlfcn/*.o $(OBJECT) $(OBJECT).exp $(OBJECT).nm shr.o core done include/mkincld include/stdio.h makecint ; (cd readline; make clean) ; (cd src; make clean) 
+
+##############################################################
+# AIX specific rules END here.
+##############################################################
+
+
+
+

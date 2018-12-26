@@ -1,0 +1,101 @@
+
+##########################################################################
+# Incremental clustering use case
+
+# File name clustering
+
+ $ cint _find.cxx -v **/*.csv
+ cint> p StringClustering(c,0,0.6,"HEAD",-1)
+
+ $ cint _incclust.cxx -C [N] -mode [WORD|CHAR|HEAD] -easyexp **/*.csv
+ $ cint _find.cxx -t [thresh] -mode [WORD|CHAR|HEAD] -regex "**/*.csv"
+
+
+# CSV contents outline
+ $ cint _iclst2.cxx -thresh 0.3 **/*.csv
+
+ $ cd /Tools/CINT_extlib/NeuralNet/testGraph
+ $ cint _iclst2.cxx -thresh 0.7 NNInput40x20/*.csv
+ $ cint _iclst2.cxx -thresh 0.8 NNInput40x20/*.csv
+
+ $ cd /AAA/DesignConsideration/000_MARS_Experiment/20140529_TohokuUniv_MTJ_Test_Results
+ $ cint _iclst2.cxx -thresh 0.5 *.csv
+ $ cint _iclst2.cxx -thresh 0.52 *.csv
+
+ Issue :  can not distinguish  matrix and long vector
+          'FrrrrrSS2X'  'Frrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr rrrr6M'
+          more classification is needed to improve accuracy??
+
+  options:
+   a. Use row symbol only : probably X 
+   b. Extract object 
+   c. Improve string similarity function
+   d. Find appropriate threshold
+
+##########################################################################
+# incremental clustering implementation
+
+# Centroid
+ - Define max M
+ - 1st N0 chunk, clustering M
+ - Calculate stat (mean, Nsample, stddev) for each M
+ for all chunk N
+   - clustered M + next N chunk, clusterng M
+   - Calculate stat (mean, Nsample, stddev) for each M
+ Final clustering on M centroid, get K clusters
+ 
+# Medioid
+ - Define max M
+ - 1st N0 chunk, clustering M
+ - Select median and calculate similarity stat (mean, min, max, Nsample)
+ for all chunk N
+   - clustered M + next N chunk, clusterng M
+   - Select median and calculate similarity stat (mean, min, max)
+      for each consolidated cluster
+      	re-load all objects and calculate similarity stat
+ Final clustering on M centroid, get K clusters
+
+   Issue: How to select appropriate medioid incrementally??? 
+     1. avoid loading exactly same objects (need to store loading sample database)
+     2. decrease frequency of selection
+     3. do not re-select medioid and sacrifice accuracy
+     2+3. select medoid only at the end or every once in a while
+
+
+##########################################################################
+# CSV object extraction
+
+ sequence
+  1. Show structure and list of objects
+  2. Let user describe or select desired object and Generate CSV file reader
+     File reader only reads object into named C++ object memory
+  3. Manipulation on named object
+      prepared commands
+       [command] <optioin> [fexpr]
+	 framework
+		target object -> object
+		  type of object
+		      name, scalar
+		      name, vector
+		      name, matrix
+		      name, table
+		      	    name: name, location, ..th
+		operation -> algorithm,
+		  target:
+			object: +-*/
+			aggregate: sum, mean, stddev, find
+			container: sort
+		container -> on memory, on disk, late loading
+         sort
+         clustering
+         statistics (ave, stddev, max, min , etc...)
+
+# CSV contents
+
+ // 000_Measurement
+ ## Write CSV reader clustering.cxx manually
+ $ cint clustering.cxx -C 3 -To EUT1C3.csv -mode 1 "EUT1/*.csv"
+ $ NeuralNet -T "NNInput/EUT1/*.csv" -C 3 -t -S NNInput/EUT3/*.csv -So EUT1C3_EUT3.csv
+ $ cint plot.cxx -same -file EUT1C3_EUT3.csv name y "*" -stop
+
+

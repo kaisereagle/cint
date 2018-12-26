@@ -1,0 +1,16 @@
+
+# Comment out following line to precompile generic algorithm. But, be careful
+# for doing that. Your compiler may not support certain algorithm function.
+ALGO=-DG__NOALGORITHM
+
+
+rm ../../stl/list.dll 
+rm G__*
+
+makecint -mk Makelist -dl list.dll $ALGO -H lst.h  -cint -Z0
+make -f Makelist 
+mv list.dll ../../stl/list.dll
+
+#rm G__*
+#rm Make*
+

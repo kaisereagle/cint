@@ -1,0 +1,30 @@
+______________________________________________________________________________
+
+Another option might be the dlfcn software Jens-Uwe Mager wrote to
+provide dlopen and friends on AIX. The shar file may be retrieved from
+
+<http://www.han.de/~jum/aix/dlfcn.shar>
+<ftp://anubis.han.de/pub/aix/dlfcn.shar>
+
+I haven't tried it personally but I know it helped in porting a big
+tool over to AIX from Sun.
+______________________________________________________________________________
+
+You can get the source to an emulation library for Sun's dlopen et. al. by
+writing to mailsrv@anubis.han.de using the Subject: dlfcn.shar.
+______________________________________________________________________________
+
+Jens-Uwe Mager                  jum@anubis.han.de
+30177 Hannover                  jum@helios.de
+Brahmsstr. 3                    Tel.: +49 511 660238
+______________________________________________________________________________
+
+An implementation of these dynamic code loading functions was necessary
+for AIX 3.2, as this system did not have the libdl.a library.
+Starting with AIX 4.2 a dlopen at. al. are included in the base OS in the
+libdl.a library. Under AIX 4.1 ( at least starting with 4.1.5, if I
+remember well ) there is a so called SLHS ( Shared Library Hookable
+Symbols ) available as APAR IX IX71849 for the runtime package and APAR IX
+IX72973 for the development tools.
+______________________________________________________________________________
+

@@ -1,0 +1,564 @@
+RELNOTE.txt 
+
+cint 5.15.176/6.0.38  release note
+
+ - Date : 2015/Sep/29
+ - Author : Masaharu Goto   gotom@hanno.jp
+
+
+* What's New ******************************************************************
+
+ - Platforms
+   Following platforms are supported. New cint pakcage 'cint.tar.gz' includes
+   source code and Windows binary. For liniux and MacOS-X, remove windows binary
+   and run 'setup' script.
+
+   * Windows  Visual C++ 13.0 32bit
+      1) Download 'cint.tar.gz'
+      2) Unpack cint.tar.gz as C:\cint 
+         a) If you have UNIX commands gzip and tar
+              put cint.tar.gz as C:\cint.tar.gz, 
+              C:\> gzip -vd cint.tar.gz 
+              C:\> tar xvf cint.tar
+         b) If you have Winzip
+              Click or drug-drop cint.tar.gz on to Winzip
+	      Copy 'cint' directory to C:\cint
+      3) Set environmental variable
+         Start -> Control Panel -> System -> Detail -> Environmental variable
+	    CINTSYSDIR = C:\cint
+            PATH = %PATH%;%CINTSYSDIR%
+
+   * Linux 64bit  gcc 4.4
+   * Linux 32bit  gcc 4.1
+   * MacOS-10.10 64bit
+      1) Download 'cint.tar.gz'
+      2) Unpack cint.tar.gz 
+         For example if you put it as $HOME/cint.tar.gz
+	   $ cd $HOME
+           $ gunzip -c cint.tar.gz | tar xvf - 
+         This will create $HOME/cint
+      3) Set environmental variable
+	    export CINTSYSDIR = $HOME/cint
+            expoet PATH = $PATH;$CINTSYSDIR
+      4) Remove Windows Binary
+          $ cd $CINTSYSDIR/platform
+	  $ sh clean_bin.sh
+      5) Run setup script
+          $ cd $CINTSYSDIR
+	  $ sh ./setup platform/linux_RH_64_so        for Linux 64bit
+	  $ sh ./setup platform/linux_RH7.2_gcc3_so   for Linux 32bit
+	  $ sh ./setup platform/macos_10.10_clang     for MaxOS-X 64bit
+
+         If above setup files do not work, there are other examples in platform
+         directory.
+
+
+      6) Check if cint core programs are built
+           $CINTSYSDIR/libcint.so   or   $CINTSYSDIR/src/G__ci.a
+	      If you can't find one of above, go to $CINTSYSDIR/src directory and
+	      do 'make'.
+
+           $CINTSYSDIR/cint
+           $CINTSYSDIR/makecint
+	      If you can't find above files, go to $CINTSYSDIR directory and
+	      do 'make'.
+
+      7) Check if standard libraries are build
+           $CINTSYSDIR/include/stdfunc.dll
+           $CINTSYSDIR/include/stdcxxfunc.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/stdstrct directory and do 'sh setup'.
+
+           $CINTSYSDIR/include/posix.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/posix directory and do 'sh setup'.
+
+           $CINTSYSDIR/include/long.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/longlong directory and do 'sh setup'.
+
+           $CINTSYSDIR/stl/string.dll
+           $CINTSYSDIR/stl/vector.dll
+           $CINTSYSDIR/stl/list.dll
+           $CINTSYSDIR/stl/deque.dll
+           $CINTSYSDIR/stl/map.dll
+           $CINTSYSDIR/stl/set.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/dll_stl directory and do 'sh setup'.
+
+      8) Check if optiona libraries are build
+           $CINTSYSDIR/include/ReadF.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/ReadF directory and do 'sh setup'.
+
+           $CINTSYSDIR/include/EasyExp.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/EasyExp directory and do 'sh setup'.
+
+           $CINTSYSDIR/include/NVector.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/NVector directory and do 'sh setup'.
+
+           $CINTSYSDIR/include/CSV.dll
+	      If you can't find above files, 
+	      go to $CINTSYSDIR/lib/CSV directory and do 'sh setup'.
+   
+
+* From Old Relnote ************************************************************
+
+ - Visual C++ .NET support
+   Visual C++ .NET is supported from cint5.15.120. Go to platform/VisualCpp7
+   directory and run setup script. After that, you need to run setup script
+   in lib/longlong, lib/win32api, lib/posix and lib/dll_stl directories.
+   You can use full functionality of Cint.  There is a problem Windows batch
+   command that child processes do not run properly. That is why you need to
+   run setup.bat script in each lib/* directory.
+
+ - Qt library
+   Qt-Cint is experimentally supported from 5.15.108. Refer to 
+   lib/qt/README.txt and demo/qt/README.txt. Currently, Qt-Cint is supported
+   only on Windows with VC++6.0 compiler.  Qt-Cint implementation is quite
+   premature.  Your feedback will be greatly appreciated.
+
+ - DLL loading without makecint/rootcint for Intel CPU
+   From 5.15.102, you can load global functions in DLL without 
+   makecint/rootcint if you use Intel 32bit CPU with gcc3.2, VC++ or BC++. 
+   You need to specify DLL filename and function interface by 
+      extern "[dllname]" { ... }
+   Refer to doc/ref.txt for detail.
+
+ - Cygwin5.1 support
+   From 5.15.101, Cygwin5.1 is supported with full Cint functionality including
+   dynamic loading. Read platform/README.txt and try platform/cygwin51_gcc3_so.
+
+ -  VC++7.1 support
+   Try platform/visualCpp7/setup[XXX].bat for setup. This version uses new
+   templated iostream library.
+
+ -  Command prompt input mode
+   A new command prompt input mode is added from version 5.15.74. The new mode
+   can be activated by setting 'INPUTMODE = C++' in $CINTSYSDIR/MAKEINFO.
+   See doc/ref.txt - INPUTMODE for more detail.
+
+ -  Test suite
+   Cint test suite goes with source code package. The test suite is a 
+   collection of test programs reported with bug reports. Read test/README.txt
+   for more detail.
+
+ -  Borland C++ compiler 5.5 support
+   Free version of Borland BCC32.exe comiler is available from 
+   http://www.borland.com.  BCC32.exe version 5.5 is supported from
+   cint5.15.53.  Refer to c:\cint\platform\borlandcc5\README.txt.
+
+ -  New iostream redirection scheme is implemented in lib/*stream/iostrm.h.
+   The code is implementation dependent which needs to be tested on each
+   compiler and computer platform. If you fail to compile src/*strm.cxx,
+   please look into corresponding lib/*stream/iostrm.h, fix the problem and
+   send me appropriate fix. 
+
+ -  DLL binary compatibility is discountinued between 5.14.X to 5.15.X. Please
+   re-compile all the CINT DLLs. After 5.15.02, DLL binary compatibility became
+   more robust.
+
+ - gcc-3.00 support
+    gcc-3.00 is supported from 5.15.14. Use platform/linux_RH6.2_gcc3 to
+   compile Cint with gcc-3.00 on RedHat6.2 Linux. This configuration has many
+   problems still. The author is working to solve them.
+
+ - Power operator '**' delete option
+    Cint have had power operator '**' as an original extension. However, this
+   causes problem if we look C/C++ syntax strictly. 'a**b' is 'a power b' for
+   Cint and 'a*(*b)' for compiled code. G__NOPOWEROPR compile flag is added
+   to turn off '**' operator. Add -DG__NOPOWEROPR to OTHMACRO in platform
+   dependency file. From 5.15.25, power operator is deleted by default.
+
+ - WildC++ with Tcl/Tk8.3
+    WildC++ interpreter, a mixture of Cint and Tcl/Tk, used to require older
+   Tcl/Tk. Now, it supports newer Tcl/Tk8.3. Please find it in lib/wintcldl83.
+
+ - New API
+   Following API functions are added. Please refer to doc/ref.txt.
+
+   char* G__load_text(char* namedmacro); 
+         loading on memory C++ source code.
+
+   void G__set_emergencycallback(void (*p2f)())
+         set behavior of '.save' command for emergency object save
+
+
+ - Exception handling example
+   Exception handling has been implemented long time ago. However, it has
+  not been informed enough to the users.  A new example is added in 
+  demo/exception directory. Refer to demo/exception/README.txt for the
+  details.
+
+
+ - Experimental multi-threading libcintX.so
+   Multi-threading libcintX.so capability is provided experimentally. This
+  is a very clude implementation and NOT RECOMMENDEDN FOR ORDINARY USERS.
+   For Linux RedHat6.2, platform dependency file platform/linux_RH6.2_mtso 
+  is prepared. Install Cint with 'sh ./setup platform/linux_RH6.2_mtso' and
+  try example in demo/multilibcint directory.
+   For Windows VC++6.0, add G__MULTITHREADLIBCINT macro at the beginning of
+  G__ci.h. This has to be done before Cint compilation. Install Cint and
+  try example in demo/multilibcint directory.
+
+
+ - Xlib and openGL support
+   X11R6 and openGL APIs are supported from 5.14.86. include/X11/xlib.dll and
+  include/GL/gl.dll can be built under lib/xlib and lib/gl directory. Simple
+  example for X11 program can be found in demo/xlib directory. OpenGL example
+  is missing right now. Your contribution to add an openGL programming example
+  will be greatly appreciated.  Those libraries are verified only on Linux
+  RedHat6.2 at this moment.
+
+
+ - Error message callback
+   Error message can be redirected through an user defined callback function.
+  The callback can be set by G__set_errmsgcallback(void (*p2f)(char*)) API.
+  This feature is convenient when a user wants to embed cint into a GUI based
+  host program. See doc/ref.txt for G__set_errmsgcallback.
+   A special care is needed to compile src/disp.c. Some compiler may report
+  an error in variable argument declaration around line 1972-1978. If you 
+  find a compile error, please modify the source appropriately. Your report
+  about such change , regarding specific platform , is highly appreciated.
+   This feature is normally turned off. You need to define 
+  'OTHMACRO = -DG__ERRORCALLBACK' in platform dependency file for activation.
+  An example is added in demo/errpipe directory.
+
+
+ - Variable argument
+   Variable argument is supported from Cint 5.14.69 for Intel architecture. 
+  <stdarg.h> must be included to use variable argument. Cint accepts both 
+  form of declaration.
+       void foo1(char *fmt, ...);
+       void foo2(char *fmt ...);
+   Argument values for Variable arguments are put into function call stack.
+  For each computer platform, specific byte layout must be emulated by Cint.
+  Because byte layout is not publicly informed, this capability may not be 
+  portable to all platforms. At this moment, only Linux and Win32 with Intel
+  architecture are verified. It is known that this scheme can not be extended
+  to HP-PA and Sparc architecture. Need more investigation for other platforms.
+
+
+ - "ifdef" utility is added to the package. Read doc/ifdef.txt for the detail.
+        "ifdef" selectively resolves #ifdef,#ifndef,#if,#elif,
+       #else and #endif in C/C++ source code. Macros that are 
+       explicitly defined/undefined by -D/-U option are resolved
+       and eliminated from the source code. Other #ifdefs remain
+       unchanged. #if statements with multiple conditions and
+       &&,|| operators will be resolved by a symbolic resolver.
+       "ifdef" can be also used as a #ifdef nesting hierarchy
+       analyzer.
+         Although included in CINT package, ifdef is an independent
+        software productivity tool.
+
+
+ - New memory allocation method is fully activated in cint5.14.64. This
+   scheme is tested under most of the platforms. 
+    + If you find compiling src/Apiif.cxx or other dictionary code due to
+      'void operator delete(void*,[DLLID]_tag*)', undefine G__EH_DUMMY_DELETE
+      macro in G__ci.h around line 195.
+    + Uncomment '#define G__OLDIMPLEMENTATION1423' in G__ci.h to disable the 
+      new scheme.
+    + Alternatively, you can give '-cint -M0x0', '-cint -M0x10' or 
+      '-cint -M0x1c' option to makecint in order to use the old memory 
+      allocation scheme.
+    + A version of IBM AIX-xlC compiler has a problem compiling explicit 
+      destructor calls for implicitly created destructor. This is supposed 
+      to be a compiler bug.
+    + MicroSoft Visual C++97 (or VC++5.0) can not compile dictionary with
+      new memory allocation system. With VC++5.0 or older version, cint will
+      use the old method. (Do not include vcstrmold.cxx and Apiifold.cxx to
+      ROOT source tree.)
+
+
+ - -Y[0|1] option, controls if std namespace is ignored or not. -Y1 (ignore
+   std namespace) is a default. If you specify -Y0 option, you must explicitly
+   use std:: namespace. For example,
+
+     $ cint -Y0 string
+     cint> { std::string a="abcdefg"; }
+
+   Note that CINT header file is reorganized for this purpose. In order to
+   use this feature, you must use new header files. (Under $CINTSYSDIR/include
+   and $CINTSYSDIR/stl directories.)
+
+
+ - -Z[0|1] option, loading std header files implicitly with DLL
+   With -Z1, std header files included in making cint dictionary are
+   implicitly loaded with DLL. Consider following example,
+
+      // myapp.h
+      #include <string>
+      void f(const string& x) { ... }
+
+   When you make cint dictionary, std header file <string> is implicitly 
+   loaded with myapp.dll if -Z1 option is given both to makecint and cint.
+
+      $  makecint -mk makefile -dl myapp.dll -H myapp.h -cint -Z1
+      $  make -f makefile
+      $  cint -Z1 myapp.dll
+
+   -Z1 is a default for pure CINT and -Z0 is a default for ROOT.
+
+
+ - True virtual function resolution in mixed interpreted/precompiled-class
+   environment is supported by STUB.  Base class and interface of derived 
+   class have to be precompiled and derived class member function can be 
+   interpreted. Please find example in demo/makecint/Stub2 directory.
+
+
+ - Protected member access for compiled class
+   '#pragma link C++ class+protected [classname];' is added to allow
+   protected member access of compiled base class from interpreted derived
+   class.
+
+
+ - !!! Special notes about past changes !!!
+
+   Following changes were deactivated because of bad side-effects. 
+
+    1289 : Tried to support true pointer to static member function. But
+	   because side effect was found, this feature is turned off.
+
+
+Changes ********************************************************************
+
+ See src/HISTORY 
+
+
+
+################# OLD INSTALLATION INFORMATION #############################
+### KEEP THIS AS RECORD
+
+
+ - Unpack the package
+
+  You must install CINT in c:\cint directory. Make c:\cint directory, copy 
+  cint source package as cint.tgz and unpack it by gzip+tar.
+
+      c:\> mkdir c:\cint
+      c:\> cd c:\cint
+      c:\cint> copy [where_you_saved_package]\cint.tar.gz cint.tgz
+      c:\cint> gzip -vd cint.tgz
+      c:\cint> tar xvf cint.tar
+
+  Alternatively, You can unpack the package by using Winzip twice. Assuming
+  Winzip is already installed in your machine,
+
+      c:\> mkdir c:\cint
+      c:\> cd c:\cint
+      c:\cint> copy [where_you_saved_package]\cint5.14.tar.gz cint.tgz
+      ### click cint.tgz   -> cint.tar 
+      ### click cint.tar   -> unpacking cint source files
+
+  For Windows, you can install Cint by  (a) using a binary distribution
+  or  (b-f) compiling the source. Choose one of following options.
+
+
+ a) Using binary distribution
+
+  Binary package is distributed as cint.tar.gz from the Cint web page.
+  Please download this file.  
+
+  You must install CINT in c:\cint directory. Copy cint binary package 
+  as cintwin.tgz and unpack it by gzip+tar.
+
+      c:\> cd c:\cint
+      c:\cint> copy [where_you_saved_package]\cint.tar.gz cint.tgz
+      c:\cint> gzip -vd cint.tgz
+      c:\cint> tar xvf cint.tar
+
+  Alternatively, You can unpack the package by using Winzip twice. Assuming
+  Winzip is already installed in your machine,
+
+      c:\> mkdir c:\cint
+      c:\> cd c:\cint
+      c:\cint> copy [where_you_saved_package]\cint.tar.gz cint.tgz
+      ### click cint.tgz   -> cint.tar 
+      ### click cint.tar   -> unpacking cint binary files
+
+  You need to set environment variables manually.  Add following lines
+  in c:\autoexec.bat and reboot.
+
+      set CINTSYSDIR=c:\cint
+      set PATH=%PATH%;%CINTSYSDIR%
+
+  Basically, you don't need to compile from source for Windows if above works.
+
+
+ b1) Compile from source using Visual C++ 13.0
+   Go to c:\cint\platform\visualCpp13 and run setup.bat script
+     Windows-7 , VC++ 13.0
+        c:\cint\platform\visualCpp13> setup.bat
+
+ b2) Compile from source using Visual C++ 4.0, 5.0, 6.0, 7.0
+   If you use Visual C++ 5.0 or later , you need to run vcvars32.bat
+   to set VC++ environment variables. vcvars32.bat exists in Visual 
+   C++ binary directory. Before running this, please make sure that 
+   your MSDOS Command Window has sufficient environment variable space. 
+   Edit MSDOS Command Window property and increase environment variable 
+   space. You may also need to comment out following line from vcvars32.bat.
+
+        rem set vcsource=L:\DEVSTUDIO
+
+   Then run the script
+
+        ### Change directory to either of following directory, depending on
+        ### version of the compiler.
+        ###     "\Program Files\DevStudio\VC\bin"
+        ###     "\Program Files\Microsoft Visual Studio\VC98\bin"
+        ### Then
+        c:\Program Files\Microsoft Visual Studio\VC98\bin> vcvars32.bat
+
+   You do not need to do above if you use Visual C++ 4.0. 
+ 
+   Go to c:\cint\platform\visual , c:\cint\platform\visualCpp6 or
+   c:\cint\platform\visualCpp7 directory according to version of compiler
+   you have. And run setup.bat. This script updates c:\autoexec.bat. 
+   Reboot your PC after installation. 
+   Read c:\cint\platform\visualXXX\readme.txt if you find problems.
+
+        c:\cint> cd c:\cint\platform\visual            : VC++4.0/5.0/6.0
+                          OR
+        c:\cint> cd c:\cint\platform\visualCpp6        : VC++6.0
+                          OR
+        c:\cint> cd c:\cint\platform\visualCpp7        : VC++7.0
+
+   Depending on operation system and compiler version, run following
+   setup script.
+
+
+     Windows-XP , VC++ 7.0
+        c:\cint\platform\visualCpp7> setup.bat
+
+     Windows-95/98/Me , VC++ 6.0
+        c:\cint\platform\visual> setup.bat
+
+     Windows-2000 , VC++ 6.0
+      It looks like Windows-2000 has problem setting environment variablle in
+      batch script. Set environment variable CINTSYSDIR=c:\cint and 
+      PATH=%CINTSYSDIR%;%PATH% first. Then run following command.
+        c:\cint\platform\visual> setup2000.bat
+
+     Windows-NT , VC++ 6.0
+        c:\cint\platform\visualCpp6> setup.bat
+
+     Windows-95/98/2000/Me , VC++ 5.0 or older
+        c:\cint\platform\visual> setupold.bat
+
+     Windows-NT , VC++ 5.0 or older
+        c:\cint\platform\visual> setupNTold.bat
+
+   Then reboot system.
+        ### REBOOT SYSTEM ###
+
+
+ c) Using Borland C++ Compiler version 5.5
+   Free version of Borland BCC32.exe comiler is available from 
+   http://www.borland.com.  BCC32.exe version 5.5 is supported from
+   cint5.15.53.  Go to c:\cint\platform\borlandcc5 directory and run
+   setup.bat.  This script updates c:\autoexec.bat. Reboot your PC after 
+   installation.  Read c:\cint\platform\borlandcc5\README.txt if you find
+   problems.
+
+        c:\cint> cd c:\cint\platform\borlandcc5
+        c:\cint\platform\borlandcc5> setup.bat
+        ### REBOOT SYSTEM ###
+
+ d) Using Borland C++ Builder 3.0
+   Go to c:\cint\platform\borland directory and run setup.bat. This script
+   updates c:\autoexec.bat. Reboot your PC after installation. 
+   Read c:\cint\platform\borland\README.txt if you find problems.
+
+        c:\cint> cd c:\cint\platform\borland
+        c:\cint\platform\borland> setup.bat
+        ### REBOOT SYSTEM ###
+
+   Note: This process may not work under Borland C++ Builder 5.0. Please 
+   refer to platform/README.txt
+
+
+ e) Using Symantec C++ 7.2
+   Go to c:\cint\platform\symantec directory and run setup.bat. This script
+   updates c:\autoexec.bat. Reboot your PC after installation.
+   Read c:\cint\platform\symantec\README.txt if you find problems.
+
+        c:\cint> cd c:\cint\platform\symantec
+        c:\cint\platform\symantec> setup.bat
+        ### REBOOT SYSTEM ###
+
+
+ f) Using DJGPP
+   For compilation using DGJPP, read  platform/README.txt
+
+
+Note:
+  About 30Mbyte free disc space is needed for compiling Cint core system. 
+  Setup script continues to compile optional library components which
+  require ~90Mbyte free disc space.
+
+
+UNIX/Linux/Cygwin Installation: ============================================
+
+ - Getting source package
+
+   Source package is distributed as cint5.14.tar.gz from the Cint web page.
+   Please download this file.
+
+
+ - Unpack the package
+
+   At any event of failing installation please refer to platform/README.
+   You need to get either of 'cint5.14.tar.gz', 'cint.tar.gz' or 'cint.tgz'. 
+   The file includes all of the Cint related source files.
+   Make a directory:(for example /usr/local/cint)
+
+	$ mkdir /usr/local/cint
+	$ cd /usr/local/cint
+        $ cp [where_you_saved_package]/cint5.14.tar.gz cint.tar.gz
+
+   Copy the archive file to that directory and do the following to unpack 
+   the package.
+
+	$ gunzip -c cint.tar.gz | tar xvf -
+	       or
+        $ gzip -vd cint.tar.gz
+        $ tar xvf cint.tar
+
+   At this moment, C++ source files have .cxx file name extension. If you
+   have a C++ compiler which does not accept .cxx extension, cxx2C script
+   will rename them. This is an optional procedure. If you run cxx2C by
+   mistake, you can recover by using C2cxx script.
+
+        $ sh ./cxx2C                    (optional)
+
+
+ - Compile Cint and optional library
+
+   Then, look into platform directory to find an appropriate platform 
+   dependency file for your environment. You need to give that file as an
+   argument to setup script.
+
+	$ sh ./setup platform/[machine]
+
+   If you can not find any file that is close to your system, you need to
+   create one by yourself. If you have gcc/g++, platform/gcc_min or gcc_max
+   may be good.  There can be platform dependent restriction. Please read 
+   platform/README file carefully.
+
+
+Note1:
+  About 30Mbyte free disc space is needed for compiling Cint core system. 
+  Setup script continues to compile optional library components which
+  require ~90Mbyte free disc space.
+
+Note2: Linux installation requirements:
+  When installing Linux package, you need to add following packages in
+  order to build Cint. Basically, you need to install developper environment.
+	binutils (d),  gcc (d), gcc-g++ (d), make (d), kernel-headers (d),
+	readline (l), ncurses (l), glibc (l)
+
+
+

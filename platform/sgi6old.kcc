@@ -1,0 +1,54 @@
+############################################################
+# platform/sgi6.kcc
+#  Platform dependent information for SGI 6.5 or later
+#  with KCC compiler.
+#  by Philippe Canal , Fermi-lab, 1999/9/17
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = KCC
+AROPT       = -o
+KRCC        = cc
+CC          = cc -signed -w 
+CPP         = KCC --signed_chars --display_error_number \
+                --diag_suppress 68 --diag_suppress 191 --diag_suppress 830 \
+                --diag_suppress 837
+LD          = KCC 
+CPREP       = cc -E -C
+CPPPREP     = KCC -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -n32
+LDDLLOPT    = -n32 --signed_chars --display_error_number \
+                --diag_suppress 68 --diag_suppress 191 --diag_suppress 830 \
+                --diag_suppress 837
+OPTIMIZE    = -O2 $(CCDLLOPT)
+LDOPT       = -lm -ltermcap -lbsd -lgen -ldl
+# does not support POSIX.2 regexec
+#SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL
+SYSMACRO    =  -DG__UNIX -DG__REGEXP1 -DG__SHAREDLIB -DG__OSFDLL 
+-DG__SIGNEDCHAR
+OTHMACRO    = -DG__REDIRECTIO
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o 
+CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = fakestrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .so   MustUseThis
+
+

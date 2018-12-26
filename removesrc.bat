@@ -1,0 +1,26 @@
+
+del ARCHIVE
+del ARCHIVEBIN
+del C2cxx
+del cxx2C
+del cxx2cpp
+del cpp2cxx.c
+del exportcint
+del exportdll
+del exportgcc3
+del exportroot
+del EXPOSE
+rmdir glob
+del INSTALLBIN
+rmdir malloc
+rmdir platform
+rmdir readline
+del setup
+del src\*.c
+del src\*.cxx
+del src\*.obj
+rmdir src\Release
+rmdir src\Debug
+rmdir tool
+rmdir lib\*strm
+rmdir lib\WildCard

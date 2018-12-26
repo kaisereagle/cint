@@ -1,0 +1,5 @@
+namespace std {
+#include <iostream.h>
+//#include <strstream.h>
+}
+#include <string>

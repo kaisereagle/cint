@@ -1,0 +1,53 @@
+############################################################
+# platform/msdos/MAKEINFO
+#  Platform dependent information for MS-DOS DJGPP
+############################################################
+
+# Tools
+RM          = rm -f
+CP          = cp
+AR          = ar
+AROPT       = clq
+KRCC        = gcc -traditional -I$(DJGPPDIR)/include
+CC          = gcc -I$(DJGPPDIR)/include
+CPP         = gxx -I$(DJGPPDIR)/include
+LD          = gxx -I$(DJGPPDIR)/include
+CPREP       = gcc -E -I$(DJGPPDIR)/include
+CPPPREP     = gxx -E -I$(DJGPPDIR)/include
+
+# Compiler and linker option
+CCDLLOPT    =
+LDDLLOPT    =
+OPTIMIZE    = -O
+LDOPT       = -L$(DJGPPDIR)/lib -lm
+SYSMACRO    =
+OTHMACRO    = -DG__DJGPP
+SYSIPATH    = 
+
+# libraries
+MAINO       = $(CINTSYSDIR)/main/cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   =
+APIO        = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB      = ranlib
+STDLIBS     = dmystrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .cxx
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     =
+
+
+
+##########################################################
+# Control default behavior of cint command line input
+##########################################################
+#INPUTMODE = C++
+#INPUTMODE = root
+INPUTMODE = cint
+#INPUTMODELOCK = on
+INPUTMODELOCK = off

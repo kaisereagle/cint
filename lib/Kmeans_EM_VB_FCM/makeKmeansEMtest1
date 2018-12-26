@@ -1,0 +1,19 @@
+
+CC	= gcc
+CPP	= g++
+LD	= g++
+OPT	= -g
+INC	= -I/mnt/hgfs/C/Tools/Eigen
+RM	= rm
+CP	= cp
+
+KmeansEMtest1 : KmeansEMtest1.cxx Kmeans_EM_VB_FCM.h MatrixCalc.h Vector.h
+	$(CPP) $(OPT) $(INC) -o KmeansEMtest1 KmeansEMtest1.cxx
+	./KmeansEMtest1 
+
+Vector.h : /mnt/hgfs/C/cint_linux/lib/NVector/Vector.h
+	$(CP) /mnt/hgfs/C/cint_linux/lib/NVector/Vector.h Vector.h
+
+clean :
+	$(RM) KmeansEMtest1 
+

@@ -1,0 +1,101 @@
+
+##############################################################################
+# Application dependent parameters
+##############################################################################
+ROOTSYS = /opt/root
+#ROOTSYS = /users/dc/gotom/root
+
+APPNAME	= Excel
+
+DICT	= $(APPNAME)Dict
+LINKDEF	= LinkDef
+LIBNAME	= lib$(APPNAME)
+HEADER   = Excel.h FileStrCollection.h ReadF.h EasyExp.h Stat.h Value.h Clustering.h
+MACRO   = -D__ROOT__ -D_LINUX_ 
+
+################
+OBJECT	= $(APPNAME).o FileStrCollection.h ReadF.o exten.o EasyExp.o Stat.o Value.o  $(DICT).o Clustering.o
+
+##############################################################################
+# Common parameters
+##############################################################################
+
+CC		= gcc 
+CPP		= g++ 
+CPPOPT		= -Wall -fPIC -pthread -I$(ROOTSYS)/include 
+CPPDEBUG	= -O
+
+#LIB		= -L$(ROOTSYS)/lib -lCore -lCint -lHist -lGraf -lGraf3d -lGpad 
+#+ 		  -lTree -lRint -lPostscript -lMatrix -lPhysics -pthread
+
+LD		= g++
+LDOPT1		= -shared 
+LDDEBUG		= -O 
+#LDDEBUG	= -g
+LDOPT2		= 
+
+ROOTCINT	= rootcint
+
+RM		= rm
+
+##############################################################################
+# make rules
+##############################################################################
+
+
+$(LIBNAME).dll : $(OBJECT) 
+	$(LD) $(LDOPT1) $(LDDEBUG) $(LDOPT2) $(OBJECT) -o $@
+
+
+#$(LIBNAME).lib : $(OBJECT) $(LIBNAME).def
+#	$(LIB) $(OBJECT) -def:$(LIBNAME).def -out:$(LIBNAME).lib
+
+
+#$(LIBNAME).def : 
+#	$(BINDLIB) $(LIBNAME) $(OBJECT) > $(LIBNAME).def
+
+
+Stat.o : Stat.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c Stat.cxx
+
+Excel.o : Excel.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c Excel.cxx
+
+StrCollection.o : StrCollection.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c StrCollection.cxx
+
+FileStrCollection.o : FileStrCollection.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c FileStrCollection.cxx
+
+Clustering.o : Clustering.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c Clustering.cxx
+
+Value.o : Value.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c Value.cxx
+
+ReadF.o : ReadF.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c ReadF.cxx
+
+EasyExp.o : EasyExp.cxx $(HEADER)
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c EasyExp.cxx
+
+exten.o : exten.c exten.h
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c exten.c
+
+$(DICT).o : $(DICT).cxx $(DICT).h
+	$(CPP) $(CPPOPT) $(CPPDEBUG) $(MACRO) -c $(DICT).cxx
+
+$(DICT).cxx : $(APPNAME).h $(HEADER) $(LINKDEF).h 
+	$(ROOTCINT) -f $@ -c $(MACRO) $(HEADER) $(LINKDEF).h
+
+clean :
+	@$(RM) $(LIBNAME).o
+	@$(RM) $(OBJECT)
+	@$(RM) $(DICT).*
+
+
+####################################
+#rootcint -f SimCDict.cxx -c SimCUtil.h SimCUtilLinkDef.h
+#g++ -O -Wall -fPIC -pthread -I/users/dc/gotom/root/include -c Event.cxx
+#g++ -O -Wall -fPIC -pthread -I/users/dc/gotom/root/include -c EventDict.cxx
+#g++ -shared -O Event.o EventDict.o -o libEvent.so

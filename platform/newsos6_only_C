@@ -1,0 +1,45 @@
+############################################################
+# platform/newsos6_only_C
+#  Platform dependent information for NewsOS6.x without C++ compiler
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = cc
+CC          = /usr/ucb/cc
+CPP         = 
+LD          = /usr/ucb/cc
+CPREP       = /usr/ucb/cc -E
+CPPPREP     =
+
+# Compiler and linker option
+### DLL in this environment may work, but not tested yet, somebody please help
+CCDLLOPT    = -PIC -Bdynamic -r
+LDDLLOPT    = -PIC -Bdynamic -r
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -ldl
+SYSMACRO    = -DG__NONANSI -DG__NEWSOS6
+OTHMACRO    = -DG__SHAREDLIB -DG__OSFDLL
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__main.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = dmyinit.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = dmystrm.o dmystrct.o
+PLATFORM    = newsos.o
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+KRMODE      = -K

@@ -1,0 +1,190 @@
+Loop compile start FILE:t2002.cxx LINE:30
+  0: LD_VAR  i index=0 paran=0
+  5: LD 3 from ff
+  7: OP2  '<' 60
+  9: CNDJMP assigned later
+  b: CL  FILE:t2002.cxx LINE:30
+  d: LD_VAR  b2 index=1 paran=0
+ 12: PUSHSTROS
+ 13: SETSTROS
+ 14: ADDSTROS 32 (func 1 ..\INHERIT.C 779)
+ 16: SETGVP 1''
+ 18: LD_FUNC C++ compiled ~A paran=0
+ 1d: SETGVP -1''
+ 1f: ADDSTROS -32 (func 1 ..\INHERIT.C 809)
+ 21: ADDSTROS 16 (func 1 ..\INHERIT.C 779)
+ 23: SETGVP 1''
+ 25: LD_FUNC C++ compiled ~A paran=0
+ 2a: SETGVP -1''
+ 2c: ADDSTROS -16 (func 1 ..\INHERIT.C 809)
+ 2e: ADDSTROS 4 (func 1 ..\INHERIT.C 779)
+ 30: SETGVP 1''
+ 32: LD_FUNC C++ compiled ~vector<void*,allocator<void*> > paran=0
+ 37: SETGVP -1''
+ 39: ADDSTROS -4 (func 1 ..\INHERIT.C 809)
+ 3b: LD_FUNC C++ compiled vector<void*,allocator<void*> > paran=0
+Note: Bytecode compiler suspended(off) and resumed(on) FILE:t2002.cxx LINE:31
+ 40: LD_FUNC C++ compiled A paran=0
+Note: Bytecode compiler suspended(off) and resumed(on) FILE:t2002.cxx LINE:31
+ 45: LD_FUNC C++ compiled A paran=0
+Note: Bytecode compiler suspended(off) and resumed(on) FILE:t2002.cxx LINE:31
+ 4a: POPSTROS
+ 4b: CL  FILE:t2002.cxx LINE:31
+ 4d: CL  FILE:t2002.cxx LINE:32
+ 4f: PUSHSTROS
+ 50: LD_VAR  b2 index=1 paran=0
+ 55: SETSTROS
+ 56: LD_IFUNC disp paran=0
+ 5e: POPSTROS
+ 5f: LD_VAR  i index=0 paran=0
+ 64: OP1  13
+ 66: JMP 0
+ 5f: INCJMP  i++ optimized
+Optimize 3 start
+  0: LD_VAR index=0 paran=0 point p i
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+  5: LD 3 from ff 
+  7: OP2 '<'60 
+  9: CNDJMP to 68
+  b: CL t2002.cxx:30
+  d: LD_VAR index=1 paran=0 point p b2
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 12: PUSHSTROS
+ 13: SETSTROS
+ 14: ADDSTROS 32
+ 16: SETGVP
+ 18: LD_FUNC compiled paran=0
+ 1d: SETGVP
+ 1f: ADDSTROS -32
+ 21: ADDSTROS 16
+ 23: SETGVP
+ 25: LD_FUNC compiled paran=0
+ 2a: SETGVP
+ 2c: ADDSTROS -16
+ 2e: ADDSTROS 4
+ 30: SETGVP
+ 32: LD_FUNC compiled paran=0
+ 37: SETGVP
+ 39: ADDSTROS -4
+ 3b: LD_FUNC compiled paran=0
+ 40: LD_FUNC compiled paran=0
+ 45: LD_FUNC compiled paran=0
+ 4a: POPSTROS
+ 4b: CL t2002.cxx:31
+ 4d: CL t2002.cxx:32
+ 4f: PUSHSTROS
+ 50: LD_VAR index=1 paran=0 point p b2
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 55: SETSTROS
+ 56: LD_IFUNC disp paran=0
+ 5e: POPSTROS
+ 5f: INCJMP *(int*)0xbbc1f8+1 to 0
+ 63: NOP
+ 64: NOP
+ 65: NOP
+ 66: JMP 0
+ 68: RETURN
+Bytecode loop compilation successful FILE:t2002.cxx LINE:30
+LOOP COMPILE EXECUTION START
+  0,0: LDST_VAR_P index=0 ldst=0 i -> 1 105 -1
+  5,1: LD 3,3 from ff 3a74c8,3a94a8
+  7,2: OP2_OPTIMIZED i:1:4.94066e-324 i:3:1.4822e-323 -> i:1
+  9,1: CNDJMP 1 to 68
+  b,0: CL t2002.cxx:30
+autostack=0 scope=0 
+  d,0: LDST_VAR_P index=1 ldst=0 b2 -> 7067888 117 140
+ 12,1: PUSHSTROS 0x0 strosp=0
+ 13,1: SETSTROS 0x6bd8f0
+ 14,0: ADDSTROS 32
+ 16,0: SETGVP 1 0
+ 18,0: LD_FUNC compiled paran=0
+ 1d,0: SETGVP -1 1
+ 1f,0: ADDSTROS -32
+ 21,0: ADDSTROS 16
+ 23,0: SETGVP 1 0
+ 25,0: LD_FUNC compiled paran=0
+ 2a,0: SETGVP -1 1
+ 2c,0: ADDSTROS -16
+ 2e,0: ADDSTROS 4
+ 30,0: SETGVP 1 0
+ 32,0: LD_FUNC compiled paran=0
+ 37,0: SETGVP -1 1
+ 39,0: ADDSTROS -4
+ 3b,0: LD_FUNC compiled paran=0
+ 40,1: LD_FUNC compiled paran=0
+ 45,2: LD_FUNC compiled paran=0
+ 4a,3: POPSTROS 0x0 strosp=1
+ 4b,3: CL t2002.cxx:31
+autostack=0 scope=0 
+ 4d,0: CL t2002.cxx:32
+autostack=0 scope=0 
+ 4f,0: PUSHSTROS 0x0 strosp=0
+ 50,0: LDST_VAR_P index=1 ldst=0 b2 -> 7067888 117 140
+ 55,1: SETSTROS 0x6bd8f0
+ 56,0: LD_IFUNC disp paran=0
+ 5e,1: POPSTROS 0x0 strosp=1
+ 5f,1: INCJMP *(int*)0xbbc1f8+1 to 0
+  0,0: LDST_VAR_P index=0 ldst=0 i -> 2 105 -1
+  5,1: LD 3,3 from ff 3a74c8,3a94a8
+  7,2: OP2_OPTIMIZED i:2:9.88131e-324 i:3:1.4822e-323 -> i:1
+  9,1: CNDJMP 1 to 68
+  b,0: CL t2002.cxx:30
+autostack=0 scope=0 
+  d,0: LDST_VAR_P index=1 ldst=0 b2 -> 7067888 117 140
+ 12,1: PUSHSTROS 0x0 strosp=0
+ 13,1: SETSTROS 0x6bd8f0
+ 14,0: ADDSTROS 32
+ 16,0: SETGVP 1 0
+ 18,0: LD_FUNC compiled paran=0
+ 1d,0: SETGVP -1 1
+ 1f,0: ADDSTROS -32
+ 21,0: ADDSTROS 16
+ 23,0: SETGVP 1 0
+ 25,0: LD_FUNC compiled paran=0
+ 2a,0: SETGVP -1 1
+ 2c,0: ADDSTROS -16
+ 2e,0: ADDSTROS 4
+ 30,0: SETGVP 1 0
+ 32,0: LD_FUNC compiled paran=0
+ 37,0: SETGVP -1 1
+ 39,0: ADDSTROS -4
+ 3b,0: LD_FUNC compiled paran=0
+ 40,1: LD_FUNC compiled paran=0
+ 45,2: LD_FUNC compiled paran=0
+ 4a,3: POPSTROS 0x0 strosp=1
+ 4b,3: CL t2002.cxx:31
+autostack=0 scope=0 
+ 4d,0: CL t2002.cxx:32
+autostack=0 scope=0 
+ 4f,0: PUSHSTROS 0x0 strosp=0
+ 50,0: LDST_VAR_P index=1 ldst=0 b2 -> 7067888 117 140
+ 55,1: SETSTROS 0x6bd8f0
+ 56,0: LD_IFUNC disp paran=0
+ 5e,1: POPSTROS 0x0 strosp=1
+ 5f,1: INCJMP *(int*)0xbbc1f8+1 to 0
+  0,0: LDST_VAR_P index=0 ldst=0 i -> 3 105 -1
+  5,1: LD 3,3 from ff 3a74c8,3a94a8
+  7,2: OP2_OPTIMIZED i:3:1.4822e-323 i:3:1.4822e-323 -> i:0
+  9,1: CNDJMP 0 to 68
+ 68,0: RETURN
+
+freetemp 0:(NULL)0x00000000 
+    G__no_exec_compile set
+    G__no_exec_compile reset 0
+
+freetemp 0:(NULL)0x00000000 
+     G__no_exec_compile 0(G__exec_if:1) 0
+    G__no_exec_compile set
+    G__no_exec_compile reset 0
+
+freetemp 0:(NULL)0x00000000 
+
+freetemp 0:(NULL)0x00000000 
+     G__no_exec_compile 0(G__exec_if:1) 0
+    G__no_exec_compile set
+    G__no_exec_compile reset 0
+
+freetemp 0:(NULL)0x00000000 
+
+freetemp 0:(NULL)0x00000000 
+     G__no_exec_compile 0(G__exec_if:1) 0

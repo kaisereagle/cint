@@ -1,0 +1,45 @@
+############################################################
+# platform/minimum
+#  Platform dependent information for absolute minimum configuration
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = cc
+CC          = cc 
+CPP         = 
+LD          = cc 
+CPREP       = cc -E
+CPPPREP     =
+
+# Compiler and linker option
+CCDLLOPT    =
+LDDLLOPT    =
+OPTIMIZE    =
+LDOPT       = -lm
+SYSMACRO    = 
+OTHMACRO    = 
+SYSIPATH    = 
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__main.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = 
+APIO	    = 
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = dmystrm.o dmystrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     =
+
+
+

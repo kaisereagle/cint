@@ -1,0 +1,31 @@
+rm ../../include/CSV.dll
+cp $CINTSYSDIR/include/EasyExp.cxx EasyExp.cxx
+cp $CINTSYSDIR/include/EasyExp.h EasyExp.h
+cp $CINTSYSDIR/include/StatEasyExp.cxx StatEasyExp.cxx
+cp $CINTSYSDIR/include/StatEasyExp.h StatEasyExp.h
+cp $CINTSYSDIR/include/ReadF.cxx ReadF.cxx
+cp $CINTSYSDIR/include/ReadF.h ReadF.h
+cp $CINTSYSDIR/include/MultiByteChar.h MultiByteChar.h
+cp $CINTSYSDIR/include/MultiByteChar.cxx MultiByteChar.cxx
+cp $CINTSYSDIR/lib/posix/exten.c exten.c
+cp $CINTSYSDIR/lib/posix/exten.h exten.h
+cp $CINTSYSDIR/lib/posix/posix.h posix.h
+cp $CINTSYSDIR/lib/NVector/Vector.h Vector.h
+cp $CINTSYSDIR/lib/NVector/Stat.h Stat.h
+cp $CINTSYSDIR/lib/NVector/Stat.cxx Stat.cxx
+cp $CINTSYSDIR/lib/NVector/Gauss.h Gauss.h
+cp $CINTSYSDIR/lib/NVector/Gauss.cxx Gauss.cxx
+cp $CINTSYSDIR/lib/NVector/Histogram.h Histogram.h 
+cp $CINTSYSDIR/lib/NVector/Vectoriostream.h Vectoriostream.h 
+cp $CINTSYSDIR/lib/NVector/Vectoriostream.cxx Vectoriostream.cxx 
+cp $CINTSYSDIR/lib/NVector/VirtualGraph.h VirtualGraph.h 
+cp $CINTSYSDIR/lib/NVector/VirtualGraph.cxx VirtualGraph.cxx 
+cp $CINTSYSDIR/lib/NVector/cintgraph.h cintgraph.h 
+cp $CINTSYSDIR/lib/NVector/cintgraph.cxx cintgraph.cxx 
+cp $CINTSYSDIR/lib/NVector/Complex.h Complex.h
+
+makecint -mk makefile -dl CSV.dll -DDISPFILE -DNOMINMAXEASYEXP -DNOMINMAXCLUSTERING -I $CINTSYSDIR -D __CINTLIB__ -DUNIQUE_HIST -DNOCOMPLEX -H Collection.h FileStrCollection.h ReadF.h EasyExp.h StatEasyExp.h Stat.h Gauss.h Value.h Clustering.h icsv.h csviostream.h LinkDef.h -C++ Collection.cxx FileStrCollection.cxx ReadF.cxx EasyExp.cxx StatEasyExp.cxx Stat.cxx Gauss.cxx Value.cxx Clustering.cxx icsv.cxx Vectoriostream.cxx VirtualGraph.cxx cintgraph.cxx csviostream.cxx MultiByteChar.cxx -C exten.c
+make -f makefile
+mv CSV.dll $CINTSYSDIR/include/CSV.dll
+make -f makefile clean 
+rm G__*

@@ -1,0 +1,215 @@
+
+###################################################################
+###################################################################
+#Memo
+
+  Tableの領域分割と分類をそれぞれ機能として定義し Excel.h/.cxxに組み込む
+  または sub-classとして定義する
+
+                                               EasyExp
+ - Partitioning
+                                  x            Clustering
+ - Classification
+					       NeuralNetwork
+
+-----------------------------------------------------------------------
+
+Function name
+  (Partitioning|Classification)(EasyExp|Clustering|NeuralNetwork)
+
+--------------------------------------------------------------------
+Classification(EasyExp|Clustering|NeuralNetwork)
+Parameter                  Example
+Input 
+  vector<Symbol>, Symbol
+
+  MatchingAlgorithm        EasyExp   Clustering      NeuralNetwork
+  Pattern                  AB*XYZ    func thresh     Learnt weight
+
+Output
+  UpperSymbol
+
+
+Input
+
+
+--------------------------------------------------------------------
+
+Partitioning(EasyExp|Clustering|NeuralNetwork)
+Parameter                  Example
+Input 
+  vector<Symbol>
+
+  MatchingAlgorithm       EasyExp   Clustering       NeuralNetwork
+  vector<Pattern>         AB*XYZ    func thresh     Learnt weight
+
+Output
+  vector<UpperSymbol>
+  vector<vector<Symbol> >
+
+--------------------------------------------------------------------
+
+ Table <>---* Obj 
+
+ Table <>--* SubTable <>--* Obj 
+
+             <>---* property 
+         Obj <|--- atom
+               --- table <|--- collection
+                               vector
+			       matrix
+
+###################################################################
+--------------------------------------------------------------------
+# Keyword, predefined primitives
+cell
+table
+
+# Primitives: namespace PRIMITIVE
+zero,matchs,"[ :*](0|0.0)[ :*]"
+one,matchs,"[ :*](1|1.0)[ :*]"
+integer,matchs,"[ :*][-+0-9][0-9:*][ :*]"
+
+real number,matchs,"[ :*][-+0-9:*].[0-9:*][ :*]"
+floating point number,matchs,"[ :*][-+0-9.][0-9.:*][eE][-+0-9][0-9:*][ :*]"
+floating point number,matchs,"[ :*][-+0-9][0-9:*].[0-9:*][eE][-+0-9][0-9:*][ :*]"
+
+percentage,matchs,"[ :*][-+0-9:*][ :*]%[ :*]"
+percentage,matchs,"[ :*][-+0-9:*].[0-9:*][ :*]%[ :*]"
+
+string,matchs,"[ \t:*][A-Za-z0-9_]*"
+URL,matchs,"http://*"
+URL,matchs,"*www.*"
+file name,matchs,"*.[a-zA-Z:1-4]"
+file name,matchs,"*/*"
+e-mail address,matchs,"[A-Za-z]*@*.*"
+
+
+# "Cell" definition, namespace CELL
+numeric cell,contains,numbers
+real number cell,contains,a real number
+integer cell,contains,an integer
+zero cell,contains,zero
+one cell,contains,one
+string cell,contains,strings
+
+// relation
+real number cell,is a,numeric cell
+integer cell,is a,numeric cell		
+zero,is a,integer cell
+one,is a,integer cell
+
+
+
+# "Row/Column" definition
+title line,contains,string cells:0.7|number cells:0.3
+numeric line,contains,numeric cells
+
+
+# Symbol space "Matrix"
+
+###################################################################
+# 個々の動作要素を記述したものを自動的に組み合わせて答えを導く
+
+株譲渡収入=売株価*売株数
+株購入金額=買株価*売株数
+証券手数料
+為替手数料
+株譲渡益=株譲渡収入-株購入金額-証券手数料-為替手数料
+yen/$(日付,low|high|med)
+売株価<=売日最高値
+売株価<=売日最安値
+
+ 1. Semantic terminology matching loop
+      exact
+      regexp
+      synonym
+ 2. Formula propagation loop
+
+cell contents type
+ number
+   double
+   int
+   zero
+   one
+
+ string
+   blank
+   label
+   text
+   timedate
+   URI
+   filepath
+   formula
+
+ formula
+   label,operator
+     label -> cellID
+     label -> formula -> hidden-cell
+   cellID,operator
+
+
+##########
+
+ 分類
+  table -> sub-table -> cell -> 関係式
+
+ - keyword TF-IDF で当該tableが何に関するものか分類
+    IDF は dictionary DB をつくっておく
+
+ - 分類された category の domain 知識を最優先にし、確率が低いものを低位に ontology
+  と matching patternを load
+
+ - pattern matching でsub-tableとその形式を特定
+
+ - 分類されたsub-table形式の知識の優先度をあげる
+
+ - ontologyで table, 各cellの意味を特定
+     exact match
+     regexp match, synonym
+     is a 
+
+ - ontology symbolic calculatorで cell 直接関係を解決
+
+ - ontology symbolic calculatorで cell 間接関係を解決
+
+ - 関係式を数値と式、両方で比較・評価
+
+
+###############################################
+ opr inv iopr
+ a = b opr c
+    b = a iopr c
+    c = a iopr b    : opr が交換可能な場合    * + 
+    c = b iopr b    : opr が交換不可能な場合  / - 
+
+ a = b * c
+    b = a / c
+    c = a / b
+ a = b + c
+    b = a - c
+    c = a - b
+   
+ a = b / c
+    b = a * c
+    c = b / a
+ a = b - c
+    b = a + c
+    c = b - a
+
+ opr inv iopr
+ a = opr(b) 
+ b = iopr(b)
+
+ a = sin(b)
+   b = asin(a)
+ a = exp(b)
+   b = log(a)
+
+ 変換不能なもの
+ a = b ^ c
+ a = b % c
+ a = b & c
+ a = b | c
+
+###############################################

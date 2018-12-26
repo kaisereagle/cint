@@ -1,0 +1,8 @@
+platform/status.txt
+
+This is a private memo for multi-platform porting status. Information
+is not complete.
+
+# solaris 5.8 CC5.2  <- compiled with solaris5.7_cc5
+  Don't know difference between sunstrm.cxx and sun5strm.cxx (_B version)
+

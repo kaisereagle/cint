@@ -1,0 +1,55 @@
+############################################################
+# platform/solaris5.4_cc5
+#  Platform dependent information for Solaris(SunOS 5.4) or later
+#  With Sun CC5 ANSI/ISO compliant C++ compiler
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = cq
+#KRCC        = cc
+KRCC        = /opt/SUNWspro_5.0/bin/cc
+CC          = /opt/SUNWspro_5.0/bin/cc
+CPP         = /opt/SUNWspro_5.0/bin/CC
+LD          = /opt/SUNWspro_5.0/bin/CC
+CPREP       = /opt/SUNWspro_5.0/bin/cc -E -C
+#CPPPREP     = /opt/SUNWspro/bin/CC -E
+CPPPREP     = /usr/ccs/lib/cpp -E -C -B -D__sun -D__sparc -D__unix
+# /usr/ccs/lib/cpp -D__SUNPRO_CC=0x401 -Dunix -Dsun -Dsparc -D__unix -D__sun \
+# -D__sparc -D__BUILTIN_VA_ARG_INCR -D__SVR4 \
+# -I/opt/SUNWspro/SC3.0.1/include/CC -I/opt/SUNWspro/SC3.0.1/include/cc -E -C -B
+
+# Compiler and linker option
+CCDLLOPT    = -KPIC
+LDDLLOPT    = -G
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -ldl -L/usr/ccs/lib -lgen
+SYSMACRO    = -DG__REGEXP1 -DG__SHAREDLIB -DG__OSFDLL -DG__NEWSTDHEADER
+#SYSMACRO    = -DG__REGEXP1 -DG__SHAREDLIB -DG__OSFDLL -DG__CPPIF_EXTERNC
+OTHMACRO    = -DG__REDIRECTIO 
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = 
+#  GNU readline caused problem on this platform
+# READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = sunstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+
+

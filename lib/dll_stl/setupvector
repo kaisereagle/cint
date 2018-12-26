@@ -1,0 +1,30 @@
+# Comment out following line to precompile generic algorithm. But, be careful
+# for doing that. Your compiler may not support certain algorithm function.
+ALGO=-DG__NOALGORITHM
+
+
+#rm ../../stl/iterator.dll 
+#rm ../../stl/string.dll 
+rm ../../stl/vector.dll 
+rm ../../stl/vectorbool.dll 
+rm G__*
+
+
+#makecint -mk Makeiter -dl iterator.dll -H iter.h  -cint -Z0
+#make -f Makeiter
+#mv iterator.dll ../../stl/iterator.dll
+
+makecint -mk Makestr -dl string.dll -H str.h -cint -Z0
+make -f Makestr
+mv string.dll ../../stl/string.dll
+
+makecint -mk Makevec -dl vector.dll $ALGO -H vec.h  -cint -Z0
+make -f Makevec
+mv vector.dll ../../stl/vector.dll
+
+makecint -mk Makevecbool -dl vectorbool.dll $ALGO -H vecbool.h  -cint -Z0
+make -f Makevecbool
+mv vectorbool.dll ../../stl/vectorbool.dll
+
+#rm G__*
+#rm Make*

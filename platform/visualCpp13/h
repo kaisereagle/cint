@@ -1,0 +1,23 @@
+
+cint : C/C++ interpreter
+   Copyright(c) : 1995~2015 Masaharu Goto (gotom@hanno.jp)
+   revision     : 5.15.176, Sep 1 2015 by M.Goto
+
+No main() function found in given source file. Interactive interface started.
+'h':help, 'q':quit, '{statements;}' or 'p [expr]' to evaluate
+
+cint> 
+!!!Calling compiled function ~string()
+
+cint> 
+!!! Process killed by interrupt. signal(2)
+
+!!!Calling compiled function ~string()
+
+cint> 
+!!!Calling compiled function ~string()
+
+cint> 
+!!!Calling compiled function ~string()
+
+cint> 

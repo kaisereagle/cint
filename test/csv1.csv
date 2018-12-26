@@ -1,0 +1,5 @@
+Wafer,DieX,"Die Y",Output1,Output2,Result1,Result2,"Estimated Resistance",isDamaged,"Pass Fail",comment
+
+Wafer,DieX,"Die Y",Output1,Output2,Result1,Result2,"Estimated
+Resistance",isDamaged,"Pass
+Fail",comment

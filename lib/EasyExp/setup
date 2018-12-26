@@ -1,0 +1,20 @@
+cp $CINTSYSDIR/include/EasyExp.cxx EasyExp.cxx
+cp $CINTSYSDIR/include/EasyExp.h EasyExp.h
+cp $CINTSYSDIR/include/StatEasyExp.cxx StatEasyExp.cxx
+cp $CINTSYSDIR/include/StatEasyExp.h StatEasyExp.h
+cp $CINTSYSDIR/include/ReadF.h ReadF.h
+cp $CINTSYSDIR/include/ReadF.cxx ReadF.cxx
+cp $CINTSYSDIR/include/MultiByteChar.h MultiByteChar.h
+cp $CINTSYSDIR/include/MultiByteChar.cxx MultiByteChar.cxx
+cp $CINTSYSDIR/lib/posix/exten.c exten.c
+cp $CINTSYSDIR/lib/posix/exten.h exten.h
+cp $CINTSYSDIR/lib/posix/posix.h posix.h
+cp $CINTSYSDIR/lib/NVector/Stat.h Stat.h
+cp $CINTSYSDIR/lib/NVector/Stat.cxx Stat.cxx
+
+rm ../../include/EasyExp.dll
+makecint -mk makelinux -dl EasyExp.dll -DNOMINMAXEASYEXP -H EasyExp.h StatEasyExp.h LinkDef.h -C++ ReadF.cxx EasyExp.cxx StatEasyExp.cxx MultiByteChar.cxx -C exten.c
+make -f makelinux
+mv EasyExp.dll ../../include/EasyExp.dll
+rm G__*
+rm *.o

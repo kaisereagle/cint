@@ -1,0 +1,56 @@
+############################################################
+# platform/borlandcc5
+#  Platform dependent information for Borland C++ Compiler 5.5
+############################################################
+
+# Tools
+RM	    = del 
+CP	    = copy
+KRCC        = bcc32 -Ic:\Borland\BCC55\Include -Lc:\Borland\BCC55\Lib
+CC          = bcc32 -Ic:\Borland\BCC55\Include -Lc:\Borland\BCC55\Lib
+CPP         = bcc32 -P -Ic:\Borland\BCC55\Include -Lc:\Borland\BCC55\Lib
+LD          = bcc32 -Ic:\Borland\BCC55\Include -Lc:\Borland\BCC55\Lib
+CPREP       = cpp32 -Sr -Sc -Ic:\Borland\BCC55\Include
+CPPPREP     = cpp32 -Sr -Sc -Ic:\Borland\BCC55\Include
+
+
+# Compiler and linker option
+CCDLLOPT    = 
+LDDLLOPT    = -WD
+OPTIMIZE    = -O2
+LDOPT       = 
+SHLIB_OPT   = 
+SYSMACRO    = -DG__BORLANDCC5 -DG__NEWSTDHEADER
+OTHMACRO    = 
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)\main\G__cppmain.obj
+CINTLIB     = $(CINTSYSDIR)/libcint.lib
+READLINEA   = 
+APIO	    = Api.obj Class.obj BaseCls.obj Type.obj DataMbr.obj Method.obj MethodAr.obj CallFunc.obj Typedf.obj Apiif.obj Token.obj
+RANLIB	    = 
+STDLIBS     = cbstrm.obj stdstrct.obj
+PLATFORM    = winnt.obj
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .cpp
+CPPHDRPOST  = .h
+OBJPOST     = .obj
+DLLPOST     = .dll
+
+
+
+
+
+
+##########################################################
+# Control default behavior of cint command line input
+##########################################################
+#INPUTMODE = C++
+#INPUTMODE = root
+INPUTMODE = cint
+#INPUTMODELOCK = on
+INPUTMODELOCK = off

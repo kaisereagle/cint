@@ -1,0 +1,47 @@
+############################################################
+# platform/sunos4_only_C
+#  Platform dependent information for SunOS without C++ compiler
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = /usr/ucb/cc
+CC          = /usr/ucb/cc
+CPP         = 
+#LD          = $(CINTSYSDIR)/platform/sun/sunLD
+LD          = /usr/ucb/cc
+CPREP       = /usr/ucb/cc -E
+CPPPREP     =
+
+# Compiler and linker option
+### DLL in this environment is not working yet, somebody please help
+CCDLLOPT    = -PIC -Bdynamic -r
+LDDLLOPT    = -PIC -Bdynamic
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -ldl
+SYSMACRO    = -DG__NONANSI -DG__SUNOS4
+OTHMACRO    = -DG__SHAREDLIB -DG__OSFDLL -DG__REDIRECTIO
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__main.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = dmyinit.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = dmystrm.o dmystrct.o
+PLATFORM    = sunos.o
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+KRMODE      = -K
+

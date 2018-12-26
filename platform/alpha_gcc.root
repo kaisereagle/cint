@@ -1,0 +1,45 @@
+############################################################
+# platform/alpha_gcc.root
+#  Platform dependent information for DEC ALPHA OSF
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = cc
+CC          = gcc
+CPP         = g++
+LD          = g++
+CPREP       = gcc -E -C
+CPPPREP     = g++ -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -fPIC
+LDDLLOPT    = -shared
+OPTIMIZE    = -O $(CCDLLOPT)
+LDOPT       = -lm -ltermcap -lbsd
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL -DG__REDIRECTIO
+OTHMACRO    = -DG__ROOT -DG__64BIT
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   =
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+

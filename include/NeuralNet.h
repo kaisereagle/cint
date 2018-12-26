@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////////
+// NeuralNet.h
+//
+////////////////////////////////////////////////////////////////////////
+
+#ifndef NEURALNETH
+#define NEURALNETH
+
+#ifdef __CINT__
+#pragma include <NeuralNet.dll>
+#else
+#include "NeuralNetLib.h"
+#endif
+
+#include <NeuralNetOld.h>
+
+#endif // NEURALNETH
+

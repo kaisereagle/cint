@@ -1,0 +1,11 @@
+rm ../../include/ReadF.dll
+cp $CINTSYSDIR/include/ReadF.cxx ReadF.cxx
+cp $CINTSYSDIR/include/ReadF.h ReadF.h
+cp $CINTSYSDIR/include/MultiByteChar.h MultiByteChar.h
+cp $CINTSYSDIR/include/MultiByteChar.cxx MultiByteChar.cxx
+makecint -mk makelinux -dl ReadF.dll -H ReadF.h LinkDef.h -C++ ReadF.cxx MultiByteChar.cxx
+make -f makelinux
+mv ReadF.dll ../../include/ReadF.dll
+make -f makelinux clean
+rm G__*
+rm *.o

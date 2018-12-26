@@ -1,0 +1,53 @@
+#
+# Don't use this file. Please use cygwin51_gcc3_so 
+#
+############################################################
+# platform/cygwin1
+#  Platform dependent information for Cygwin by Rommel Custodio
+############################################################
+
+CXX    = g++
+#CXX    = c++
+
+# Tools
+RM      = rm -f
+CP      = cp
+AR      = ar
+AROPT       = clq
+KRCC        = cc
+CC          = gcc
+CPP         = $(CXX)
+LD          = $(CXX)
+#LD          = dllwrap --export-all --output-def cxxdll.def --implib libcxxdll.a --driver-name $(CXX)
+CPREP       = gcc -E -C
+CPPPREP     = $(CXX) -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -DBUILDING_DLL=1
+LDDLLOPT    = -shared
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -lreadline
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL -DG__CYGWIN=1
+OTHMACRO    = -DG__REDIRECTIO
+SYSIPATH    =
+
+# libraries
+MAINO       = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   =
+APIO        = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o 
+CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB      = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+

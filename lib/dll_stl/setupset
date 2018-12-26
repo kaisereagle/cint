@@ -1,0 +1,23 @@
+# Comment out following line to precompile generic algorithm. But, be careful
+# for doing that. Your compiler may not support certain algorithm function.
+ALGO=-DG__NOALGORITHM
+
+
+rm ../../stl/set.dll 
+rm ../../stl/multiset.dll 
+rm G__*
+
+
+
+makecint -mk Makeset -dl set.dll $ALGO -H st.h  -cint -Z0
+make -f Makeset
+mv set.dll ../../stl/set.dll
+
+
+makecint -mk Makemset -dl multiset.dll $ALGO -H multst.h  -cint -Z0
+make -f Makemset
+mv multiset.dll ../../stl/multiset.dll
+
+
+#rm G__*
+#rm Make*

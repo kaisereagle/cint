@@ -1,0 +1,8 @@
+cp $CINTSYSDIR/lib/NVector/Vector.h Vector.h
+cp $CINTSYSDIR/lib/NVector/Complex.h Complex.h
+
+makecint -mk makelinux -dll Kmeans_EM_VB_FCM.dll -I/mnt/hgfs/C/Tools/Eigen -H Vector.h MatrixCalc.h Kmeans_EM_VB_FCM.h LinkDef.h 
+make -f makelinux 
+mv Kmeans_EM_VB_FCM.dll $CINTSYSDIR/include/Kmeans_EM_VB_FCM.dll
+make -f makelinux clean
+

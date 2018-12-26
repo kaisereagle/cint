@@ -1,0 +1,49 @@
+
+Microsoft(R) Program Maintenance Utility Version 12.00.21005.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+Note: File "ReadF.h" already loaded
+Note: File "EasyExp.h" already loaded
+Note: File "Stat.h" already loaded
+Note: File "Value.h" already loaded
+Warning: #pragma link, function operator==(const map<string,Collection>::iterator,const map<string,Collection>::iterator) not found FILE:LinkDef.h LINE:64
+Warning: #pragma link, function operator!=(const map<string,Collection>::iterator,const map<string,Collection>::iterator) not found FILE:LinkDef.h LINE:65
+Warning: #pragma link, function operator<<(ostream&,DStat&) not found FILE:LinkDef.h LINE:89
+Warning: #pragma link, function operator<<(ostream&,FStat&) not found FILE:LinkDef.h LINE:90
+Warning: #pragma link, function operator<(const DStat&,const DStat&) not found FILE:LinkDef.h LINE:93
+Warning: #pragma link, function operator<(const FStat&,const FStat&) not found FILE:LinkDef.h LINE:96
+Warning: #pragma link, function operator<<(ostream&,void*) not found FILE:LinkDef.h LINE:98
+Note: link requested for unknown global variable InterpretedMatchFunc FILE:LinkDef.h LINE:127
+Note: link requested for unknown function interpretmatchratio FILE:LinkDef.h LINE:128
+Note: link requested for unknown function StatEasyExpSynthesis FILE:LinkDef.h LINE:177
+Note: Link requested for already precompiled class string (ignore this message) FILE: LINE:0
+NMAKE : fatal error U1077: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\cl.exe"' : リターン コード '0x2'
+Stop.
+C:\cint\include\CSV.dll が見つかりませんでした。
+指定されたファイルが見つかりません。
+
+Microsoft(R) Program Maintenance Utility Version 12.00.21005.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+C:\cint\lib\CSV\Release\CSV.dll が見つかりませんでした。
+C:\cint\lib\CSV\Release\Collection.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\FileStrCollection.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\ReadF.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\EasyExp.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\StatEasyExp.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\Stat.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\Gauss.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\Value.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\Clustering.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\icsv.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\Vectoriostream.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\csviostream.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\VirtualGraph.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\cintgraph.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\MultiByteChar.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\winposix.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\G__cpp_CSV.obj が見つかりませんでした。
+C:\cint\lib\CSV\Release\CSV.lib が見つかりませんでした。
+C:\cint\lib\CSV\Release\CSV.exp が見つかりませんでした。
+C:\cint\lib\CSV\G__* が見つかりませんでした。
+C:\cint\lib\CSV\CSV.dll が見つかりませんでした。

@@ -1,0 +1,51 @@
+############################################################
+#  platform/qnx6.2
+#  Platform dependent information for qnx6.1 and 6.2
+#  by Ion Gaztanga.  ion_g_m@terra.es
+############################################################
+
+# Tools
+RM          = rm -f
+CP          = cp
+AR          = ar
+AROPT       = clq
+KRCC        = qcc -Wc,-traditional -pipe
+CC          = qcc -pipe
+CPP         = QCC -pipe
+LD          = QCC
+CPREP       = qcc -E
+CPPPREP     = QCC -E
+
+
+# Compiler and linker option
+CCDLLOPT    = -fPIC
+LDDLLOPT    = -shared
+OPTIMIZE    = -O2
+LDOPT       = -lm
+SYSMACRO    = -DG__ERRORCALLBACK -DG__NEWSTDHEADER
+OTHMACRO    = -DG__NONSCALARFPOS_QNX610_DINKUM -DG__P2FCAST -DG__REDIRECTIO -DG__DETECT_NEWDEL 
+-DG__STD_EXCEPTION
+SYSIPATH    =
+
+# libraries
+MAINO       = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   =
+APIO         = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o
+CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB      = ranlib
+#STDLIBS    = fakestrm.o stdstrct.o
+STDLIBS     = vc7strm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .so
+
+
+
+

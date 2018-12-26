@@ -1,0 +1,16 @@
+#cp $CINTSYSDIR/include/Stat.h Stat.h
+#cp $CINTSYSDIR/include/Stat.cxx Stat.cxx
+cp Stat.h   $CINTSYSDIR/include/Stat.h 
+cp Stat.cxx $CINTSYSDIR/include/Stat.cxx 
+cp $CINTSYSDIR/include/ReadF.h ReadF.h
+cp $CINTSYSDIR/include/ReadF.cxx ReadF.cxx
+cp $CINTSYSDIR/include/MultiByteChar.h ./
+cp $CINTSYSDIR/include/MultiByteChar.cxx ./
+
+makecint -mk makelinux -dll NVector.dll -DDISPFILE -H Vector.h Complex.h Fft.h Lsm.h SparseVector.h Histogram.h Stat.h Gauss.h Vectoriostream.h  VirtualGraph.h cintgraph.h LinkDef.h -C++ Fft.cxx Lsm.cxx Stat.cxx Gauss.cxx VirtualGraph.cxx cintgraph.cxx Vectoriostream.cxx ReadF.cxx MultiByteChar.cxx
+rm *Dict*
+make -f makelinux
+rm $CINTSYSDIR/include/NVector.dll
+mv NVector.dll $CINTSYSDIR/include/NVector.dll
+make -f makelinux clean
+

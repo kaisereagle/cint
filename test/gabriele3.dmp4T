@@ -1,0 +1,1596 @@
+ -T : trace from pre-run
+LOADING file=gabriele3.C:gabriele3.C:
+1    
+2    //#include <stdio.h>
+3    //#include <string>
+4    //#include <stdlib.h>
+5    void drift_velocity(double x, double y, double& vx, double& vy), double y, double& vx, double& vy) {
+6      double ex, ey, mu;
+7          ex = -1.0*(
+8    	-0.086354*(x+0.1 )/(pow(x+0.1 ,2)+pow(y-1,2))
+9    	-0.066419*(x     )/(pow(x     ,2)+pow(y-1,2))
+10   	-0.086354*(x-0.1 )/(pow(x-0.1 ,2)+pow(y-1,2))
+11   		    
+12   	-0.012136*(x+0.08)/(pow(x+0.08,2)+pow(y  ,2))
+13   	-0.009957*(x+0.06)/(pow(x+0.06,2)+pow(y  ,2))
+14   	-0.009957*(x-0.06)/(pow(x-0.06,2)+pow(y  ,2))
+15   	-0.012136*(x-0.08)/(pow(x-0.08,2)+pow(y  ,2))
+16   	
+17   	+0.102912*(x+0.1 )/(pow(x+0.1 ,2)+pow(y+1,2))
+18   	+0.078810*(x     )/(pow(x,     2)+pow(y+1,2))
+19   	+0.102912*(x-0.1 )/(pow(x-0.1 ,2)+pow(y+1,2))
+20   	  );
+21   }
+22   
+23   void gabriele() {
+24     double x=1,y=2,vx=3,vy=4;
+25     for (int i=0; i<2; i++) {
+26       drift_velocity(x,y,vx,vy);
+27     }
+28   }
+29   
+30   int main() {
+31     gabriele() ;
+32     return 0;
+33   }
+34   
+35   EOF
+PRE-RUN END
+
+# gabriele3.C
+30   main() {
+31     gabriele() ;
+# gabriele3.C
+23   gabriele() {
+24     double x=1,y=2,vx=3,vy=4;
+25     for (int i=0; i<2; i++)Loop compile start FILE:gabriele3.C LINE:25
+  0: LD_VAR  i index=4 paran=0
+  5: LD 2 from ff
+  7: OP2  '<' 60
+  9: CNDJMP assigned later
+  b: CL  FILE:gabriele3.C LINE:25
+ {
+26       drift_velocity(x,y,vx,vy);  d: CL  FILE:gabriele3.C LINE:26
+  f: LD_VAR  x index=0 paran=0
+ 14: LD_VAR  y index=1 paran=0
+ 19: LD_VAR  vx index=2 paran=0
+ 1e: LD_VAR  vy index=3 paran=0
+ 23: LD_IFUNC drift_velocity paran=4
+!!!bytecode compilation drift_velocity start FILE:gabriele3.C LINE:26
+
+# gabriele3.C
+5    drift_velocity(double x,  0: ST_VAR  x index=0 paran=0
+  0: ST_LVAR  x index=0 paran=0
+  5: POP
+ double y,  6: ST_VAR  y index=1 paran=0
+  6: ST_LVAR  y index=1 paran=0
+  b: POP
+ double& vx,  c: INIT_REF
+ 11: POP
+ double& vy) 12: INIT_REF
+ 17: POP
+ {
+6      double ex, ey, mu; 18: CL  FILE:gabriele3.C LINE:6
+
+7          ex = -1.0*(
+8    	-0.086354*(x+0.1 )/(pow(x+0.1 ,2)+pow(y-1,2))
+9    	-0.066419*(x     )/(pow(x     ,2)+pow(y-1,2))
+10   	-0.086354*(x-0.1 )/(pow(x-0.1 ,2)+pow(y-1,2))
+11   		    
+12   	-0.012136*(x+0.08)/(pow(x+0.08,2)+pow(y  ,2))
+13   	-0.009957*(x+0.06)/(pow(x+0.06,2)+pow(y  ,2))
+14   	-0.009957*(x-0.06)/(pow(x-0.06,2)+pow(y  ,2))
+15   	-0.012136*(x-0.08)/(pow(x-0.08,2)+pow(y  ,2))
+16   	
+17   	+0.102912*(x+0.1 )/(pow(x+0.1 ,2)+pow(y+1,2))
+18   	+0.078810*(x     )/(pow(x,     2)+pow(y+1,2))
+19   	+0.102912*(x-0.1 )/(pow(x-0.1 ,2)+pow(y+1,2))
+20   	  ); 1a: CL  FILE:gabriele3.C LINE:20
+ 1c: LD 1 from ff
+ 1e: OP1  '-' 45
+ 20: LD 0.086354 from fe
+ 22: OP1  '-' 45
+ 24: LD_LVAR  x index=0 paran=0
+ 29: LD 0.1 from fd
+ 2b: OP2  '+' 43
+ 2d: OP2  '*' 42
+ 2f: LD_LVAR  x index=0 paran=0
+ 34: LD 0.1 from fc
+ 36: OP2  '+' 43
+ 38: LD 2 from fb
+ 3a: LD_FUNC compiled pow paran=2
+ 3f: LD_LVAR  y index=1 paran=0
+ 44: LD 1 from fa
+ 46: OP2  '-' 45
+ 48: LD 2 from f9
+ 4a: LD_FUNC compiled pow paran=2
+ 4f: OP2  '+' 43
+ 51: OP2  '/' 47
+ 53: LD 0.066419 from f8
+ 55: LD_LVAR  x index=0 paran=0
+ 5a: OP2  '*' 42
+ 5c: LD_LVAR  x index=0 paran=0
+ 61: LD 2 from f7
+ 63: LD_FUNC compiled pow paran=2
+ 68: LD_LVAR  y index=1 paran=0
+ 6d: LD 1 from f6
+ 6f: OP2  '-' 45
+ 71: LD 2 from f5
+ 73: LD_FUNC compiled pow paran=2
+ 78: OP2  '+' 43
+ 7a: OP2  '/' 47
+ 7c: OP2  '-' 45
+ 7e: LD 0.086354 from f4
+ 80: LD_LVAR  x index=0 paran=0
+ 85: LD 0.1 from f3
+ 87: OP2  '-' 45
+ 89: OP2  '*' 42
+ 8b: LD_LVAR  x index=0 paran=0
+ 90: LD 0.1 from f2
+ 92: OP2  '-' 45
+ 94: LD 2 from f1
+ 96: LD_FUNC compiled pow paran=2
+ 9b: LD_LVAR  y index=1 paran=0
+ a0: LD 1 from f0
+ a2: OP2  '-' 45
+ a4: LD 2 from ef
+ a6: LD_FUNC compiled pow paran=2
+ ab: OP2  '+' 43
+ ad: OP2  '/' 47
+ af: OP2  '-' 45
+ b1: LD 0.012136 from ee
+ b3: LD_LVAR  x index=0 paran=0
+ b8: LD 0.08 from ed
+ ba: OP2  '+' 43
+ bc: OP2  '*' 42
+ be: LD_LVAR  x index=0 paran=0
+ c3: LD 0.08 from ec
+ c5: OP2  '+' 43
+ c7: LD 2 from eb
+ c9: LD_FUNC compiled pow paran=2
+ ce: LD_LVAR  y index=1 paran=0
+ d3: LD 2 from ea
+ d5: LD_FUNC compiled pow paran=2
+ da: OP2  '+' 43
+ dc: OP2  '/' 47
+ de: OP2  '-' 45
+ e0: LD 0.009957 from e9
+ e2: LD_LVAR  x index=0 paran=0
+ e7: LD 0.06 from e8
+ e9: OP2  '+' 43
+ eb: OP2  '*' 42
+ ed: LD_LVAR  x index=0 paran=0
+ f2: LD 0.06 from e7
+ f4: OP2  '+' 43
+ f6: LD 2 from e6
+ f8: LD_FUNC compiled pow paran=2
+ fd: LD_LVAR  y index=1 paran=0
+102: LD 2 from e5
+104: LD_FUNC compiled pow paran=2
+109: OP2  '+' 43
+10b: OP2  '/' 47
+10d: OP2  '-' 45
+10f: LD 0.009957 from e4
+111: LD_LVAR  x index=0 paran=0
+116: LD 0.06 from e3
+118: OP2  '-' 45
+11a: OP2  '*' 42
+11c: LD_LVAR  x index=0 paran=0
+121: LD 0.06 from e2
+123: OP2  '-' 45
+125: LD 2 from e1
+127: LD_FUNC compiled pow paran=2
+12c: LD_LVAR  y index=1 paran=0
+131: LD 2 from e0
+133: LD_FUNC compiled pow paran=2
+138: OP2  '+' 43
+13a: OP2  '/' 47
+13c: OP2  '-' 45
+13e: LD 0.012136 from df
+140: LD_LVAR  x index=0 paran=0
+145: LD 0.08 from de
+147: OP2  '-' 45
+149: OP2  '*' 42
+14b: LD_LVAR  x index=0 paran=0
+150: LD 0.08 from dd
+152: OP2  '-' 45
+154: LD 2 from dc
+156: LD_FUNC compiled pow paran=2
+15b: LD_LVAR  y index=1 paran=0
+160: LD 2 from db
+162: LD_FUNC compiled pow paran=2
+167: OP2  '+' 43
+169: OP2  '/' 47
+16b: OP2  '-' 45
+16d: LD 0.102912 from da
+16f: LD_LVAR  x index=0 paran=0
+174: LD 0.1 from d9
+176: OP2  '+' 43
+178: OP2  '*' 42
+17a: LD_LVAR  x index=0 paran=0
+17f: LD 0.1 from d8
+181: OP2  '+' 43
+183: LD 2 from d7
+185: LD_FUNC compiled pow paran=2
+18a: LD_LVAR  y index=1 paran=0
+18f: LD 1 from d6
+191: OP2  '+' 43
+193: LD 2 from d5
+195: LD_FUNC compiled pow paran=2
+19a: OP2  '+' 43
+19c: OP2  '/' 47
+19e: OP2  '+' 43
+1a0: LD 0.07881 from d4
+1a2: LD_LVAR  x index=0 paran=0
+1a7: OP2  '*' 42
+1a9: LD_LVAR  x index=0 paran=0
+1ae: LD 2 from d3
+1b0: LD_FUNC compiled pow paran=2
+1b5: LD_LVAR  y index=1 paran=0
+1ba: LD 1 from d2
+1bc: OP2  '+' 43
+1be: LD 2 from d1
+1c0: LD_FUNC compiled pow paran=2
+1c5: OP2  '+' 43
+1c7: OP2  '/' 47
+1c9: OP2  '+' 43
+1cb: LD 0.102912 from d0
+1cd: LD_LVAR  x index=0 paran=0
+1d2: LD 0.1 from cf
+1d4: OP2  '-' 45
+1d6: OP2  '*' 42
+1d8: LD_LVAR  x index=0 paran=0
+1dd: LD 0.1 from ce
+1df: OP2  '-' 45
+1e1: LD 2 from cd
+1e3: LD_FUNC compiled pow paran=2
+1e8: LD_LVAR  y index=1 paran=0
+1ed: LD 1 from cc
+1ef: OP2  '+' 43
+1f1: LD 2 from cb
+1f3: LD_FUNC compiled pow paran=2
+1f8: OP2  '+' 43
+1fa: OP2  '/' 47
+1fc: OP2  '+' 43
+1fe: LD 0.086354 from ca
+200: OP1  '-' 45
+202: LD_LVAR  x index=0 paran=0
+207: LD 0.1 from c9
+209: OP2  '+' 43
+20b: OP2  '*' 42
+20d: LD_LVAR  x index=0 paran=0
+212: LD 0.1 from c8
+214: OP2  '+' 43
+216: LD 2 from c7
+218: LD_FUNC compiled pow paran=2
+21d: LD_LVAR  y index=1 paran=0
+222: LD 1 from c6
+224: OP2  '-' 45
+226: LD 2 from c5
+228: LD_FUNC compiled pow paran=2
+22d: OP2  '+' 43
+22f: OP2  '/' 47
+231: LD 0.066419 from c4
+233: LD_LVAR  x index=0 paran=0
+238: OP2  '*' 42
+23a: LD_LVAR  x index=0 paran=0
+23f: LD 2 from c3
+241: LD_FUNC compiled pow paran=2
+246: LD_LVAR  y index=1 paran=0
+24b: LD 1 from c2
+24d: OP2  '-' 45
+24f: LD 2 from c1
+251: LD_FUNC compiled pow paran=2
+256: OP2  '+' 43
+258: OP2  '/' 47
+25a: OP2  '-' 45
+25c: LD 0.086354 from c0
+25e: LD_LVAR  x index=0 paran=0
+263: LD 0.1 from bf
+265: OP2  '-' 45
+267: OP2  '*' 42
+269: LD_LVAR  x index=0 paran=0
+26e: LD 0.1 from be
+270: OP2  '-' 45
+272: LD 2 from bd
+274: LD_FUNC compiled pow paran=2
+279: LD_LVAR  y index=1 paran=0
+27e: LD 1 from bc
+280: OP2  '-' 45
+282: LD 2 from bb
+284: LD_FUNC compiled pow paran=2
+289: OP2  '+' 43
+28b: OP2  '/' 47
+28d: OP2  '-' 45
+28f: LD 0.012136 from ba
+291: LD_LVAR  x index=0 paran=0
+296: LD 0.08 from b9
+298: OP2  '+' 43
+29a: OP2  '*' 42
+29c: LD_LVAR  x index=0 paran=0
+2a1: LD 0.08 from b8
+2a3: OP2  '+' 43
+2a5: LD 2 from b7
+2a7: LD_FUNC compiled pow paran=2
+2ac: LD_LVAR  y index=1 paran=0
+2b1: LD 2 from b6
+2b3: LD_FUNC compiled pow paran=2
+2b8: OP2  '+' 43
+2ba: OP2  '/' 47
+2bc: OP2  '-' 45
+2be: LD 0.009957 from b5
+2c0: LD_LVAR  x index=0 paran=0
+2c5: LD 0.06 from b4
+2c7: OP2  '+' 43
+2c9: OP2  '*' 42
+2cb: LD_LVAR  x index=0 paran=0
+2d0: LD 0.06 from b3
+2d2: OP2  '+' 43
+2d4: LD 2 from b2
+2d6: LD_FUNC compiled pow paran=2
+2db: LD_LVAR  y index=1 paran=0
+2e0: LD 2 from b1
+2e2: LD_FUNC compiled pow paran=2
+2e7: OP2  '+' 43
+2e9: OP2  '/' 47
+2eb: OP2  '-' 45
+2ed: LD 0.009957 from b0
+2ef: LD_LVAR  x index=0 paran=0
+2f4: LD 0.06 from af
+2f6: OP2  '-' 45
+2f8: OP2  '*' 42
+2fa: LD_LVAR  x index=0 paran=0
+2ff: LD 0.06 from ae
+301: OP2  '-' 45
+303: LD 2 from ad
+305: LD_FUNC compiled pow paran=2
+30a: LD_LVAR  y index=1 paran=0
+30f: LD 2 from ac
+311: LD_FUNC compiled pow paran=2
+316: OP2  '+' 43
+318: OP2  '/' 47
+31a: OP2  '-' 45
+31c: LD 0.012136 from ab
+31e: LD_LVAR  x index=0 paran=0
+323: LD 0.08 from aa
+325: OP2  '-' 45
+327: OP2  '*' 42
+329: LD_LVAR  x index=0 paran=0
+32e: LD 0.08 from a9
+330: OP2  '-' 45
+332: LD 2 from a8
+334: LD_FUNC compiled pow paran=2
+339: LD_LVAR  y index=1 paran=0
+33e: LD 2 from a7
+340: LD_FUNC compiled pow paran=2
+345: OP2  '+' 43
+347: OP2  '/' 47
+349: OP2  '-' 45
+34b: LD 0.102912 from a6
+34d: LD_LVAR  x index=0 paran=0
+352: LD 0.1 from a5
+354: OP2  '+' 43
+356: OP2  '*' 42
+358: LD_LVAR  x index=0 paran=0
+35d: LD 0.1 from a4
+35f: OP2  '+' 43
+361: LD 2 from a3
+363: LD_FUNC compiled pow paran=2
+368: LD_LVAR  y index=1 paran=0
+36d: LD 1 from a2
+36f: OP2  '+' 43
+371: LD 2 from a1
+373: LD_FUNC compiled pow paran=2
+378: OP2  '+' 43
+37a: OP2  '/' 47
+37c: OP2  '+' 43
+37e: LD 0.07881 from a0
+380: LD_LVAR  x index=0 paran=0
+385: OP2  '*' 42
+387: LD_LVAR  x index=0 paran=0
+38c: LD 2 from 9f
+38e: LD_FUNC compiled pow paran=2
+393: LD_LVAR  y index=1 paran=0
+398: LD 1 from 9e
+39a: OP2  '+' 43
+39c: LD 2 from 9d
+39e: LD_FUNC compiled pow paran=2
+3a3: OP2  '+' 43
+3a5: OP2  '/' 47
+3a7: OP2  '+' 43
+3a9: LD 0.102912 from 9c
+3ab: LD_LVAR  x index=0 paran=0
+3b0: LD 0.1 from 9b
+3b2: OP2  '-' 45
+3b4: OP2  '*' 42
+3b6: LD_LVAR  x index=0 paran=0
+3bb: LD 0.1 from 9a
+3bd: OP2  '-' 45
+3bf: LD 2 from 99
+3c1: LD_FUNC compiled pow paran=2
+3c6: LD_LVAR  y index=1 paran=0
+3cb: LD 1 from 98
+3cd: OP2  '+' 43
+3cf: LD 2 from 97
+3d1: LD_FUNC compiled pow paran=2
+3d6: OP2  '+' 43
+3d8: OP2  '/' 47
+3da: OP2  '+' 43
+3dc: OP2  '*' 42
+3de: ST_VAR  ex index=4 paran=0
+3de: ST_LVAR  ex index=4 paran=0
+
+21   }3e3 : RTN_FUNCBytecode compilation of drift_velocity successful FILE:gabriele3.C LINE:21
+Optimize 3 start
+  0: ST_LVAR index=0 paran=0 point p x
+  G__ST_VAR optimized 8 G__LDST_LVAR_P
+  5: POP
+  6: ST_LVAR index=1 paran=0 point p y
+  G__ST_VAR optimized 8 G__LDST_LVAR_P
+  b: POP
+  c: INIT_REF
+ 11: POP
+ 12: INIT_REF
+ 17: POP
+ 18: CL gabriele3.C:6
+ 1a: CL gabriele3.C:20
+ 1c: LD 1 from ff 
+ 1e: OP1 '-'45
+ 20: LD 0.086354 from fe 
+ 22: OP1 '-'45
+ 24: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 29: LD 0.1 from fd 
+ 2b: OP2 ' '512 
+ 2d: OP2 ''514 
+ 2f: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 34: LD 0.1 from fc 
+ 36: OP2 ' '512 
+ 38: LD 2 from fb 
+ 3a: LD_FUNC pow paran=2
+ 3f: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 44: LD 1 from fa 
+ 46: OP2 '-'45 
+ 48: LD 2 from f9 
+ 4a: LD_FUNC pow paran=2
+ 4f: OP2 ' '512 
+ 51: OP2 ''515 
+ 53: LD 0.066419 from f8 
+ 55: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 5a: OP2 ''514 
+ 5c: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 61: LD 2 from f7 
+ 63: LD_FUNC pow paran=2
+ 68: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 6d: LD 1 from f6 
+ 6f: OP2 '-'45 
+ 71: LD 2 from f5 
+ 73: LD_FUNC pow paran=2
+ 78: OP2 ' '512 
+ 7a: OP2 ''515 
+ 7c: OP2 ''513 
+ 7e: LD 0.086354 from f4 
+ 80: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 85: LD 0.1 from f3 
+ 87: OP2 ''513 
+ 89: OP2 ''514 
+ 8b: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ 90: LD 0.1 from f2 
+ 92: OP2 ''513 
+ 94: LD 2 from f1 
+ 96: LD_FUNC pow paran=2
+ 9b: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ a0: LD 1 from f0 
+ a2: OP2 '-'45 
+ a4: LD 2 from ef 
+ a6: LD_FUNC pow paran=2
+ ab: OP2 ' '512 
+ ad: OP2 ''515 
+ af: OP2 ''513 
+ b1: LD 0.012136 from ee 
+ b3: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ b8: LD 0.08 from ed 
+ ba: OP2 ' '512 
+ bc: OP2 ''514 
+ be: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ c3: LD 0.08 from ec 
+ c5: OP2 ' '512 
+ c7: LD 2 from eb 
+ c9: LD_FUNC pow paran=2
+ ce: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ d3: LD 2 from ea 
+ d5: LD_FUNC pow paran=2
+ da: OP2 ' '512 
+ dc: OP2 ''515 
+ de: OP2 ''513 
+ e0: LD 0.009957 from e9 
+ e2: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ e7: LD 0.06 from e8 
+ e9: OP2 ' '512 
+ eb: OP2 ''514 
+ ed: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+ f2: LD 0.06 from e7 
+ f4: OP2 ' '512 
+ f6: LD 2 from e6 
+ f8: LD_FUNC pow paran=2
+ fd: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+102: LD 2 from e5 
+104: LD_FUNC pow paran=2
+109: OP2 ' '512 
+10b: OP2 ''515 
+10d: OP2 ''513 
+10f: LD 0.009957 from e4 
+111: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+116: LD 0.06 from e3 
+118: OP2 ''513 
+11a: OP2 ''514 
+11c: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+121: LD 0.06 from e2 
+123: OP2 ''513 
+125: LD 2 from e1 
+127: LD_FUNC pow paran=2
+12c: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+131: LD 2 from e0 
+133: LD_FUNC pow paran=2
+138: OP2 ' '512 
+13a: OP2 ''515 
+13c: OP2 ''513 
+13e: LD 0.012136 from df 
+140: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+145: LD 0.08 from de 
+147: OP2 ''513 
+149: OP2 ''514 
+14b: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+150: LD 0.08 from dd 
+152: OP2 ''513 
+154: LD 2 from dc 
+156: LD_FUNC pow paran=2
+15b: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+160: LD 2 from db 
+162: LD_FUNC pow paran=2
+167: OP2 ' '512 
+169: OP2 ''515 
+16b: OP2 ''513 
+16d: LD 0.102912 from da 
+16f: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+174: LD 0.1 from d9 
+176: OP2 ' '512 
+178: OP2 ''514 
+17a: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+17f: LD 0.1 from d8 
+181: OP2 ' '512 
+183: LD 2 from d7 
+185: LD_FUNC pow paran=2
+18a: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+18f: LD 1 from d6 
+191: OP2 '+'43 
+193: LD 2 from d5 
+195: LD_FUNC pow paran=2
+19a: OP2 ' '512 
+19c: OP2 ''515 
+19e: OP2 ' '512 
+1a0: LD 0.07881 from d4 
+1a2: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+1a7: OP2 ''514 
+1a9: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+1ae: LD 2 from d3 
+1b0: LD_FUNC pow paran=2
+1b5: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+1ba: LD 1 from d2 
+1bc: OP2 '+'43 
+1be: LD 2 from d1 
+1c0: LD_FUNC pow paran=2
+1c5: OP2 ' '512 
+1c7: OP2 ''515 
+1c9: OP2 ' '512 
+1cb: LD 0.102912 from d0 
+1cd: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+1d2: LD 0.1 from cf 
+1d4: OP2 ''513 
+1d6: OP2 ''514 
+1d8: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+1dd: LD 0.1 from ce 
+1df: OP2 ''513 
+1e1: LD 2 from cd 
+1e3: LD_FUNC pow paran=2
+1e8: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+1ed: LD 1 from cc 
+1ef: OP2 '+'43 
+1f1: LD 2 from cb 
+1f3: LD_FUNC pow paran=2
+1f8: OP2 ' '512 
+1fa: OP2 ''515 
+1fc: OP2 ' '512 
+1fe: LD 0.086354 from ca 
+200: OP1 '-'45
+202: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+207: LD 0.1 from c9 
+209: OP2 ' '512 
+20b: OP2 ''514 
+20d: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+212: LD 0.1 from c8 
+214: OP2 ' '512 
+216: LD 2 from c7 
+218: LD_FUNC pow paran=2
+21d: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+222: LD 1 from c6 
+224: OP2 '-'45 
+226: LD 2 from c5 
+228: LD_FUNC pow paran=2
+22d: OP2 ' '512 
+22f: OP2 ''515 
+231: LD 0.066419 from c4 
+233: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+238: OP2 ''514 
+23a: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+23f: LD 2 from c3 
+241: LD_FUNC pow paran=2
+246: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+24b: LD 1 from c2 
+24d: OP2 '-'45 
+24f: LD 2 from c1 
+251: LD_FUNC pow paran=2
+256: OP2 ' '512 
+258: OP2 ''515 
+25a: OP2 ''513 
+25c: LD 0.086354 from c0 
+25e: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+263: LD 0.1 from bf 
+265: OP2 ''513 
+267: OP2 ''514 
+269: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+26e: LD 0.1 from be 
+270: OP2 ''513 
+272: LD 2 from bd 
+274: LD_FUNC pow paran=2
+279: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+27e: LD 1 from bc 
+280: OP2 '-'45 
+282: LD 2 from bb 
+284: LD_FUNC pow paran=2
+289: OP2 ' '512 
+28b: OP2 ''515 
+28d: OP2 ''513 
+28f: LD 0.012136 from ba 
+291: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+296: LD 0.08 from b9 
+298: OP2 ' '512 
+29a: OP2 ''514 
+29c: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2a1: LD 0.08 from b8 
+2a3: OP2 ' '512 
+2a5: LD 2 from b7 
+2a7: LD_FUNC pow paran=2
+2ac: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2b1: LD 2 from b6 
+2b3: LD_FUNC pow paran=2
+2b8: OP2 ' '512 
+2ba: OP2 ''515 
+2bc: OP2 ''513 
+2be: LD 0.009957 from b5 
+2c0: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2c5: LD 0.06 from b4 
+2c7: OP2 ' '512 
+2c9: OP2 ''514 
+2cb: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2d0: LD 0.06 from b3 
+2d2: OP2 ' '512 
+2d4: LD 2 from b2 
+2d6: LD_FUNC pow paran=2
+2db: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2e0: LD 2 from b1 
+2e2: LD_FUNC pow paran=2
+2e7: OP2 ' '512 
+2e9: OP2 ''515 
+2eb: OP2 ''513 
+2ed: LD 0.009957 from b0 
+2ef: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2f4: LD 0.06 from af 
+2f6: OP2 ''513 
+2f8: OP2 ''514 
+2fa: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+2ff: LD 0.06 from ae 
+301: OP2 ''513 
+303: LD 2 from ad 
+305: LD_FUNC pow paran=2
+30a: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+30f: LD 2 from ac 
+311: LD_FUNC pow paran=2
+316: OP2 ' '512 
+318: OP2 ''515 
+31a: OP2 ''513 
+31c: LD 0.012136 from ab 
+31e: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+323: LD 0.08 from aa 
+325: OP2 ''513 
+327: OP2 ''514 
+329: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+32e: LD 0.08 from a9 
+330: OP2 ''513 
+332: LD 2 from a8 
+334: LD_FUNC pow paran=2
+339: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+33e: LD 2 from a7 
+340: LD_FUNC pow paran=2
+345: OP2 ' '512 
+347: OP2 ''515 
+349: OP2 ''513 
+34b: LD 0.102912 from a6 
+34d: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+352: LD 0.1 from a5 
+354: OP2 ' '512 
+356: OP2 ''514 
+358: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+35d: LD 0.1 from a4 
+35f: OP2 ' '512 
+361: LD 2 from a3 
+363: LD_FUNC pow paran=2
+368: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+36d: LD 1 from a2 
+36f: OP2 '+'43 
+371: LD 2 from a1 
+373: LD_FUNC pow paran=2
+378: OP2 ' '512 
+37a: OP2 ''515 
+37c: OP2 ' '512 
+37e: LD 0.07881 from a0 
+380: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+385: OP2 ''514 
+387: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+38c: LD 2 from 9f 
+38e: LD_FUNC pow paran=2
+393: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+398: LD 1 from 9e 
+39a: OP2 '+'43 
+39c: LD 2 from 9d 
+39e: LD_FUNC pow paran=2
+3a3: OP2 ' '512 
+3a5: OP2 ''515 
+3a7: OP2 ' '512 
+3a9: LD 0.102912 from 9c 
+3ab: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+3b0: LD 0.1 from 9b 
+3b2: OP2 ''513 
+3b4: OP2 ''514 
+3b6: LD_LVAR index=0 paran=0 point p x
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+3bb: LD 0.1 from 9a 
+3bd: OP2 ''513 
+3bf: LD 2 from 99 
+3c1: LD_FUNC pow paran=2
+3c6: LD_LVAR index=1 paran=0 point p y
+  G__LD_LvAR optimized 6 G__LDST_LVAR_P
+3cb: LD 1 from 98 
+3cd: OP2 '+'43 
+3cf: LD 2 from 97 
+3d1: LD_FUNC pow paran=2
+3d6: OP2 ' '512 
+3d8: OP2 ''515 
+3da: OP2 ' '512 
+3dc: OP2 ''514 
+3de: ST_LVAR index=4 paran=0 point p ex
+  G__ST_VAR optimized 8 G__LDST_LVAR_P
+3e3: RTN_FUNC 0
+3e5: RETURN
+Note: Bytecode compiler reset (off) FILE:gabriele3.C LINE:21
+
+# gabriele3.C   
+tmpobj=0x0 scope1
+Running bytecode function drift_velocity inst=215cd0->105526d8 stack=2134d0->200110
+LOOP COMPILE EXECUTION START
+  0,4: LDST_LVAR_P index=0 ldst=1 x 0 1
+  5,4: POP 1 -> 2
+  6,3: LDST_LVAR_P index=1 ldst=1 y 0 2
+  b,3: POP 2 -> 3
+  c,2: INIT_REF index=2 paran=0 point d  value=3,0x3 ref=0x10551cd0
+ 11,2: POP 3 -> 4
+ 12,1: INIT_REF index=3 paran=0 point d  value=4,0x4 ref=0x10551cf0
+ 17,1: POP 4 -> 0
+ 18,0: CL gabriele3.C:6
+autostack=0 scope=1 
+ 1a,0: CL gabriele3.C:20
+autostack=0 scope=1 
+ 1c,0: LD 1,1 from ff 200110,2028e8
+ 1e,1: OP1_OPTIMIZED d:0:1 -> d:0:-1
+ 20,1: LD 0.086354,0 from fe 200110,2028c0
+ 22,2: OP1_OPTIMIZED d:-1243547651:0.086354 -> d:-1243547651:-0.086354
+ 24,2: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 29,3: LD 0.1,0 from fd 200110,202898
+ 2b,4: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+ 2d,3: OP2_OPTIMIZED d:-1243547651:-0.086354 d:-1717986918:1.1 -> d:-1367902416
+ 2f,2: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 34,3: LD 0.1,0 from fc 200110,202870
+ 36,4: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+ 38,3: LD 2,2 from fb 200110,202848
+ 3a,4: LD_FUNC pow paran=2
+ 3f,3: LDST_LVAR_P index=1 ldst=0 y 0 2
+ 44,4: LD 1,1 from fa 200110,202820
+ 46,5: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+ 48,4: LD 2,2 from f9 200110,2027f8
+ 4a,5: LD_FUNC pow paran=2
+ 4f,4: OP2_OPTIMIZED d:-171798691:1.21 d:0:1 -> d:2061584302
+ 51,3: OP2_OPTIMIZED d:-1367902416:-0.0949894 d:2061584302:2.21 -> d:627766413
+ 53,2: LD 0.066419,0 from f8 200110,2027d0
+ 55,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 5a,4: OP2_OPTIMIZED d:-388677360:0.066419 d:0:1 -> d:-388677360
+ 5c,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 61,4: LD 2,2 from f7 200110,2027a8
+ 63,5: LD_FUNC pow paran=2
+ 68,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+ 6d,5: LD 1,1 from f6 200110,202780
+ 6f,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+ 71,5: LD 2,2 from f5 200110,202758
+ 73,6: LD_FUNC pow paran=2
+ 78,5: OP2_OPTIMIZED d:0:1 d:0:1 -> d:0
+ 7a,4: OP2_OPTIMIZED d:-388677360:0.066419 d:0:2 -> d:-388677360
+ 7c,3: OP2_OPTIMIZED d:627766413:-0.0429816 d:-388677360:0.0332095 -> d:119544526
+ 7e,2: LD 0.086354,0 from f4 200110,202730
+ 80,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 85,4: LD 0.1,0 from f3 200110,202708
+ 87,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+ 89,4: OP2_OPTIMIZED d:-1243547651:0.086354 d:-858993459:0.9 -> d:-1119192886
+ 8b,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 90,4: LD 0.1,0 from f2 200110,2026e0
+ 92,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+ 94,4: LD 2,2 from f1 200110,2026b8
+ 96,5: LD_FUNC pow paran=2
+ 9b,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+ a0,5: LD 1,1 from f0 200110,202690
+ a2,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+ a4,5: LD 2,2 from ef 200110,202668
+ a6,6: LD_FUNC pow paran=2
+ ab,5: OP2_OPTIMIZED d:515396076:0.81 d:0:1 -> d:-1889785610
+ ad,4: OP2_OPTIMIZED d:-1119192886:0.0777186 d:-1889785610:1.81 -> d:1729460413
+ af,3: OP2_OPTIMIZED d:119544526:-0.0761911 d:1729460413:0.0429385 -> d:-1163208916
+ b1,2: LD 0.012136,0 from ee 200110,202640
+ b3,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ b8,4: LD 0.08,0 from ed 200110,202618
+ ba,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+ bc,4: OP2_OPTIMIZED d:1490388011:0.012136 d:343597384:1.08 -> d:-1482757401
+ be,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ c3,4: LD 0.08,0 from ec 200110,2025f0
+ c5,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+ c7,4: LD 2,2 from eb 200110,2025c8
+ c9,5: LD_FUNC pow paran=2
+ ce,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+ d3,5: LD 2,2 from ea 200110,2025a0
+ d5,6: LD_FUNC pow paran=2
+ da,5: OP2_OPTIMIZED d:199286483:1.1664 d:0:4 -> d:-1023920203
+ dc,4: OP2_OPTIMIZED d:-1482757401:0.0131069 d:-1023920203:5.1664 -> d:-1117407636
+ de,3: OP2_OPTIMIZED d:-1163208916:-0.11913 d:-1117407636:0.00253695 -> d:-1600781089
+ e0,2: LD 0.009957,0 from e9 200110,202578
+ e2,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ e7,4: LD 0.06,0 from e8 200110,202550
+ e9,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+ eb,4: OP2_OPTIMIZED d:-353492988:0.009957 d:-1889785610:1.06 -> d:1171485660
+ ed,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ f2,4: LD 0.06,0 from e7 200110,202528
+ f4,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+ f6,4: LD 2,2 from e6 200110,202500
+ f8,5: LD_FUNC pow paran=2
+ fd,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+102,5: LD 2,2 from e5 200110,2024d8
+104,6: LD_FUNC pow paran=2
+109,5: OP2_OPTIMIZED d:-27487790:1.1236 d:0:4 -> d:-6871948
+10b,4: OP2_OPTIMIZED d:1171485660:0.0105544 d:-6871948:5.1236 -> d:-1971085326
+10d,3: OP2_OPTIMIZED d:-1600781089:-0.121667 d:-1971085326:0.00205996 -> d:216670687
+10f,2: LD 0.009957,0 from e4 200110,2024b0
+111,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+116,4: LD 0.06,0 from e3 200110,202488
+118,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+11a,4: OP2_OPTIMIZED d:-353492988:0.009957 d:-515396076:0.94 -> d:-1878471636
+11c,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+121,4: LD 0.06,0 from e2 200110,202460
+123,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+125,4: LD 2,2 from e1 200110,202438
+127,5: LD_FUNC pow paran=2
+12c,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+131,5: LD 2,2 from e0 200110,202410
+133,6: LD_FUNC pow paran=2
+138,5: OP2_OPTIMIZED d:-2116559884:0.8836 d:0:4 -> d:1882913662
+13a,4: OP2_OPTIMIZED d:-1878471636:0.00935958 d:1882913662:4.8836 -> d:-2077413028
+13c,3: OP2_OPTIMIZED d:216670687:-0.123726 d:-2077413028:0.00191653 -> d:293432146
+13e,2: LD 0.012136,0 from df 200110,2023e8
+140,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+145,4: LD 0.08,0 from de 200110,2023c0
+147,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+149,4: OP2_OPTIMIZED d:1490388011:0.012136 d:-687194767:0.92 -> d:168566128
+14b,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+150,4: LD 0.08,0 from dd 200110,202398
+152,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+154,4: LD 2,2 from dc 200110,202370
+156,5: LD_FUNC pow paran=2
+15b,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+160,5: LD 2,2 from db 200110,202348
+162,6: LD_FUNC pow paran=2
+167,5: OP2_OPTIMIZED d:1944761192:0.8464 d:0:4 -> d:-1367517587
+169,4: OP2_OPTIMIZED d:168566128:0.0111651 d:-1367517587:4.8464 -> d:1714468137
+16b,3: OP2_OPTIMIZED d:293432146:-0.125643 d:1714468137:0.0023038 -> d:-1223283161
+16d,2: LD 0.102912,0 from da 200110,202320
+16f,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+174,4: LD 0.1,0 from d9 200110,2022f8
+176,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+178,4: OP2_OPTIMIZED d:-631394552:0.102912 d:-1717986918:1.1 -> d:-1983024195
+17a,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+17f,4: LD 0.1,0 from d8 200110,2022d0
+181,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+183,4: LD 2,2 from d7 200110,2022a8
+185,5: LD_FUNC pow paran=2
+18a,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+18f,5: LD 1,1 from d6 200110,202280
+191,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+193,5: LD 2,2 from d5 200110,202258
+195,6: LD_FUNC pow paran=2
+19a,5: OP2_OPTIMIZED d:-171798691:1.21 d:0:9 -> d:515396076
+19c,4: OP2_OPTIMIZED d:-1983024195:0.113203 d:515396076:10.21 -> d:-1036374514
+19e,3: OP2_OPTIMIZED d:-1223283161:-0.127947 d:-1036374514:0.0110875 -> d:1441076876
+1a0,2: LD 0.07881,0 from d4 200110,202230
+1a2,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1a7,4: OP2_OPTIMIZED d:1687750349:0.07881 d:0:1 -> d:1687750349
+1a9,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1ae,4: LD 2,2 from d3 200110,202208
+1b0,5: LD_FUNC pow paran=2
+1b5,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+1ba,5: LD 1,1 from d2 200110,2021e0
+1bc,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+1be,5: LD 2,2 from d1 200110,2021b8
+1c0,6: LD_FUNC pow paran=2
+1c5,5: OP2_OPTIMIZED d:0:1 d:0:9 -> d:0
+1c7,4: OP2_OPTIMIZED d:1687750349:0.07881 d:0:10 -> d:-367786639
+1c9,3: OP2_OPTIMIZED d:1441076876:-0.116859 d:-367786639:0.007881 -> d:413308382
+1cb,2: LD 0.102912,0 from d0 200110,202190
+1cd,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1d2,4: LD 0.1,0 from cf 200110,202168
+1d4,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+1d6,4: OP2_OPTIMIZED d:-631394552:0.102912 d:-858993459:0.9 -> d:720235092
+1d8,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1dd,4: LD 0.1,0 from ce 200110,202140
+1df,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+1e1,4: LD 2,2 from cd 200110,202118
+1e3,5: LD_FUNC pow paran=2
+1e8,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+1ed,5: LD 1,1 from cc 200110,2020f0
+1ef,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+1f1,5: LD 2,2 from cb 200110,2020c8
+1f3,6: LD_FUNC pow paran=2
+1f8,5: OP2_OPTIMIZED d:515396076:0.81 d:0:9 -> d:1374389535
+1fa,4: OP2_OPTIMIZED d:720235092:0.0926208 d:1374389535:9.81 -> d:1585566378
+1fc,3: OP2_OPTIMIZED d:413308382:-0.108978 d:1585566378:0.00944147 -> d:-1932371063
+1fe,2: LD 0.086354,0 from ca 200110,2020a0
+200,3: OP1_OPTIMIZED d:-1243547651:0.086354 -> d:-1243547651:-0.086354
+202,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+207,4: LD 0.1,0 from c9 200110,202078
+209,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+20b,4: OP2_OPTIMIZED d:-1243547651:-0.086354 d:-1717986918:1.1 -> d:-1367902416
+20d,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+212,4: LD 0.1,0 from c8 200110,202050
+214,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+216,4: LD 2,2 from c7 200110,202028
+218,5: LD_FUNC pow paran=2
+21d,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+222,5: LD 1,1 from c6 200110,202000
+224,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+226,5: LD 2,2 from c5 200110,201fd8
+228,6: LD_FUNC pow paran=2
+22d,5: OP2_OPTIMIZED d:-171798691:1.21 d:0:1 -> d:2061584302
+22f,4: OP2_OPTIMIZED d:-1367902416:-0.0949894 d:2061584302:2.21 -> d:627766413
+231,3: LD 0.066419,0 from c4 200110,201fb0
+233,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+238,5: OP2_OPTIMIZED d:-388677360:0.066419 d:0:1 -> d:-388677360
+23a,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+23f,5: LD 2,2 from c3 200110,201f88
+241,6: LD_FUNC pow paran=2
+246,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+24b,6: LD 1,1 from c2 200110,201f60
+24d,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+24f,6: LD 2,2 from c1 200110,201f38
+251,7: LD_FUNC pow paran=2
+256,6: OP2_OPTIMIZED d:0:1 d:0:1 -> d:0
+258,5: OP2_OPTIMIZED d:-388677360:0.066419 d:0:2 -> d:-388677360
+25a,4: OP2_OPTIMIZED d:627766413:-0.0429816 d:-388677360:0.0332095 -> d:119544526
+25c,3: LD 0.086354,0 from c0 200110,201f10
+25e,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+263,5: LD 0.1,0 from bf 200110,201ee8
+265,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+267,5: OP2_OPTIMIZED d:-1243547651:0.086354 d:-858993459:0.9 -> d:-1119192886
+269,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+26e,5: LD 0.1,0 from be 200110,201ec0
+270,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+272,5: LD 2,2 from bd 200110,201e98
+274,6: LD_FUNC pow paran=2
+279,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+27e,6: LD 1,1 from bc 200110,201e70
+280,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+282,6: LD 2,2 from bb 200110,201e48
+284,7: LD_FUNC pow paran=2
+289,6: OP2_OPTIMIZED d:515396076:0.81 d:0:1 -> d:-1889785610
+28b,5: OP2_OPTIMIZED d:-1119192886:0.0777186 d:-1889785610:1.81 -> d:1729460413
+28d,4: OP2_OPTIMIZED d:119544526:-0.0761911 d:1729460413:0.0429385 -> d:-1163208916
+28f,3: LD 0.012136,0 from ba 200110,201e20
+291,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+296,5: LD 0.08,0 from b9 200110,201df8
+298,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+29a,5: OP2_OPTIMIZED d:1490388011:0.012136 d:343597384:1.08 -> d:-1482757401
+29c,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2a1,5: LD 0.08,0 from b8 200110,201dd0
+2a3,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+2a5,5: LD 2,2 from b7 200110,201da8
+2a7,6: LD_FUNC pow paran=2
+2ac,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+2b1,6: LD 2,2 from b6 200110,201d80
+2b3,7: LD_FUNC pow paran=2
+2b8,6: OP2_OPTIMIZED d:199286483:1.1664 d:0:4 -> d:-1023920203
+2ba,5: OP2_OPTIMIZED d:-1482757401:0.0131069 d:-1023920203:5.1664 -> d:-1117407636
+2bc,4: OP2_OPTIMIZED d:-1163208916:-0.11913 d:-1117407636:0.00253695 -> d:-1600781089
+2be,3: LD 0.009957,0 from b5 200110,201d58
+2c0,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2c5,5: LD 0.06,0 from b4 200110,201d30
+2c7,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+2c9,5: OP2_OPTIMIZED d:-353492988:0.009957 d:-1889785610:1.06 -> d:1171485660
+2cb,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2d0,5: LD 0.06,0 from b3 200110,201d08
+2d2,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+2d4,5: LD 2,2 from b2 200110,201ce0
+2d6,6: LD_FUNC pow paran=2
+2db,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+2e0,6: LD 2,2 from b1 200110,201cb8
+2e2,7: LD_FUNC pow paran=2
+2e7,6: OP2_OPTIMIZED d:-27487790:1.1236 d:0:4 -> d:-6871948
+2e9,5: OP2_OPTIMIZED d:1171485660:0.0105544 d:-6871948:5.1236 -> d:-1971085326
+2eb,4: OP2_OPTIMIZED d:-1600781089:-0.121667 d:-1971085326:0.00205996 -> d:216670687
+2ed,3: LD 0.009957,0 from b0 200110,201c90
+2ef,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2f4,5: LD 0.06,0 from af 200110,201c68
+2f6,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+2f8,5: OP2_OPTIMIZED d:-353492988:0.009957 d:-515396076:0.94 -> d:-1878471636
+2fa,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2ff,5: LD 0.06,0 from ae 200110,201c40
+301,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+303,5: LD 2,2 from ad 200110,201c18
+305,6: LD_FUNC pow paran=2
+30a,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+30f,6: LD 2,2 from ac 200110,201bf0
+311,7: LD_FUNC pow paran=2
+316,6: OP2_OPTIMIZED d:-2116559884:0.8836 d:0:4 -> d:1882913662
+318,5: OP2_OPTIMIZED d:-1878471636:0.00935958 d:1882913662:4.8836 -> d:-2077413028
+31a,4: OP2_OPTIMIZED d:216670687:-0.123726 d:-2077413028:0.00191653 -> d:293432146
+31c,3: LD 0.012136,0 from ab 200110,201bc8
+31e,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+323,5: LD 0.08,0 from aa 200110,201ba0
+325,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+327,5: OP2_OPTIMIZED d:1490388011:0.012136 d:-687194767:0.92 -> d:168566128
+329,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+32e,5: LD 0.08,0 from a9 200110,201b78
+330,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+332,5: LD 2,2 from a8 200110,201b50
+334,6: LD_FUNC pow paran=2
+339,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+33e,6: LD 2,2 from a7 200110,201b28
+340,7: LD_FUNC pow paran=2
+345,6: OP2_OPTIMIZED d:1944761192:0.8464 d:0:4 -> d:-1367517587
+347,5: OP2_OPTIMIZED d:168566128:0.0111651 d:-1367517587:4.8464 -> d:1714468137
+349,4: OP2_OPTIMIZED d:293432146:-0.125643 d:1714468137:0.0023038 -> d:-1223283161
+34b,3: LD 0.102912,0 from a6 200110,201b00
+34d,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+352,5: LD 0.1,0 from a5 200110,201ad8
+354,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+356,5: OP2_OPTIMIZED d:-631394552:0.102912 d:-1717986918:1.1 -> d:-1983024195
+358,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+35d,5: LD 0.1,0 from a4 200110,201ab0
+35f,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+361,5: LD 2,2 from a3 200110,201a88
+363,6: LD_FUNC pow paran=2
+368,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+36d,6: LD 1,1 from a2 200110,201a60
+36f,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+371,6: LD 2,2 from a1 200110,201a38
+373,7: LD_FUNC pow paran=2
+378,6: OP2_OPTIMIZED d:-171798691:1.21 d:0:9 -> d:515396076
+37a,5: OP2_OPTIMIZED d:-1983024195:0.113203 d:515396076:10.21 -> d:-1036374514
+37c,4: OP2_OPTIMIZED d:-1223283161:-0.127947 d:-1036374514:0.0110875 -> d:1441076876
+37e,3: LD 0.07881,0 from a0 200110,201a10
+380,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+385,5: OP2_OPTIMIZED d:1687750349:0.07881 d:0:1 -> d:1687750349
+387,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+38c,5: LD 2,2 from 9f 200110,2019e8
+38e,6: LD_FUNC pow paran=2
+393,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+398,6: LD 1,1 from 9e 200110,2019c0
+39a,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+39c,6: LD 2,2 from 9d 200110,201998
+39e,7: LD_FUNC pow paran=2
+3a3,6: OP2_OPTIMIZED d:0:1 d:0:9 -> d:0
+3a5,5: OP2_OPTIMIZED d:1687750349:0.07881 d:0:10 -> d:-367786639
+3a7,4: OP2_OPTIMIZED d:1441076876:-0.116859 d:-367786639:0.007881 -> d:413308382
+3a9,3: LD 0.102912,0 from 9c 200110,201970
+3ab,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+3b0,5: LD 0.1,0 from 9b 200110,201948
+3b2,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+3b4,5: OP2_OPTIMIZED d:-631394552:0.102912 d:-858993459:0.9 -> d:720235092
+3b6,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+3bb,5: LD 0.1,0 from 9a 200110,201920
+3bd,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+3bf,5: LD 2,2 from 99 200110,2018f8
+3c1,6: LD_FUNC pow paran=2
+3c6,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+3cb,6: LD 1,1 from 98 200110,2018d0
+3cd,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+3cf,6: LD 2,2 from 97 200110,2018a8
+3d1,7: LD_FUNC pow paran=2
+3d6,6: OP2_OPTIMIZED d:515396076:0.81 d:0:9 -> d:1374389535
+3d8,5: OP2_OPTIMIZED d:720235092:0.0926208 d:1374389535:9.81 -> d:1585566378
+3da,4: OP2_OPTIMIZED d:413308382:-0.108978 d:1585566378:0.00944147 -> d:-1932371063
+3dc,3: OP2_OPTIMIZED d:-1932371063:-0.0995369 d:-1932371063:-0.0995369 -> d:-49187570
+3de,2: LDST_LVAR_P index=4 ldst=1 ex -49187570 0.00990759
+3e3,2: RTN_FUNC 0
+returns NULL
+Exit bytecode function drift_velocity restore inst=215cd0 stack=2134d0
+autostack=0 scope=1 
+
+27     } 2b: LD_VAR  i index=4 paran=0
+ 30: OP1  13
+ 32: JMP 0
+ 2b: INCJMP  i++ optimized
+Optimize 3 start
+  0: LD_VAR index=4 paran=0 point p i
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+  5: LD 2 from ff 
+  7: OP2 '<'60 
+  9: CNDJMP to 34
+  b: CL gabriele3.C:25
+  d: CL gabriele3.C:26
+  f: LD_VAR index=0 paran=0 point p x
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 14: LD_VAR index=1 paran=0 point p y
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 19: LD_VAR index=2 paran=0 point p vx
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 1e: LD_VAR index=3 paran=0 point p vy
+  G__LD_VAR optimized 6 G__LDST_VAR_P
+ 23: LD_IFUNC drift_velocity paran=4
+ 2b: INCJMP *(int*)0x10551d10+1 to 0
+ 2f: NOP
+ 30: NOP
+ 31: NOP
+ 32: JMP 0
+ 34: RETURN
+Bytecode loop compilation successful FILE:gabriele3.C LINE:25
+LOOP COMPILE EXECUTION START
+  0,0: LDST_VAR_P index=4 ldst=0 i -> 1 105 -1
+  5,1: LD 2,2 from ff 2134d0,215ca8
+  7,2: OP2_OPTIMIZED i:1:4.94066e-324 i:2:9.88131e-324 -> i:1
+  9,1: CNDJMP 1 to 34
+  b,0: CL gabriele3.C:25
+autostack=0 scope=0 
+  d,0: CL gabriele3.C:26
+autostack=0 scope=0 
+  f,0: LDST_VAR_P index=0 ldst=0 x -> 0 100 -1
+ 14,1: LDST_VAR_P index=1 ldst=0 y -> 0 100 -1
+ 19,2: LDST_VAR_P index=2 ldst=0 vx -> 0 100 -1
+ 1e,3: LDST_VAR_P index=3 ldst=0 vy -> 0 100 -1
+ 23,4: LD_IFUNC drift_velocity paran=4
+call G__exec_bytecode optimized
+ 23,4: LD_FUNC   paran=4
+tmpobj=0x0 scope1
+Running bytecode function drift_velocity inst=215cd0->105526d8 stack=2134d0->20bcc0
+LOOP COMPILE EXECUTION START
+  0,4: LDST_LVAR_P index=0 ldst=1 x 0 1
+  5,4: POP 1 -> 2
+  6,3: LDST_LVAR_P index=1 ldst=1 y 0 2
+  b,3: POP 2 -> 3
+  c,2: INIT_REF index=2 paran=0 point d  value=3,0x3 ref=0x10551cd0
+ 11,2: POP 3 -> 4
+ 12,1: INIT_REF index=3 paran=0 point d  value=4,0x4 ref=0x10551cf0
+ 17,1: POP 4 -> 0
+ 18,0: CL gabriele3.C:6
+autostack=0 scope=1 
+ 1a,0: CL gabriele3.C:20
+autostack=0 scope=1 
+ 1c,0: LD 1,1 from ff 20bcc0,20e498
+ 1e,1: OP1_OPTIMIZED d:0:1 -> d:0:-1
+ 20,1: LD 0.086354,0 from fe 20bcc0,20e470
+ 22,2: OP1_OPTIMIZED d:-1243547651:0.086354 -> d:-1243547651:-0.086354
+ 24,2: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 29,3: LD 0.1,0 from fd 20bcc0,20e448
+ 2b,4: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+ 2d,3: OP2_OPTIMIZED d:-1243547651:-0.086354 d:-1717986918:1.1 -> d:-1367902416
+ 2f,2: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 34,3: LD 0.1,0 from fc 20bcc0,20e420
+ 36,4: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+ 38,3: LD 2,2 from fb 20bcc0,20e3f8
+ 3a,4: LD_FUNC pow paran=2
+ 3f,3: LDST_LVAR_P index=1 ldst=0 y 0 2
+ 44,4: LD 1,1 from fa 20bcc0,20e3d0
+ 46,5: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+ 48,4: LD 2,2 from f9 20bcc0,20e3a8
+ 4a,5: LD_FUNC pow paran=2
+ 4f,4: OP2_OPTIMIZED d:-171798691:1.21 d:0:1 -> d:2061584302
+ 51,3: OP2_OPTIMIZED d:-1367902416:-0.0949894 d:2061584302:2.21 -> d:627766413
+ 53,2: LD 0.066419,0 from f8 20bcc0,20e380
+ 55,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 5a,4: OP2_OPTIMIZED d:-388677360:0.066419 d:0:1 -> d:-388677360
+ 5c,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 61,4: LD 2,2 from f7 20bcc0,20e358
+ 63,5: LD_FUNC pow paran=2
+ 68,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+ 6d,5: LD 1,1 from f6 20bcc0,20e330
+ 6f,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+ 71,5: LD 2,2 from f5 20bcc0,20e308
+ 73,6: LD_FUNC pow paran=2
+ 78,5: OP2_OPTIMIZED d:0:1 d:0:1 -> d:0
+ 7a,4: OP2_OPTIMIZED d:-388677360:0.066419 d:0:2 -> d:-388677360
+ 7c,3: OP2_OPTIMIZED d:627766413:-0.0429816 d:-388677360:0.0332095 -> d:119544526
+ 7e,2: LD 0.086354,0 from f4 20bcc0,20e2e0
+ 80,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 85,4: LD 0.1,0 from f3 20bcc0,20e2b8
+ 87,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+ 89,4: OP2_OPTIMIZED d:-1243547651:0.086354 d:-858993459:0.9 -> d:-1119192886
+ 8b,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ 90,4: LD 0.1,0 from f2 20bcc0,20e290
+ 92,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+ 94,4: LD 2,2 from f1 20bcc0,20e268
+ 96,5: LD_FUNC pow paran=2
+ 9b,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+ a0,5: LD 1,1 from f0 20bcc0,20e240
+ a2,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+ a4,5: LD 2,2 from ef 20bcc0,20e218
+ a6,6: LD_FUNC pow paran=2
+ ab,5: OP2_OPTIMIZED d:515396076:0.81 d:0:1 -> d:-1889785610
+ ad,4: OP2_OPTIMIZED d:-1119192886:0.0777186 d:-1889785610:1.81 -> d:1729460413
+ af,3: OP2_OPTIMIZED d:119544526:-0.0761911 d:1729460413:0.0429385 -> d:-1163208916
+ b1,2: LD 0.012136,0 from ee 20bcc0,20e1f0
+ b3,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ b8,4: LD 0.08,0 from ed 20bcc0,20e1c8
+ ba,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+ bc,4: OP2_OPTIMIZED d:1490388011:0.012136 d:343597384:1.08 -> d:-1482757401
+ be,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ c3,4: LD 0.08,0 from ec 20bcc0,20e1a0
+ c5,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+ c7,4: LD 2,2 from eb 20bcc0,20e178
+ c9,5: LD_FUNC pow paran=2
+ ce,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+ d3,5: LD 2,2 from ea 20bcc0,20e150
+ d5,6: LD_FUNC pow paran=2
+ da,5: OP2_OPTIMIZED d:199286483:1.1664 d:0:4 -> d:-1023920203
+ dc,4: OP2_OPTIMIZED d:-1482757401:0.0131069 d:-1023920203:5.1664 -> d:-1117407636
+ de,3: OP2_OPTIMIZED d:-1163208916:-0.11913 d:-1117407636:0.00253695 -> d:-1600781089
+ e0,2: LD 0.009957,0 from e9 20bcc0,20e128
+ e2,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ e7,4: LD 0.06,0 from e8 20bcc0,20e100
+ e9,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+ eb,4: OP2_OPTIMIZED d:-353492988:0.009957 d:-1889785610:1.06 -> d:1171485660
+ ed,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+ f2,4: LD 0.06,0 from e7 20bcc0,20e0d8
+ f4,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+ f6,4: LD 2,2 from e6 20bcc0,20e0b0
+ f8,5: LD_FUNC pow paran=2
+ fd,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+102,5: LD 2,2 from e5 20bcc0,20e088
+104,6: LD_FUNC pow paran=2
+109,5: OP2_OPTIMIZED d:-27487790:1.1236 d:0:4 -> d:-6871948
+10b,4: OP2_OPTIMIZED d:1171485660:0.0105544 d:-6871948:5.1236 -> d:-1971085326
+10d,3: OP2_OPTIMIZED d:-1600781089:-0.121667 d:-1971085326:0.00205996 -> d:216670687
+10f,2: LD 0.009957,0 from e4 20bcc0,20e060
+111,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+116,4: LD 0.06,0 from e3 20bcc0,20e038
+118,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+11a,4: OP2_OPTIMIZED d:-353492988:0.009957 d:-515396076:0.94 -> d:-1878471636
+11c,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+121,4: LD 0.06,0 from e2 20bcc0,20e010
+123,5: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+125,4: LD 2,2 from e1 20bcc0,20dfe8
+127,5: LD_FUNC pow paran=2
+12c,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+131,5: LD 2,2 from e0 20bcc0,20dfc0
+133,6: LD_FUNC pow paran=2
+138,5: OP2_OPTIMIZED d:-2116559884:0.8836 d:0:4 -> d:1882913662
+13a,4: OP2_OPTIMIZED d:-1878471636:0.00935958 d:1882913662:4.8836 -> d:-2077413028
+13c,3: OP2_OPTIMIZED d:216670687:-0.123726 d:-2077413028:0.00191653 -> d:293432146
+13e,2: LD 0.012136,0 from df 20bcc0,20df98
+140,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+145,4: LD 0.08,0 from de 20bcc0,20df70
+147,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+149,4: OP2_OPTIMIZED d:1490388011:0.012136 d:-687194767:0.92 -> d:168566128
+14b,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+150,4: LD 0.08,0 from dd 20bcc0,20df48
+152,5: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+154,4: LD 2,2 from dc 20bcc0,20df20
+156,5: LD_FUNC pow paran=2
+15b,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+160,5: LD 2,2 from db 20bcc0,20def8
+162,6: LD_FUNC pow paran=2
+167,5: OP2_OPTIMIZED d:1944761192:0.8464 d:0:4 -> d:-1367517587
+169,4: OP2_OPTIMIZED d:168566128:0.0111651 d:-1367517587:4.8464 -> d:1714468137
+16b,3: OP2_OPTIMIZED d:293432146:-0.125643 d:1714468137:0.0023038 -> d:-1223283161
+16d,2: LD 0.102912,0 from da 20bcc0,20ded0
+16f,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+174,4: LD 0.1,0 from d9 20bcc0,20dea8
+176,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+178,4: OP2_OPTIMIZED d:-631394552:0.102912 d:-1717986918:1.1 -> d:-1983024195
+17a,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+17f,4: LD 0.1,0 from d8 20bcc0,20de80
+181,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+183,4: LD 2,2 from d7 20bcc0,20de58
+185,5: LD_FUNC pow paran=2
+18a,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+18f,5: LD 1,1 from d6 20bcc0,20de30
+191,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+193,5: LD 2,2 from d5 20bcc0,20de08
+195,6: LD_FUNC pow paran=2
+19a,5: OP2_OPTIMIZED d:-171798691:1.21 d:0:9 -> d:515396076
+19c,4: OP2_OPTIMIZED d:-1983024195:0.113203 d:515396076:10.21 -> d:-1036374514
+19e,3: OP2_OPTIMIZED d:-1223283161:-0.127947 d:-1036374514:0.0110875 -> d:1441076876
+1a0,2: LD 0.07881,0 from d4 20bcc0,20dde0
+1a2,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1a7,4: OP2_OPTIMIZED d:1687750349:0.07881 d:0:1 -> d:1687750349
+1a9,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1ae,4: LD 2,2 from d3 20bcc0,20ddb8
+1b0,5: LD_FUNC pow paran=2
+1b5,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+1ba,5: LD 1,1 from d2 20bcc0,20dd90
+1bc,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+1be,5: LD 2,2 from d1 20bcc0,20dd68
+1c0,6: LD_FUNC pow paran=2
+1c5,5: OP2_OPTIMIZED d:0:1 d:0:9 -> d:0
+1c7,4: OP2_OPTIMIZED d:1687750349:0.07881 d:0:10 -> d:-367786639
+1c9,3: OP2_OPTIMIZED d:1441076876:-0.116859 d:-367786639:0.007881 -> d:413308382
+1cb,2: LD 0.102912,0 from d0 20bcc0,20dd40
+1cd,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1d2,4: LD 0.1,0 from cf 20bcc0,20dd18
+1d4,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+1d6,4: OP2_OPTIMIZED d:-631394552:0.102912 d:-858993459:0.9 -> d:720235092
+1d8,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+1dd,4: LD 0.1,0 from ce 20bcc0,20dcf0
+1df,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+1e1,4: LD 2,2 from cd 20bcc0,20dcc8
+1e3,5: LD_FUNC pow paran=2
+1e8,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+1ed,5: LD 1,1 from cc 20bcc0,20dca0
+1ef,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+1f1,5: LD 2,2 from cb 20bcc0,20dc78
+1f3,6: LD_FUNC pow paran=2
+1f8,5: OP2_OPTIMIZED d:515396076:0.81 d:0:9 -> d:1374389535
+1fa,4: OP2_OPTIMIZED d:720235092:0.0926208 d:1374389535:9.81 -> d:1585566378
+1fc,3: OP2_OPTIMIZED d:413308382:-0.108978 d:1585566378:0.00944147 -> d:-1932371063
+1fe,2: LD 0.086354,0 from ca 20bcc0,20dc50
+200,3: OP1_OPTIMIZED d:-1243547651:0.086354 -> d:-1243547651:-0.086354
+202,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+207,4: LD 0.1,0 from c9 20bcc0,20dc28
+209,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+20b,4: OP2_OPTIMIZED d:-1243547651:-0.086354 d:-1717986918:1.1 -> d:-1367902416
+20d,3: LDST_LVAR_P index=0 ldst=0 x 0 1
+212,4: LD 0.1,0 from c8 20bcc0,20dc00
+214,5: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+216,4: LD 2,2 from c7 20bcc0,20dbd8
+218,5: LD_FUNC pow paran=2
+21d,4: LDST_LVAR_P index=1 ldst=0 y 0 2
+222,5: LD 1,1 from c6 20bcc0,20dbb0
+224,6: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+226,5: LD 2,2 from c5 20bcc0,20db88
+228,6: LD_FUNC pow paran=2
+22d,5: OP2_OPTIMIZED d:-171798691:1.21 d:0:1 -> d:2061584302
+22f,4: OP2_OPTIMIZED d:-1367902416:-0.0949894 d:2061584302:2.21 -> d:627766413
+231,3: LD 0.066419,0 from c4 20bcc0,20db60
+233,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+238,5: OP2_OPTIMIZED d:-388677360:0.066419 d:0:1 -> d:-388677360
+23a,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+23f,5: LD 2,2 from c3 20bcc0,20db38
+241,6: LD_FUNC pow paran=2
+246,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+24b,6: LD 1,1 from c2 20bcc0,20db10
+24d,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+24f,6: LD 2,2 from c1 20bcc0,20dae8
+251,7: LD_FUNC pow paran=2
+256,6: OP2_OPTIMIZED d:0:1 d:0:1 -> d:0
+258,5: OP2_OPTIMIZED d:-388677360:0.066419 d:0:2 -> d:-388677360
+25a,4: OP2_OPTIMIZED d:627766413:-0.0429816 d:-388677360:0.0332095 -> d:119544526
+25c,3: LD 0.086354,0 from c0 20bcc0,20dac0
+25e,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+263,5: LD 0.1,0 from bf 20bcc0,20da98
+265,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+267,5: OP2_OPTIMIZED d:-1243547651:0.086354 d:-858993459:0.9 -> d:-1119192886
+269,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+26e,5: LD 0.1,0 from be 20bcc0,20da70
+270,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+272,5: LD 2,2 from bd 20bcc0,20da48
+274,6: LD_FUNC pow paran=2
+279,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+27e,6: LD 1,1 from bc 20bcc0,20da20
+280,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+282,6: LD 2,2 from bb 20bcc0,20d9f8
+284,7: LD_FUNC pow paran=2
+289,6: OP2_OPTIMIZED d:515396076:0.81 d:0:1 -> d:-1889785610
+28b,5: OP2_OPTIMIZED d:-1119192886:0.0777186 d:-1889785610:1.81 -> d:1729460413
+28d,4: OP2_OPTIMIZED d:119544526:-0.0761911 d:1729460413:0.0429385 -> d:-1163208916
+28f,3: LD 0.012136,0 from ba 20bcc0,20d9d0
+291,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+296,5: LD 0.08,0 from b9 20bcc0,20d9a8
+298,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+29a,5: OP2_OPTIMIZED d:1490388011:0.012136 d:343597384:1.08 -> d:-1482757401
+29c,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2a1,5: LD 0.08,0 from b8 20bcc0,20d980
+2a3,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:343597384
+2a5,5: LD 2,2 from b7 20bcc0,20d958
+2a7,6: LD_FUNC pow paran=2
+2ac,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+2b1,6: LD 2,2 from b6 20bcc0,20d930
+2b3,7: LD_FUNC pow paran=2
+2b8,6: OP2_OPTIMIZED d:199286483:1.1664 d:0:4 -> d:-1023920203
+2ba,5: OP2_OPTIMIZED d:-1482757401:0.0131069 d:-1023920203:5.1664 -> d:-1117407636
+2bc,4: OP2_OPTIMIZED d:-1163208916:-0.11913 d:-1117407636:0.00253695 -> d:-1600781089
+2be,3: LD 0.009957,0 from b5 20bcc0,20d908
+2c0,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2c5,5: LD 0.06,0 from b4 20bcc0,20d8e0
+2c7,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+2c9,5: OP2_OPTIMIZED d:-353492988:0.009957 d:-1889785610:1.06 -> d:1171485660
+2cb,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2d0,5: LD 0.06,0 from b3 20bcc0,20d8b8
+2d2,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-1889785610
+2d4,5: LD 2,2 from b2 20bcc0,20d890
+2d6,6: LD_FUNC pow paran=2
+2db,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+2e0,6: LD 2,2 from b1 20bcc0,20d868
+2e2,7: LD_FUNC pow paran=2
+2e7,6: OP2_OPTIMIZED d:-27487790:1.1236 d:0:4 -> d:-6871948
+2e9,5: OP2_OPTIMIZED d:1171485660:0.0105544 d:-6871948:5.1236 -> d:-1971085326
+2eb,4: OP2_OPTIMIZED d:-1600781089:-0.121667 d:-1971085326:0.00205996 -> d:216670687
+2ed,3: LD 0.009957,0 from b0 20bcc0,20d840
+2ef,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2f4,5: LD 0.06,0 from af 20bcc0,20d818
+2f6,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+2f8,5: OP2_OPTIMIZED d:-353492988:0.009957 d:-515396076:0.94 -> d:-1878471636
+2fa,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+2ff,5: LD 0.06,0 from ae 20bcc0,20d7f0
+301,6: OP2_OPTIMIZED d:0:1 d:-343597384:0.06 -> d:-515396076
+303,5: LD 2,2 from ad 20bcc0,20d7c8
+305,6: LD_FUNC pow paran=2
+30a,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+30f,6: LD 2,2 from ac 20bcc0,20d7a0
+311,7: LD_FUNC pow paran=2
+316,6: OP2_OPTIMIZED d:-2116559884:0.8836 d:0:4 -> d:1882913662
+318,5: OP2_OPTIMIZED d:-1878471636:0.00935958 d:1882913662:4.8836 -> d:-2077413028
+31a,4: OP2_OPTIMIZED d:216670687:-0.123726 d:-2077413028:0.00191653 -> d:293432146
+31c,3: LD 0.012136,0 from ab 20bcc0,20d778
+31e,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+323,5: LD 0.08,0 from aa 20bcc0,20d750
+325,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+327,5: OP2_OPTIMIZED d:1490388011:0.012136 d:-687194767:0.92 -> d:168566128
+329,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+32e,5: LD 0.08,0 from a9 20bcc0,20d728
+330,6: OP2_OPTIMIZED d:0:1 d:1202590843:0.08 -> d:-687194767
+332,5: LD 2,2 from a8 20bcc0,20d700
+334,6: LD_FUNC pow paran=2
+339,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+33e,6: LD 2,2 from a7 20bcc0,20d6d8
+340,7: LD_FUNC pow paran=2
+345,6: OP2_OPTIMIZED d:1944761192:0.8464 d:0:4 -> d:-1367517587
+347,5: OP2_OPTIMIZED d:168566128:0.0111651 d:-1367517587:4.8464 -> d:1714468137
+349,4: OP2_OPTIMIZED d:293432146:-0.125643 d:1714468137:0.0023038 -> d:-1223283161
+34b,3: LD 0.102912,0 from a6 20bcc0,20d6b0
+34d,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+352,5: LD 0.1,0 from a5 20bcc0,20d688
+354,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+356,5: OP2_OPTIMIZED d:-631394552:0.102912 d:-1717986918:1.1 -> d:-1983024195
+358,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+35d,5: LD 0.1,0 from a4 20bcc0,20d660
+35f,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-1717986918
+361,5: LD 2,2 from a3 20bcc0,20d638
+363,6: LD_FUNC pow paran=2
+368,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+36d,6: LD 1,1 from a2 20bcc0,20d610
+36f,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+371,6: LD 2,2 from a1 20bcc0,20d5e8
+373,7: LD_FUNC pow paran=2
+378,6: OP2_OPTIMIZED d:-171798691:1.21 d:0:9 -> d:515396076
+37a,5: OP2_OPTIMIZED d:-1983024195:0.113203 d:515396076:10.21 -> d:-1036374514
+37c,4: OP2_OPTIMIZED d:-1223283161:-0.127947 d:-1036374514:0.0110875 -> d:1441076876
+37e,3: LD 0.07881,0 from a0 20bcc0,20d5c0
+380,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+385,5: OP2_OPTIMIZED d:1687750349:0.07881 d:0:1 -> d:1687750349
+387,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+38c,5: LD 2,2 from 9f 20bcc0,20d598
+38e,6: LD_FUNC pow paran=2
+393,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+398,6: LD 1,1 from 9e 20bcc0,20d570
+39a,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+39c,6: LD 2,2 from 9d 20bcc0,20d548
+39e,7: LD_FUNC pow paran=2
+3a3,6: OP2_OPTIMIZED d:0:1 d:0:9 -> d:0
+3a5,5: OP2_OPTIMIZED d:1687750349:0.07881 d:0:10 -> d:-367786639
+3a7,4: OP2_OPTIMIZED d:1441076876:-0.116859 d:-367786639:0.007881 -> d:413308382
+3a9,3: LD 0.102912,0 from 9c 20bcc0,20d520
+3ab,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+3b0,5: LD 0.1,0 from 9b 20bcc0,20d4f8
+3b2,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+3b4,5: OP2_OPTIMIZED d:-631394552:0.102912 d:-858993459:0.9 -> d:720235092
+3b6,4: LDST_LVAR_P index=0 ldst=0 x 0 1
+3bb,5: LD 0.1,0 from 9a 20bcc0,20d4d0
+3bd,6: OP2_OPTIMIZED d:0:1 d:-1717986918:0.1 -> d:-858993459
+3bf,5: LD 2,2 from 99 20bcc0,20d4a8
+3c1,6: LD_FUNC pow paran=2
+3c6,5: LDST_LVAR_P index=1 ldst=0 y 0 2
+3cb,6: LD 1,1 from 98 20bcc0,20d480
+3cd,7: OP2_OPTIMIZED d:0:2 i:1:4.94066e-324 -> d:0
+3cf,6: LD 2,2 from 97 20bcc0,20d458
+3d1,7: LD_FUNC pow paran=2
+3d6,6: OP2_OPTIMIZED d:515396076:0.81 d:0:9 -> d:1374389535
+3d8,5: OP2_OPTIMIZED d:720235092:0.0926208 d:1374389535:9.81 -> d:1585566378
+3da,4: OP2_OPTIMIZED d:413308382:-0.108978 d:1585566378:0.00944147 -> d:-1932371063
+3dc,3: OP2_OPTIMIZED d:-1932371063:-0.0995369 d:-1932371063:-0.0995369 -> d:-49187570
+3de,2: LDST_LVAR_P index=4 ldst=1 ex -49187570 0.00990759
+3e3,2: RTN_FUNC 0
+returns NULL
+Exit bytecode function drift_velocity restore inst=215cd0 stack=2134d0
+autostack=0 scope=1 
+ 28,0: JMP 2b
+ 2b,0: INCJMP *(int*)0x10551d10+1 to 0
+  0,0: LDST_VAR_P index=4 ldst=0 i -> 2 105 -1
+  5,1: LD 2,2 from ff 2134d0,215ca8
+  7,2: OP2_OPTIMIZED i:2:9.88131e-324 i:2:9.88131e-324 -> i:0
+  9,1: CNDJMP 0 to 34
+ 34,0: RETURN
+
+23   }
+# gabriele3.C   
+
+32     return 0;}
+
+
+freetemp 0:(NULL)0x0x0 

@@ -1,0 +1,54 @@
+#
+# Don't use this file. Please use cygwin51_gcc3_so 
+#
+############################################################
+# platform/cygwin3
+#  Platform dependent information for Cygwin by Rommel Custodio
+#  2001/Jun/7 Modified by Joseph Canedo
+#  2002/Nov/17 Modified by Shin-ya Okumura for gcc3.x
+############################################################
+
+CXX    = g++
+
+
+# Tools
+RM      = rm -f
+CP      = cp
+AR      = ar
+AROPT       = clq
+KRCC        = gcc -traditional
+CC          = gcc
+CPP         = g++
+LD          = g++
+#LD          = dllwrap --export-all --output-def cxxdll.def --implib libcxxdll.a --driver-name g++
+CPREP       = gcc -E -C
+CPPPREP     = g++ -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -DBUILDING_DLL=1
+LDDLLOPT    = -shared $(CINTSYSDIR)/main/G__setup.o
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -lreadline
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL -DG__CYGWIN=1 -DG__NEWSTDHEADER
+OTHMACRO    = -DG__REDIRECTIO -DG__DETECT_NEWDEL -DG__POSIX -DG__STD_EXCEPTION
+SYSIPATH    =
+
+# libraries
+MAINO       = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   =
+APIO        = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB      = /usr/bin/ranlib
+STDLIBS     = gcc3strm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+

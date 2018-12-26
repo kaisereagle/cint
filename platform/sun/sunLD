@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# SunOS4.1 with /usr/ucb/cc ld and ld.so switch
+#
+case $1 in
+USEldso) 
+  shift
+  args=''
+  flag='0'
+  for i in $*
+  do
+    case $i in
+    -I|-D)
+      flag='1' ;;
+    -I*|-D*)
+      flag='0' ;;
+    *) 
+      if test flag=='0'
+      then
+        args=$args' '$i
+      fi
+      flag='0';;
+    esac
+    ld.so $args
+  done
+  ld.so $*
+  ;;
+*)
+  /usr/ucb/cc $*
+  ;;
+esac

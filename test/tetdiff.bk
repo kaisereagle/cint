@@ -1,0 +1,1005 @@
+cpp0.cxx 
+cpp1.cxx 
+cpp2.cxx 
+cpp3.cxx 
+cpp4.cxx 
+cpp5.cxx 
+cpp6.cxx 
+cpp8.cxx 
+refassign.cxx 
+ostream.cxx 
+setw0.cxx 
+inherit0.cxx 
+inherit1.cxx 
+inherit2.cxx 
+virtualfunc0.cxx 
+virtualfunc1.cxx 
+virtualfunc2.cxx 
+oprovld0.cxx 
+oprovld2.cxx 
+constary.cxx 
+const.cxx 
+  3c 2
+  4c 3
+  5c 4
+  7c 1
+  4i cint>   8c 2
+  9c 3
+ 10c 4
+ 11c 0
+ 12c 1
+ 13c 2
+ 14c 3
+ 15c 4
+scope0.cxx 
+idxscope0.cxx 
+  3c a=7 ain=1
+  3i a=7 ain=7
+  4c ary[i]=2 2 8
+  4i ary[i]=2 2 14
+access0.cxx 
+staticmem0.cxx 
+staticmem1.cxx 
+  4c  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235809 Sigma = 0.485602
+  4i  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235772 Sigma = 0.485564
+  6c  X : N = 26 Sum = 518.6 Mean = 19.9462 Var = 11.8601 Sigma = 3.44385
+  6i  X : N = 26 Sum = 518.6 Mean = 19.9462 Var = 11.8601 Sigma = 3.44384
+  8c  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235809 Sigma = 0.485602
+  8i  X : N = 25 Sum = 481.6 Mean = 19.264 Var = 0.235772 Sigma = 0.485564
+ 10c  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816496
+ 10i  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816497
+ 12c  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816496
+ 12i  X : N = 3 Sum = 6 Mean = 2 Var = 0.666667 Sigma = 0.816497
+staticary.cxx 
+  2c 1 2 3 4 5 0 0 0 0 0 
+  2i 1 2 3 6.36599e-314 
+  3c f() b=0.163934
+  3i cint>   4c 10
+  5c 0 1 2 3 4 5 6 7 8 9 
+  6c f() b=0.163934
+  7c 10
+  8c 0 1 2 3 4 5 6 7 8 9 
+  9c f() b=0.163934
+minexam.cxx 
+  1c           POSITIVE LEPTONS ,NEGATIVE LEPTONS
+  2c       TIME    THEOR    EXPTL    chisq         TIME THEOR    EXPTL    chisq
+  3c      0.000    0.000   11.000   11.000
+  4c      0.000    0.000    9.000    9.000
+  5c      0.000    0.000   13.000   13.000
+  6c      0.000    0.000   13.000   13.000
+  7c      0.000    0.000   17.000   17.000
+  8c      0.000    0.000    9.000    9.000
+  9c      0.000    0.000    8.000    8.000
+ 10c      0.000    0.000    8.000    8.000
+ 11c      0.000    0.000    9.000    9.000
+ 12c      0.000    0.000    6.000    6.000
+ 13c      0.000    0.000    4.000    4.000
+ 14c      0.000    0.000    4.000    4.000
+ 15c      0.000    0.000    6.000    6.000
+ 16c      0.000    0.000    5.000    5.000
+ 17c      0.000    0.000   10.000   10.000
+ 18c      0.000    0.000    4.000    4.000
+ 19c      0.000    0.000    4.000    4.000
+ 20c      0.000    0.000    7.000    7.000
+ 21c      0.000    0.000    6.000    6.000
+ 22c      0.000    0.000   11.000   11.000
+ 23c      0.000    0.000    4.000    4.000
+ 24c      0.000    0.000    4.000    4.000
+ 25c      0.000    0.000    6.000    6.000
+ 26c      0.000    0.000    5.000    5.000
+ 27c      0.000    0.000    5.000    5.000
+ 28c      0.000    0.000    7.000    7.000
+ 29c      0.000    0.000    7.000    7.000
+ 30c      0.000    0.000    9.000    9.000
+ 31c      0.000    0.000    5.000    5.000
+ 32c      0.000    0.000    6.000    6.000
+ 33c      0.000    0.000    5.000    5.000
+ 34c      0.000    0.000    6.000    6.000
+ 35c      0.000    0.000    5.000    5.000
+ 36c      0.000    0.000    5.000    5.000
+ 37c      0.000    0.000    6.000    6.000
+ 38c           POSITIVE LEPTONS ,NEGATIVE LEPTONS
+ 39c       TIME    THEOR    EXPTL    chisq         TIME THEOR    EXPTL    chisq
+ 40c      0.000    0.000   11.000   11.000
+ 41c      0.000    0.000    9.000    9.000
+ 42c      0.000    0.000   13.000   13.000
+ 43c      0.000    0.000   13.000   13.000
+ 44c      0.000    0.000   17.000   17.000
+ 45c      0.000    0.000    9.000    9.000
+ 46c      0.000    0.000    8.000    8.000
+ 47c      0.000    0.000    8.000    8.000
+ 48c      0.000    0.000    9.000    9.000
+ 49c      0.000    0.000    6.000    6.000
+ 50c      0.000    0.000    4.000    4.000
+ 51c      0.000    0.000    4.000    4.000
+ 52c      0.000    0.000    6.000    6.000
+ 53c      0.000    0.000    5.000    5.000
+ 54c      0.000    0.000   10.000   10.000
+ 55c      0.000    0.000    4.000    4.000
+ 56c      0.000    0.000    4.000    4.000
+ 57c      0.000    0.000    7.000    7.000
+ 58c      0.000    0.000    6.000    6.000
+ 59c      0.000    0.000   11.000   11.000
+ 60c      0.000    0.000    4.000    4.000
+ 61c      0.000    0.000    4.000    4.000
+ 62c      0.000    0.000    6.000    6.000
+ 63c      0.000    0.000    5.000    5.000
+ 64c      0.000    0.000    5.000    5.000
+ 65c      0.000    0.000    7.000    7.000
+ 66c      0.000    0.000    7.000    7.000
+ 67c      0.000    0.000    9.000    9.000
+ 68c      0.000    0.000    5.000    5.000
+ 69c      0.000    0.000    6.000    6.000
+ 70c      0.000    0.000    5.000    5.000
+ 71c      0.000    0.000    6.000    6.000
+ 72c      0.000    0.000    5.000    5.000
+ 73c      0.000    0.000    5.000    5.000
+ 74c      0.000    0.000    6.000    6.000
+ 75c           POSITIVE LEPTONS ,NEGATIVE LEPTONS
+ 76c       TIME    THEOR    EXPTL    chisq         TIME THEOR    EXPTL    chisq
+ 77c      0.000    0.000   11.000   11.000
+ 78c      0.000    0.000    9.000    9.000
+ 79c      0.000    0.000   13.000   13.000
+ 80c      0.000    0.000   13.000   13.000
+ 81c      0.000    0.000   17.000   17.000
+ 82c      0.000    0.000    9.000    9.000
+ 83c      0.000    0.000    8.000    8.000
+ 84c      0.000    0.000    8.000    8.000
+ 85c      0.000    0.000    9.000    9.000
+ 86c      0.000    0.000    6.000    6.000
+ 87c      0.000    0.000    4.000    4.000
+ 88c      0.000    0.000    4.000    4.000
+ 89c      0.000    0.000    6.000    6.000
+ 90c      0.000    0.000    5.000    5.000
+ 91c      0.000    0.000   10.000   10.000
+ 92c      0.000    0.000    4.000    4.000
+ 93c      0.000    0.000    4.000    4.000
+ 94c      0.000    0.000    7.000    7.000
+ 95c      0.000    0.000    6.000    6.000
+ 96c      0.000    0.000   11.000   11.000
+ 97c      0.000    0.000    4.000    4.000
+ 98c      0.000    0.000    4.000    4.000
+ 99c      0.000    0.000    6.000    6.000
+100c      0.000    0.000    5.000    5.000
+101c      0.000    0.000    5.000    5.000
+102c      0.000    0.000    7.000    7.000
+103c      0.000    0.000    7.000    7.000
+104c      0.000    0.000    9.000    9.000
+105c      0.000    0.000    5.000    5.000
+106c      0.000    0.000    6.000    6.000
+107c      0.000    0.000    5.000    5.000
+108c      0.000    0.000    6.000    6.000
+109c      0.000    0.000    5.000    5.000
+110c      0.000    0.000    5.000    5.000
+111c      0.000    0.000    6.000    6.000
+btmplt.cxx 
+loopcompile1.cxx 
+  1c a[0]=28
+  2c a[1]=-1
+  3c a[2]=2
+  4c a[3]=3
+  5c a[4]=4
+  6c a[5]=5
+  7c a[6]=6
+  8c a[7]=7
+  9c a[8]=16
+ 10c a[9]=9
+ 11c a[0]=28
+ 12c a[1]=-1
+ 13c a[2]=2
+ 14c a[3]=3
+ 15c a[4]=4
+ 16c a[5]=5
+ 17c a[6]=6
+ 18c a[7]=7
+ 19c a[8]=16
+ 20c a[9]=9
+ 21c a[0]=4
+ 22c a[1]=-1
+ 23c a[2]=2
+ 24c a[3]=3
+ 25c a[4]=4
+ 26c a[5]=5
+ 27c a[6]=6
+ 28c a[7]=7
+ 29c a[8]=16
+ 30c a[9]=9
+ 31c a[0]=0
+ 32c a[1]=2
+ 33c a[2]=-2
+ 34c a[3]=6
+ 35c a[4]=3229
+ 36c a[5]=1234
+ 37c a[6]=-6
+ 38c a[7]=14
+ 39c a[8]=-8
+ 40c a[9]=18
+ 41c a[0]=0
+ 42c a[1]=2
+ 43c a[2]=-2
+ 44c a[3]=6
+ 45c a[4]=3229
+ 46c a[5]=1234
+ 47c a[6]=-6
+ 48c a[7]=14
+ 49c a[8]=-8
+ 50c a[9]=18
+ 51c a[0]=0
+ 52c a[1]=2
+ 53c a[2]=-2
+ 54c a[3]=6
+ 55c a[4]=-4
+ 56c a[5]=10
+ 57c a[6]=-6
+ 58c a[7]=14
+ 59c a[8]=-8
+ 60c a[9]=18
+ 61c a[0]=0
+ 62c a[1]=3
+ 63c a[2]=6
+ 64c a[3]=9
+ 65c a[4]=12
+ 66c a[5]=15
+ 67c a[6]=18
+ 68c a[7]=21
+ 69c a[8]=24
+ 70c a[9]=27
+loopcompile2.cxx 
+loopcompile3.cxx 
+  1c p[0]=0
+  2c p[1]=0
+  3c p[2]=0
+  4c p[3] free
+  5c p[3]=0
+  6c p[4]=0
+loopcompile4.cxx 
+loopcompile5.cxx 
+mfstatic.cxx 
+  4c a=1
+  5c a=0
+  6c a=1
+  7c a=0
+new0.cxx 
+template0.cxx 
+  1c test1
+  2c a=111
+  3c a=111
+  4c test2
+  5c 0 0
+  6c 1 -1
+  7c 2 -2
+  8c 3 -3
+  9c 4 -4
+ 10c 10 10
+ 11c 11 9
+ 12c 12 8
+ 13c 13 7
+ 14c 14 6
+ 15c 15 5
+ 16c 16 4
+ 17c 17 3
+ 18c 18 2
+ 19c 19 1
+ 20c casting test
+ 21c 10 10
+ 22c 11 9
+ 23c 12 8
+ 24c 13 7
+ 25c 14 6
+ 26c 15 5
+ 27c 16 4
+ 28c 17 3
+ 29c 18 2
+ 30c 19 1
+ 31c test3
+ 32c 20 20
+ 33c 21 19
+ 34c 22 18
+ 35c 23 17
+ 36c 100 100
+ 37c 101 99
+ 38c 102 98
+ 39c 103 97
+ 40c 104 96
+ 41c 105 95
+ 42c 106 94
+ 43c 107 93
+ 44c 108 92
+ 45c 109 91
+ 46c test4
+ 47c 1.5 1.5
+ 48c 2.5 0.5
+ 49c 3.5 -0.5
+template1.cxx 
+template2.cxx 
+  2c 0=cmp(0,200)
+  2i 1=cmp(0,0)
+  3c 0=cmp(100,200)
+  3i 0=cmp(100,1)
+  4c 1=cmp(200,200)
+  5c 0=cmp(300,200)
+  6c 0=cmp(400,200)
+  9c 1=compare3(0.02,0.02)
+ 10c 0=compare3(0.03,0.02)
+ 11c 0=compare3(0.04,0.02)
+template4.cxx 
+  1c t=a e=3229
+  1i t=@ e=1374389535
+template5.cxx 
+template6.cxx 
+template3.cxx 
+  1o double* t
+  2o short* b
+  3o char* c
+  4o double* t
+  5o short* b
+  6o float* c
+  7o long* t
+  8o unsigned char* b
+  9o char* c
+ 10o long* t
+ 11o unsigned char* b
+ 12o char* c
+ 13o A<long,unsigned char> s1
+minherit0.cxx 
+  9c TBox::Modify()
+ 10i TAttArea::Modify()
+enumscope.cxx 
+baseconv0.cxx 
+friend0.cxx 
+anonunion.cxx 
+  1c a=1234
+  2c s=123
+  3c d=3.14
+  4c f=5.43 s=21 b=12
+  5c f=5.43 d=1.4142 b=12
+  6c f=5.43 a=3229 b=12
+init1.cxx 
+init2.cxx 
+include.cxx 
+eh1.cxx 
+  3c eh1
+  4c err=123
+  5c eh test2------------------
+  6c er1(123)
+  7c eh default
+  8c eh test3------------------
+  9c sub3()
+ 10c er1(3)
+ 11c eh1
+ 12c err=3
+ 13c eh test4------------------
+ 14c sub3()
+ 15c er1(4)
+ 16c eh default
+ifs.cxx 
+  1c 0 0 1 0
+  2c a=1.23 b=3.14
+  3c 0 0 1 0
+  4c a=6.2 b=-1.2
+  5c 0 0 1 0
+  6c a=5 b=1.4
+  7c 0 0 1 0
+  8c 1 0 0 6
+bitfield.cxx 
+  1c 1 0 0 0 0
+  2c 1 3 0 0 0
+  4c 1 3 7 f 0
+  2i 1 3 7 0 0
+  3i 1 3 7 0 0
+  6c 0 3 7 f 1
+  5i 1 3 7 f 1
+  7c 0 0 7 f 1
+  9c 0 0 0 0 1
+  7i 0 0 0 f 1
+  8i 0 0 0 f 1
+ 10i 0 0 0 0 0
+ 12c 1 1 0 0 0
+ 12i 1 0 0 0 0
+ 13c 1 1 1 0 0
+ 13i 1 0 0 0 0
+ 14c 1 1 1 1 0
+ 14i 1 0 0 1 0
+ 15c 1 1 1 1 1
+ 15i 1 0 0 1 0
+cout1.cxx 
+explicitdtor.cxx 
+ 18c ~A() 1
+ 18i ~A() 3
+nick3.cxx 
+nick4.cxx 
+  1c 123
+  2c 123
+  3c 123
+  4c 123
+  5c 123
+  6c 123
+nick4.cxx -DDEST
+  1c 123
+  2c 123
+  3c 123
+  4c 123
+  5c 123
+  6c 123
+  7c ~A() 123
+  8c ~A() 123
+  9c ~A() 123
+ 10c ~A() 123
+ 11c ~A() 123
+ 12c ~A() 123
+telea0.cxx 
+ 12c copy ctor
+ 13c copy ctor
+ 14c copy ctor
+ 15c copy ctor
+ 16c copy ctor
+ 27c operator =
+ 28c operator =
+ 29c operator =
+ 30c operator =
+ 31c operator =
+ 32c operator =
+ 33c operator =
+ 34c operator =
+ 35c operator =
+ 36c operator =
+telea1.cxx 
+telea2.cxx 
+  2i b1=6.28 b2=4.77278e-306
+  3c b1=2 b2=6.28
+  4i 
+  4c ~B()
+  5i cint>   5c ~A()
+  6c a1=1 a2=3.14
+  7c c1=3 c2=16.28
+  8c c1=3 c2=16.28
+  9c ~C()
+ 10c ~A()
+ 11c a1=1 a2=3.14
+ 12c d1=4 d2=26.28
+ 13c d1=4 d2=26.28
+ 14c ~D()
+ 15c ~C()
+ 16c ~B()
+ 17c ~A()
+ 18c a1=1 a2=3.14
+ 19c b1=2 b2=6.28
+ 20c b1=2 b2=6.28
+ 21c ~B()
+ 22c ~A()
+ 23c a1=1 a2=3.14
+ 24c b1=2 b2=6.28
+ 25c b1=2 b2=6.28
+ 26c ~B()
+ 27c ~A()
+ 28c a1=1 a2=3.14
+ 29c b1=2 b2=6.28
+ 30c b1=2 b2=6.28
+ 31c ~B()
+ 32c ~A()
+ 33c a1=1 a2=3.14
+ 34c b1=2 b2=6.28
+ 35c b1=2 b2=6.28
+ 36c ~B()
+ 37c ~A()
+ 38c a1=1 a2=3.14
+ 39c b1=2 b2=6.28
+ 40c b1=2 b2=6.28
+ 41c ~B()
+ 42c ~A()
+ 43c a1=1 a2=3.14
+ 44c c1=3 c2=16.28
+ 45c c1=3 c2=16.28
+ 46c ~C()
+ 47c ~A()
+ 48c a1=1 a2=3.14
+ 49c c1=3 c2=16.28
+ 50c c1=3 c2=16.28
+ 51c ~C()
+ 52c ~A()
+ 53c a1=1 a2=3.14
+ 54c c1=3 c2=16.28
+ 55c c1=3 c2=16.28
+ 56c ~C()
+ 57c ~A()
+ 58c a1=1 a2=3.14
+ 59c c1=3 c2=16.28
+ 60c c1=3 c2=16.28
+ 61c ~C()
+ 62c ~A()
+ 63c a1=1 a2=3.14
+ 64c c1=3 c2=16.28
+ 65c c1=3 c2=16.28
+ 66c ~C()
+ 67c ~A()
+ 68c a1=1 a2=3.14
+ 69c d1=4 d2=26.28
+ 70c d1=4 d2=26.28
+ 71c ~D()
+ 72c ~C()
+ 73c ~B()
+ 74c ~A()
+ 75c a1=1 a2=3.14
+ 76c d1=4 d2=26.28
+ 77c d1=4 d2=26.28
+ 78c ~D()
+ 79c ~C()
+ 80c ~B()
+ 81c ~A()
+ 82c a1=1 a2=3.14
+ 83c d1=4 d2=26.28
+ 84c d1=4 d2=26.28
+ 85c ~D()
+ 86c ~C()
+ 87c ~B()
+ 88c ~A()
+ 89c a1=1 a2=3.14
+ 90c d1=4 d2=26.28
+ 91c d1=4 d2=26.28
+ 92c ~D()
+ 93c ~C()
+ 94c ~B()
+ 95c ~A()
+ 96c a1=1 a2=3.14
+ 97c d1=4 d2=26.28
+ 98c d1=4 d2=26.28
+ 99c ~D()
+100c ~C()
+101c ~B()
+102c ~A()
+telea3.cxx 
+  1c test1 i=8 d=2.2 pv=0x2006
+  2c test1 i=8 d=2.2 pv=0x2006
+  3c test1 i=8 d=2.2 pv=0x2006
+  4c test1 i=8 d=2.2 pv=0x2006
+  5c test2 i=8 d=2.2 pv=0x2006
+  6c test2 i=8 d=2.2 pv=0x2006
+  7c test2 i=8 d=2.2 pv=0x2006
+  8c test2 i=8 d=2.2 pv=0x2006
+  9c test3 i=8 d=2.2 pv=0x2006
+ 10c test3 i=8 d=2.2 pv=0x2006
+ 11c test3 i=8 d=2.2 pv=0x2006
+ 12c test3 i=8 d=2.2 pv=0x2006
+ 13c a1=1 a2=3.14
+ 14c b1=2.2 b2=6.28
+ 15c a1=2.2 a2=6.28
+ 16c b1=2.2 b2=6.28
+ 17c a1=0 a2=0
+ 18c b1=2.2 b2=6.28
+ 19c a1=2.2 a2=6.28
+ 20c b1=2.2 b2=6.28
+ 21c a1=0 a2=0
+ 22c b1=2.2 b2=6.28
+ 23c a1=2.2 a2=6.28
+ 24c b1=2.2 b2=6.28
+ 25c a1=0 a2=0
+ 26c b1=2.2 b2=6.28
+ 27c a1=2.2 a2=6.28
+ 28c b1=2.2 b2=6.28
+ 29c a1=0 a2=0
+ 30c b1=2.2 b2=6.28
+ 31c a1=2.2 a2=6.28
+ 32c b1=2.2 b2=6.28
+ 33c a1=0 a2=0
+ 34c b1=2.2 b2=6.28
+ 35c a1=2.2 a2=6.28
+ 36c b1=2.2 b2=6.28
+ 37c a1=0 a2=0
+ 38c b1=2.2 b2=6.28
+ 39c a1=2.2 a2=6.28
+ 40c b1=2.2 b2=6.28
+ 41c a1=0 a2=0
+ 42c b1=2.2 b2=6.28
+ 43c a1=2.2 a2=6.28
+ 44c b1=2.2 b2=6.28
+telea5.cxx 
+  1c 1.2
+  1i -1.07432e+09
+  2c 0
+  2i -1.07432e+09
+  3c 1.2
+  3i -1.07432e+09
+  4c 2.4
+  4i -1.07432e+09
+  5c 3.6
+  5i -1.07432e+09
+  6c 4.8
+  6i -1.07432e+09
+telea6.cxx 
+telea7.cxx 
+  1c 0
+  2c 0
+  3c 0
+  4c 0
+  5c 0
+  6c 0
+fwdtmplt.cxx 
+  1c 1048575
+  2c 3.1416
+  3c {
+  4c 4095
+VPersonTest.cxx 
+  1c company country0
+  2c name syozoku1
+  3c company country2
+  4c name syozoku3
+  5c company country4
+  6c company country0
+  7c name syozoku1
+  8c company country2
+  9c name syozoku3
+ 10c company country4
+convopr0.cxx 
+nstmplt1.cxx 
+aoki0.cxx 
+borg1.cxx 
+  1c 0: first
+  2c 1: second
+  3c 2: first
+  4c 3: second
+  5c 4: first
+  6c 5: second
+  7c 6: first
+  8c 7: second
+  9c 8: first
+ 10c 9: second
+ 11c 0: first
+ 12c 1: second
+ 13c 2: first
+ 14c 3: second
+ 15c 4: first
+ 16c 5: second
+ 17c 6: first
+ 18c 7: second
+ 19c 8: first
+ 20c 9: second
+borg2.cxx 
+  1c 1: first
+  2c 2: second
+  3c 3: first
+  4c 4: second
+  5c 5: first
+  6c 6: second
+  7c 7: first
+  8c 8: second
+  9c 9: first
+ 10c 10: second
+ 11c 1: first
+ 12c 2: second
+ 13c 3: first
+ 14c 4: second
+ 15c 5: first
+ 16c 6: second
+ 17c 7: first
+ 18c 8: second
+ 19c 9: first
+ 20c 10: second
+bruce1.cxx 
+  1c test
+  2c test
+fons3.cxx 
+Test0.cxx 
+  1c n1=Akira  f1=Sato
+  2c n2=Toshio  f2=Sato
+  3c n1 is AkiraSato
+  4c fn2 is Toshio Sato
+  5c f1 and f2 are the same
+Test1.cxx 
+  1c 0 1 2 3 4 
+  2c (0,0) (1,2) (2,4) (3,6) (4,8) 
+  3c 0 1 2 3 4 
+  4c isum=10
+  5c csum=(10,20)
+  6c ssum=01234
+delete0.cxx 
+  1c A()
+  2c A()
+  3c ~A() 0
+  4c ~A() 1
+pb19.cxx 
+maincmplx.cxx 
+ 15c b.re=7 b.im=9 c.re=12 c.im=15
+ 16c b.re=8 b.im=11 c.re=13 c.im=17
+ 17c b.re=10 b.im=14 c.re=15 c.im=20
+ 18c b.re=13 b.im=18 c.re=18 c.im=24
+ 19c c[0]=20 c[1]=24
+ 20c c[0]=20 c[1]=40
+ 21c c[0]=20 c[1]=60
+ 22c c[0]=20 c[1]=80
+ 23c c[0]=20 c[1]=80
+ 24c 0 1 2 1
+funcmacro.cxx 
+  1c simple test
+  2c a=1 b=1
+  3c a=2
+  4c a=2 b=2
+  5c a=3
+  6c a=4
+  7c a=1 b=1
+  8c a=2
+  9c a=2 b=2
+ 10c a=3
+ 11c a=4
+ 12c a=1 b=1
+ 13c a=2
+ 14c a=2 b=2
+ 15c a=3
+ 16c a=4
+ 17c casting test
+ 18c *(int*)p=4
+ 19c *(double*)p=3.14
+ 20c *(unsigned char*)p=255
+template.cxx 
+template.cxx  -Dmakecint
+vbase.cxx 
+  2c  ad=1.25 ai=100 ad=1.25 ai=100 bd=0 bi=0
+  2i  ad=1.25 ai=100 ad=1.6976e-313 ai=1072955392 bd=0
+  3c  ad=1.5 ai=101 ad=1.5 ai=101 bd=10000 bi=100000
+  3i cint>   4c  ad=1.25 ai=100 bd=0 bi=0
+  5c  ad=1.5 ai=101 bd=10000 bi=100000
+  6c  ad=1.5 ai=101 bd=10000 bi=100000 ad=1.5 ai=101 ad=1.25 ai=100 bd=0 bi=0 ad=1.25 ai=100CTEST==========================
+  7c  ad=1.75 ai=102 ad=1.75 ai=102 cd=0 ci=0
+  8c  ad=2 ai=103 ad=2 ai=103 cd=10000 ci=100000
+  9c  ad=1.75 ai=102 cd=0 ci=0
+ 10c  ad=2 ai=103 cd=10000 ci=100000
+ 11c  ad=2 ai=103 cd=10000 ci=100000 ad=2 ai=103 ad=1.75 ai=102 cd=0 ci=0 ad=1.75 ai=102DTEST==========================
+ 12c  ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 dd=0 di=0
+ 13c  ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 dd=10000 di=100000
+ 14c  ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 dd=0 di=0
+ 15c  ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 dd=10000 di=100000
+ 16c  ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 dd=10000 di=100000 ad=2.5 ai=105 cd=10100 ci=101000 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 dd=0 di=0 ad=2.25 ai=104 cd=100 ci=1000 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104ETEST==========================
+ 17c  ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ed=0 ei=0
+ 18c  ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ed=10000 ei=100000
+ 19c  ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ed=0 ei=0
+ 20c  ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ed=10000 ei=100000
+ 21c  ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ed=10000 ei=100000 ad=3 ai=107 cd=10100 ci=101000 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ed=0 ei=0 ad=2.75 ai=106 cd=100 ci=1000 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106ETEST==========================
+ 22c  ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 fd=0 fi=0
+ 23c  ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 fd=10000 fi=100000
+ 24c  ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 fd=0 fi=0
+ 25c  ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 fd=10000 fi=100000
+ 26c  ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 fd=10000 fi=100000 ad=3.5 ai=109 cd=10100 ci=101000 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 fd=0 fi=0 ad=3.25 ai=108 cd=100 ci=1000 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108ETEST==========================
+ 27c  ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 gd=0 gi=0
+ 28c  ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 gd=10000 gi=100000
+ 29c  ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 gd=0 gi=0
+ 30c  ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 gd=10000 gi=100000
+ 31c  ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 gd=10000 gi=100000 ad=4 ai=111 cd=10100 ci=101000 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 gd=0 gi=0 ad=3.75 ai=110 cd=100 ci=1000 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110vbase.cxx  -Dmakecint
+vbase1.cxx 
+  2c  ad=1.25 ai=100 ad=1.25 ai=100 bd=0 bi=0
+  2i  ad=1.25 ai=100 ad=1.6976e-313 ai=1072955392 bd=0
+  3c  ad=1.5 ai=101 ad=1.5 ai=101 bd=10000 bi=100000
+  3i cint>   4c  ad=1.25 ai=100 bd=0 bi=0
+  5c  ad=1.5 ai=101 bd=10000 bi=100000
+  6c  ad=1.5 ai=101 bd=10000 bi=100000 ad=1.5 ai=101 ad=1.25 ai=100 bd=0 bi=0 ad=1.25 ai=100CTEST==========================
+  7c  ad=1.75 ai=102 ad=1.75 ai=102 cd=0 ci=0
+  8c  ad=2 ai=103 ad=2 ai=103 cd=10000 ci=100000
+  9c  ad=1.75 ai=102 cd=0 ci=0
+ 10c  ad=2 ai=103 cd=10000 ci=100000
+ 11c  ad=2 ai=103 cd=10000 ci=100000 ad=2 ai=103 ad=1.75 ai=102 cd=0 ci=0 ad=1.75 ai=102DTEST==========================
+ 12c  ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 dd=0 di=0
+ 13c  ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 dd=10000 di=100000
+ 14c  ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 dd=0 di=0
+ 15c  ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 dd=10000 di=100000
+ 16c  ad=2.5 ai=105 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 cd=10100 ci=101000 dd=10000 di=100000 ad=2.5 ai=105 cd=10100 ci=101000 ad=2.5 ai=105 bd=10010 bi=100100 ad=2.5 ai=105 ad=2.25 ai=104 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104 cd=100 ci=1000 dd=0 di=0 ad=2.25 ai=104 cd=100 ci=1000 ad=2.25 ai=104 bd=10 bi=100 ad=2.25 ai=104ETEST==========================
+ 17c  ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ed=0 ei=0
+ 18c  ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ed=10000 ei=100000
+ 19c  ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ed=0 ei=0
+ 20c  ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ed=10000 ei=100000
+ 21c  ad=3 ai=107 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 cd=10100 ci=101000 ed=10000 ei=100000 ad=3 ai=107 cd=10100 ci=101000 ad=3 ai=107 bd=10010 bi=100100 ad=3 ai=107 ad=2.75 ai=106 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106 cd=100 ci=1000 ed=0 ei=0 ad=2.75 ai=106 cd=100 ci=1000 ad=2.75 ai=106 bd=10 bi=100 ad=2.75 ai=106ETEST==========================
+ 22c  ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 fd=0 fi=0
+ 23c  ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 fd=10000 fi=100000
+ 24c  ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 fd=0 fi=0
+ 25c  ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 fd=10000 fi=100000
+ 26c  ad=3.5 ai=109 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 cd=10100 ci=101000 fd=10000 fi=100000 ad=3.5 ai=109 cd=10100 ci=101000 ad=3.5 ai=109 bd=10010 bi=100100 ad=3.5 ai=109 ad=3.25 ai=108 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108 cd=100 ci=1000 fd=0 fi=0 ad=3.25 ai=108 cd=100 ci=1000 ad=3.25 ai=108 bd=10 bi=100 ad=3.25 ai=108ETEST==========================
+ 27c  ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 gd=0 gi=0
+ 28c  ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 gd=10000 gi=100000
+ 29c  ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 gd=0 gi=0
+ 30c  ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 gd=10000 gi=100000
+ 31c  ad=4 ai=111 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 cd=10100 ci=101000 gd=10000 gi=100000 ad=4 ai=111 cd=10100 ci=101000 ad=4 ai=111 bd=10010 bi=100100 ad=4 ai=111 ad=3.75 ai=110 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110 cd=100 ci=1000 gd=0 gi=0 ad=3.75 ai=110 cd=100 ci=1000 ad=3.75 ai=110 bd=10 bi=100 ad=3.75 ai=110vbase1.cxx  -Dmakecint
+t215.cxx 
+  1c ------------------------
+  2c 0.A1() 0
+  3c 0.B1() 1
+  4c 0.A2() 2
+  5c 0.A() 3
+  6c 0.B() 4
+  7c 0.A() 5
+  8c 0.A() 6
+  9c 0.A() 7
+ 10c 0.B() 8
+ 11c 0.B() 9
+ 12c ------------------------
+ 13c 0.A1() 10
+ 14c 0.B1() 11
+ 15c 0.A2() 12
+ 16c 0.A() 13
+ 17c 0.B() 14
+ 18c 0.A() 15
+ 19c 0.A() 16
+ 20c 0.A() 17
+ 21c 0.B() 18
+ 22c 0.B() 19
+ 23c ------------------------
+ 24c 0.A1() 20
+ 25c 0.B1() 21
+ 26c 0.A2() 22
+ 27c 0.A() 23
+ 28c 0.B() 24
+ 29c 0.A() 25
+ 30c 0.A() 26
+ 31c 0.A() 27
+ 32c 0.B() 28
+ 33c 0.B() 29
+ 34c ------------------------
+ 35c 0.~B() 9
+ 36c 0.~B() 8
+ 37c 0.~A() 7
+ 38c 0.~A() 6
+ 39c 0.~A() 5
+ 40c 0.~B() 4
+ 41c 0.~A() 3
+ 42c 0.~A2() 2
+ 43c 0.~B1() 1
+ 44c 0.~A1() 0
+ 45c ------------------------
+ 46c 0.~B() 19
+ 47c 0.~B() 18
+ 48c 0.~A() 17
+ 49c 0.~A() 16
+ 50c 0.~A() 15
+ 51c 0.~B() 14
+ 52c 0.~A() 13
+ 53c 0.~A2() 12
+ 54c 0.~B1() 11
+ 55c 0.~A1() 10
+ 56c ------------------------
+ 57c 0.~B() 29
+ 58c 0.~B() 28
+ 59c 0.~A() 27
+ 60c 0.~A() 26
+ 61c 0.~A() 25
+ 62c 0.~B() 24
+ 63c 0.~A() 23
+ 64c 0.~A2() 22
+ 65c 0.~B1() 21
+ 66c 0.~A1() 20
+t358.cxx 
+  1c ff-----------------
+  2c 7
+  3c 8
+  4c 9
+  5c 8
+  6c 8
+  7c 8
+  8c 7
+  9c f-----------------
+ 10c 10
+ 11c 10
+ 12c 11
+ 13c 11
+ 14c 12
+ 15c 12
+ 16c 13
+ 17c 13
+ 18c 14
+ 19c 14
+ 20c 15
+ 21c 15
+t488.cxx 
+  1c 3
+  1i 
+  2i cint> t516.cxx 
+  1c 3.14
+  2c 0
+  3c 1
+  4c 10
+  5c 11
+  6c 100
+  7c 101
+  8c 110
+  9c 111
+ 10c 200
+ 11c 201
+ 12c 210
+ 13c 211
+t603.cxx 
+t627.cxx 
+t627.cxx  -Dmakecint
+t630.cxx 
+t633.cxx 
+t633.cxx  -Dmakecint
+  2c x chip.a=2  &chip=1
+  2i 
+  3c 4 chip.a=1  &chip=0
+  3i cint>   4c 4 chip.a=2  &chip=1
+  5c 4 chip.a=3  &chip=2
+  6c test2
+  7c 4 chip.a=1  &chip=3
+  8c 4 chip.a=2  &chip=4
+  9c 4 chip.a=3  &chip=5
+ 10c test3
+ 11c 1 chip.a=1  &chip=6
+ 12c 2 chip.a=100  &chip=6
+ 13c 1 chip.a=2  &chip=7
+ 14c 2 chip.a=101  &chip=7
+ 15c 1 chip.a=3  &chip=8
+ 16c 2 chip.a=102  &chip=8
+ 17c 4 chip.a=100  &chip=6
+ 18c 4 chip.a=101  &chip=7
+ 19c 4 chip.a=102  &chip=8
+t634.cxx 
+t674.cxx -DINTERPRET
+  1c string(abc)
+  2c string(def)
+  3c string(hij)
+  4c string(ABC)
+  5c string(DEF)
+  6c string(HIJ)
+  7c 0:abc,ABC 1:def,DEF 2:hij,HIJ 
+  8c string(XYZ)
+  9c string(YZ)
+ 10c string(Z)
+ 11c string((string)XYZ)
+ 12c string((string)YZ)
+ 13c string((string)Z)
+ 14c 0:XYZ 1:YZ 2:Z 
+ 15c ~string(Z)
+ 16c ~string(YZ)
+ 17c ~string(XYZ)
+ 18c ~string(Z)
+ 19c ~string(YZ)
+ 20c ~string(XYZ)
+ 21c ~string(HIJ)
+ 22c ~string(DEF)
+ 23c ~string(ABC)
+ 24c ~string(hij)
+ 25c ~string(def)
+ 26c ~string(abc)
+t694.cxx  -Dmakecint
+  1c 5 1 f(0) f(789) g(0) g(123) 
+  1i 
+  2c 6 3 f(1) f(789) g(1) g(123) 
+  2i cint> t694.cxx -DINTERPRET
+  1c 5 1 f(0) f(789) g(0) g(123) 
+  1i 5 1 f(0) f(789) g(0) 
+  2c 6 3 f(1) f(789) g(1) g(123) 
+  2i cint> t695.cxx 
+  9c B() 3.14 0
+ 10c B() 0 123
+ 11c template specialization template specialization B() 6.28 0
+ 12c B() 0 567
+ 13c template specialization template specialization B() 7.28 0
+ 14c B() 0 568
+ 15c template specialization template specialization B() 8.28 0
+ 16c B() 0 569
+t705.cxx  -Dmakecint
+  1c a: aa
+  2c a: aa
+  3c b:1
+  4c b:2
+t705.cxx -DINTERPRET
+  1c a: aa
+  2c a: aa
+  3c b:1
+  4c b:2
+t714.cxx 
+t733.cxx 
+  1o iter
+  1i 
+  2o iterator_traits<iter>
+  2i cint>   3o     iterator_traits<iter>::pointer a
+  4o     iter b
+  5o     iter* c
+  6o iterator_traits<int*>
+  7o     iterator_traits<int*>::pointer a
+  8o     int b
+  9o     int* c
+ 10o iterator_traits<const int*>
+ 11o     iterator_traits<const int*>::pointer a
+ 12o     const int b
+ 13o     const int* c
+t749.cxx 
+  1c foo 1
+  1i 
+  2c foo 3
+  2i FILE:t749.cxx LINE:17 cint> 
+  3i !!! Process killed by interrupt. signal(2)

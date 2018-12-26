@@ -1,0 +1,5 @@
+cp $CINTSYSDIR/lib/NVector/Vector.h Vector.h
+
+make -f makeroot.linux
+
+

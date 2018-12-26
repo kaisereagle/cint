@@ -1,0 +1,45 @@
+############################################################
+# platform/alpha_cxx
+#  Platform dependent information for DEC ALPHA OSF
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = cc
+CC          = cc
+CPP         = cxx 
+LD          = cxx 
+CPREP       = cxx -E -C
+CPPPREP     = cxx -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -shared -call_shared -preempt_module -preempt_symbol
+LDDLLOPT    = -shared -call_shared
+OPTIMIZE    = -O
+LDOPT       = -lm -ltermcap -lbsd
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL
+OTHMACRO    = -DG__REDIRECTIO -DG__64BIT -DG__DECCXX
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/src/G__ci.a
+READLINEA   = $(CINTSYSDIR)/readline/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = libstrm.o stdstrct.o
+PLATFORM    =
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+

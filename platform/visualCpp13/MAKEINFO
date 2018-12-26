@@ -1,0 +1,36 @@
+##########################################################################
+# platform\visual\MAKEINFO
+# Visual C++ 4.0 platform dependent file
+# Note: 
+#  There is a problem with '-C' keep comment option for VC++
+#  preprocessor when dealing with windows.h. So this is not added
+#  as CPREP option
+##########################################################################
+
+
+CPPPREP = cl -E -C -Ic:\cint\include -Dexternalref=extern  -I. -I\users\root\include -I\users\root\src -I\users\root\cint  -D__CINT__ -I "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" -I "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include" 
+CPREP = cl -E -Ic:\cint\include -Dexternalref=extern  -I. -I\users\root\include -I\users\root\src -I\users\root\cint  -D__CINT__ -I "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" -I "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include" 
+
+CPPSRCPOST = .cxx
+CSRCPOST   = .c
+CPPHDRPOST = .h
+CHDRPOST   = .h
+OBJPOST    = .obj
+DLLPOST    = .dll
+
+##########################################################################
+
+CC		= cl
+CPP		= cl
+
+
+
+
+##########################################################
+# Control default behavior of cint command line input
+##########################################################
+#INPUTMODE = C++
+#INPUTMODE = root
+INPUTMODE = cint
+#INPUTMODELOCK = on
+INPUTMODELOCK = off

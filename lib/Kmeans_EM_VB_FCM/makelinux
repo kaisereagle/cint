@@ -1,0 +1,145 @@
+############################################################
+# Automatically created makefile for KmeansEM.dll
+############################################################
+
+# Copying $CINTSYSDIR/MAKEINFO #############################
+
+############################################################
+# platform/linux_RH7.3_gcc3_so
+#  Platform dependent information for LINUX 2.0 RedHatH6.2 or later
+#  using gcc-3.00
+#  Build libcint.so instead of G__ci.a. And creates multi-thread safe DLLs.
+#  Based on Christoph Bugel's proposal about multi-threading.
+############################################################
+
+# Tools
+RM	    = rm -f
+CP	    = cp
+AR	    = ar
+AROPT       = clq
+KRCC        = gcc -traditional
+CC          = gcc -fexceptions -Wall
+CPP         = g++ -Wall 
+LD          = g++
+CPREP       = gcc -E -C
+CPPPREP     = g++ -E -C
+
+# Compiler and linker option
+CCDLLOPT    = -fPIC
+LDDLLOPT    = -shared
+# gcc-3.00 has a bug in -O2. Use -O instead. -O2 may be OK for later version
+OPTIMIZE    = -O2
+LDOPT       = -lm -L/usr/lib/termcap -ltermcap -lbsd -ldl -rdynamic 
+SYSMACRO    = -DG__REGEXP -DG__SHAREDLIB -DG__OSFDLL -DG__ANSI -DG__ERRORCALLBACK -DG__NEWSTDHEADER
+OTHMACRO    = -DG__REDIRECTIO -DG__DETECT_NEWDEL -DG__POSIX -DG__STD_EXCEPTION $(CCDLLPOST) 
+SYSIPATH    =
+
+# libraries
+MAINO	    = $(CINTSYSDIR)/main/G__cppmain.o
+CINTLIB     = $(CINTSYSDIR)/libcint.so
+READLINEA   = /usr/lib/libreadline.a
+APIO	    = Api.o Class.o BaseCls.o Type.o DataMbr.o Method.o MethodAr.o CallFunc.o Typedf.o Apiif.o Token.o
+RANLIB	    = /usr/bin/ranlib
+STDLIBS     = gcc3strm.o stdstrct.o
+PLATFORM    = $(CINTSYSDIR)/main/G__setup.o
+
+# source code postfix
+CSRCPOST    = .c
+CHDRPOST    = .h
+CPPSRCPOST  = .C
+CPPHDRPOST  = .h
+OBJPOST     = .o
+DLLPOST     = .dl
+
+
+
+##########################################################
+# Control default behavior of cint command line input
+##########################################################
+#INPUTMODE = C++
+#INPUTMODE = root
+INPUTMODE = cint
+#INPUTMODELOCK = on
+INPUTMODELOCK = off
+
+# End of $CINTSYSDIR/MAKEINFO ##############################
+
+# Set variables ############################################
+IPATH      = $(SYSIPATH) \
+		-I/mnt/hgfs/C/Tools/Eigen 
+MACRO      = $(SYSMACRO)
+CINTSYSDIR = /mnt/hgfs/C/cint_linux
+CINTIPATH  = -I$(CINTSYSDIR)
+OBJECT     = KmeansEM.dll
+OPTION     = $(CCDLLOPT)
+DLLSPEC    =
+LINKSPEC   = -DG__CPPLINK_ON
+
+# Set File names ###########################################
+CIFC       =
+CIFH       =
+CIFO       =
+CPPIFC     = G__cpp_KmeansEM.C
+CPPIFH     = G__cpp_KmeansEM.h
+CPPIFO     = G__cpp_KmeansEM.o
+
+LIBS       = 
+
+CCOPT      = 
+
+CINTOPT      = 
+
+COFILES    = 
+
+RMCOFILES  = 
+
+CHEADER    = 
+CHEADERCINT = 
+
+CSTUB      = 
+CSTUBCINT  = 
+
+CPPOFILES  = 
+
+RMCPPOFILES = 
+
+CPPHEADER  = \
+		MatrixCalc.h \
+		Vector.h \
+		KmeansEM.h \
+		LinkDef.h 
+CPPHEADERCINT  = \
+		MatrixCalc.h \
+		Vector.h \
+		KmeansEM.h \
+		LinkDef.h 
+
+CPPSTUB    = 
+CPPSTUBCINT = 
+
+# Link Object #############################################
+$(OBJECT) : $(COFILES) $(CPPOFILES) $(CIFO) $(CPPIFO)
+	$(LD) $(LDDLLOPT) $(OPTIMIZE) $(IPATH) $(MACRO) $(CCOPT) -o $(OBJECT) $(COFILES) $(CIFO) $(CPPIFO) $(CPPOFILES) $(LIBS)
+
+# Compile User C source files ##############################
+
+# Compile User C++ source files ############################
+
+
+# Compile C++ Interface routine ##########################
+$(CPPIFO) : $(CPPIFC)
+	$(CPP) $(CINTIPATH) $(IPATH) $(MACRO) $(OPTIMIZE) $(OPTION) $(CCOPT) -c $(CPPIFC)
+
+# Create C++ Interface routine ###########################
+$(CPPIFC) : $(CPPHEADER) $(CPPSTUB) $(CINTSYSDIR)/cint
+	$(CINTSYSDIR)/cint  -w1 -zKmeansEM -n$(CPPIFC) $(DLLSPEC) -D__MAKECINT__ -DG__MAKECINT  -c-1 -A $(IPATH) $(MACRO) $(CINTOPT) $(CPPHEADERCINT)
+
+
+# Clean up #################################################
+clean :
+	$(RM) $(OBJECT) core $(CIFO) $(CIFC) $(CIFH) $(CPPIFO) $(CPPIFC) $(CPPIFH) $(RMCOFILES) $(RMCPPOFILES)
+
+# re-makecint ##############################################
+makecint :
+	makecint -mk makelinux -dll KmeansEM.dll -I/mnt/hgfs/C/Tools/Eigen -H MatrixCalc.h Vector.h KmeansEM.h LinkDef.h 
+
