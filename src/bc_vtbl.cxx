@@ -22,6 +22,7 @@
 #include "Api.h"
 #include <cstdio>
 #include <algorithm>
+#include <iterator> //visual stadio 10以上はこちらインクルードが必要
 using namespace std;
 
 /***********************************************************************

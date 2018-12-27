@@ -28,7 +28,7 @@
 #include <sys/stat.h>
 #endif
 #ifndef __VC13__
-#include "unistd.h"
+//#include "unistd.h"
 #endif
 
 #ifdef _WIN32
@@ -262,7 +262,7 @@ int FileWaitTime(int n) {
 #if 1
   //printf("FilewaitTime(%d)\n",n);
 #ifndef __VC13__
-  usleep(n);
+  //usleep(n); //TODO X64
 #endif
   return(n);
 #else
