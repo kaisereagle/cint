@@ -376,7 +376,7 @@ extern "C" int G__exec_bytecode(G__value *result7,G__CONST char *funcname,struct
   int store_asm_dt;
   int store_asm_index; /* maybe unneccessary */
   int store_tagnum;
-  long localmem;
+  G__int64 localmem;
   int store_exec_memberfunc;
   long store_memberfunc_struct_offset;
   int store_memberfunc_tagnum;
@@ -472,7 +472,7 @@ extern "C" int G__exec_bytecode(G__value *result7,G__CONST char *funcname,struct
 	  G__asm_stack[j].ref=(long)G__Charref(&libp->para[i]);
 	  break;
 	case 's':
-	  G__asm_stack[j].ref=(long)G__Shortref(&libp->para[i]);
+	  G__asm_stack[j].ref=(G__int64)G__Shortref(&libp->para[i]);
 	  break;
 	case 'i':
 	  G__asm_stack[j].ref=(long)G__Intref(&libp->para[i]);
