@@ -870,7 +870,7 @@ struct G__StoreEnv {
 *                                                            to pointer
 **************************************************************************/
 struct G__p2p {
-  long i;
+	G__int64 i;
   int reftype;
 };
 
@@ -1365,7 +1365,7 @@ struct G__inheritance {
 **************************************************************************/
 struct G__var_array {
   /* union for variable pointer */
-  long p[G__MEMDEPTH]; /* used to be int */
+	G__int64 p[G__MEMDEPTH]; /* used to be int */
   int allvar;
   char *varnamebuf[G__MEMDEPTH]; /* variable name */
   int hash[G__MEMDEPTH];                    /* hash table of varname */

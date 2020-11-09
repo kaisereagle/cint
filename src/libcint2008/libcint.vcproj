@@ -318,7 +318,7 @@
 				AdditionalIncludeDirectories="..\..,..,..\..\lib\vc7strm,..\..\lib\stdstrct"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;G__NEWSTDHEADER;G__VISUAL;G__WIN32;G__SHAREDLIB;G__REDIRECTIO;G__P2FCAST;G__ASM_DBG"
 				MinimalRebuild="true"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 				PrecompiledHeaderFile=".\Debug/libcint.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"

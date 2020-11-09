@@ -49,7 +49,7 @@ int G__eof_count;        /* end of file error flag */
 int G__ismain;           /* is there a main function */
 int G__globalcomp;       /* make compiled func's global table */
 int G__store_globalcomp;
-long G__globalvarpointer = G__PVOID; /* make compiled func's global table */
+G__int64 G__globalvarpointer = G__PVOID; /* make compiled func's global table */
 
 struct G__filetable G__srcfile[G__MAXFILE];
 int G__nfile;

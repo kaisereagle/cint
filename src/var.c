@@ -6369,8 +6369,29 @@ int parameter00;
     
   case 'c': /* char */
   case 'C': /* char pointer */
-    G__ALLOC_VAR_REF(G__CHARALLOC,char,G__int)
-      
+  //  G__ALLOC_VAR_REF(G__CHARALLOC,char,G__int)
+	  if (islower(G__var_type)) 
+	  { 
+		  var->p[ig15] = G__malloc(p_inc, sizeof(char), item); 
+		  if (((G__def_struct_member == 0 && 0x00 == G__asm_wholefunction) || G__static_alloc || var->statictype[ig15] == (-2)) && ((!G__static_alloc) || (G__prerun)) && (G__globalvarpointer == (-1) || result.type != '\0'))
+			 
+			  *((char *)var->p[ig15]) = (char)G__int(result); 
+	  }
+	  else 
+	  { 
+		  if (p_inc > 1 && result.type != '\0') 
+		  { 
+			  var->p[ig15] = G__int(result); 
+		  } 
+		  else
+		  { 
+			  var->p[ig15] = G__malloc(p_inc, sizeof(long), item); 
+		  
+			  if (((G__def_struct_member == 0 && 0x00 == G__asm_wholefunction) || G__static_alloc || var->statictype[ig15] == (-2)) && ((!G__static_alloc) || (G__prerun)) && (G__globalvarpointer == (-1) || result.type != '\0'))
+			  *((G__int64 *)var->p[ig15]) = G__int(result);
+		  } 
+	  }
+
       /*******************************************************
        * initialization of string
        *******************************************************/

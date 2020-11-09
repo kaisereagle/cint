@@ -187,12 +187,12 @@ static long G__getstaticobject()
 *
 *  Allocate memory
 ******************************************************************/
-long G__malloc(n,bsize,item) /* used to be int */
+G__int64 G__malloc(n,bsize,item) /* used to be int */
 int n;
 int bsize;
 char *item;
 {
-  long allocmem; /* used to be int */
+	G__int64 allocmem; /* used to be int */
   int size;
 
 #ifdef G__MEMTEST
@@ -234,8 +234,8 @@ char *item;
        * Allocate memory area. Normal case
        *************************************/
       else {
-	if(G__prerun) allocmem=(long)calloc((size_t)n ,(size_t)bsize);
-	else          allocmem=(long)malloc((size_t)size);
+	if(G__prerun) allocmem=(G__int64)calloc((size_t)n ,(size_t)bsize);
+	else          allocmem=(G__int64)malloc((size_t)size);
 	if(allocmem==(long)NULL) G__malloc_error(item);
       }
       return(allocmem);
@@ -261,8 +261,8 @@ char *item;
 	    return(G__getstaticobject());
 	  }
 	  else {
-	    allocmem=(long)calloc((size_t)n ,(size_t)bsize);
-	    if(allocmem==(long)NULL) G__malloc_error(item);
+	    allocmem=(G__int64)calloc((size_t)n ,(size_t)bsize);
+	    if(allocmem==(G__int64)NULL) G__malloc_error(item);
 	  }
 	  return(allocmem);
 	}

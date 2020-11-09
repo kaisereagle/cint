@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcint", "libcint.vcxproj"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cint", "..\cint2015\cint.vcxproj", "{3E5AA39D-8973-4706-875D-4F32F0A2CC0A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cint64", "..\cint64\cint64.vcxproj", "{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +33,14 @@ Global
 		{3E5AA39D-8973-4706-875D-4F32F0A2CC0A}.Release|Win32.Build.0 = Release|Win32
 		{3E5AA39D-8973-4706-875D-4F32F0A2CC0A}.Release|x64.ActiveCfg = Release|x64
 		{3E5AA39D-8973-4706-875D-4F32F0A2CC0A}.Release|x64.Build.0 = Release|x64
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Debug|Win32.Build.0 = Debug|Win32
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Debug|x64.ActiveCfg = Debug|x64
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Debug|x64.Build.0 = Debug|x64
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Release|Win32.ActiveCfg = Release|Win32
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Release|Win32.Build.0 = Release|Win32
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Release|x64.ActiveCfg = Release|x64
+		{E60B1FC5-5B80-4EBC-80F3-D05CA844811E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

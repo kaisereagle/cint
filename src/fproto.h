@@ -297,7 +297,7 @@ int G__getparameterlist G__P((char *paralist,struct G__Charlist *charlist));
 int G__freedeffuncmacro G__P((struct G__Deffuncmacro *deffuncmacro));
 int G__freecallfuncmacro G__P((struct G__Callfuncmacro *callfuncmacro));
 int G__freecharlist G__P((struct G__Charlist *charlist));
-long G__malloc G__P((int n,int bsize,char *item));
+G__int64 G__malloc G__P((int n,int bsize,char *item));
 void *G__TEST_Malloc G__P((size_t size));
 void *G__TEST_Calloc G__P((size_t n,size_t bsize));
 void G__TEST_Free G__P((void *p));

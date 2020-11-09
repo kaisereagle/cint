@@ -273,7 +273,7 @@ extern int G__eof_count;        /* end of file error flag */
 extern int G__ismain;           /* is there a main function */
 extern int G__globalcomp;       /* make compiled func's global table */
 extern int G__store_globalcomp;
-extern long G__globalvarpointer; /* make compiled func's global table */
+extern G__int64 G__globalvarpointer; /* make compiled func's global table */
 
 extern struct G__filetable G__srcfile[G__MAXFILE];
 extern int G__nfile;

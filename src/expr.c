@@ -1750,7 +1750,10 @@ char *item;
           c='m';
           G__letULonglong(&result3,c,G__expr_strtoull(item,NULL,10));
        } else {
-		   xxx = strtoull(item, NULL, 10);
+		//vs2012ˆÈ~
+		  // xxx = strtoull(item, NULL, 10);
+		   //vs2010
+		   xxx = _strtoui64(item, NULL, 10);
  	 if(xxx>LONG_MAX && ('i'==c||'l'==c) ) --c;
  	 if(xxx==ULONG_MAX) {
  	   char ulongmax[100];
