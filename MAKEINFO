@@ -8,8 +8,8 @@
 ##########################################################################
 
 
-CPPPREP = cl -E -C -ID:\work\cint\include -Dexternalref=extern  -I. -I\users\root\include -I\users\root\src -I\users\root\cint  -D__CINT__ -I "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" -I "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include" 
-CPREP = cl -E -ID:\work\cint\include -Dexternalref=extern  -I. -I\users\root\include -I\users\root\src -I\users\root\cint  -D__CINT__ -I "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" -I "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include" 
+CPPPREP = cl -E -C -IE:\develop\cint\include -Dexternalref=extern  -I. -I\users\root\include -I\users\root\src -I\users\root\cint  -D__CINT__ -I "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" -I "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include" 
+CPREP = cl -E -IE:\develop\cint\include -Dexternalref=extern  -I. -I\users\root\include -I\users\root\src -I\users\root\cint  -D__CINT__ -I "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" -I "C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include" 
 
 CPPSRCPOST = .cxx
 CSRCPOST   = .c

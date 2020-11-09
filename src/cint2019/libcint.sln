@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1267
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcint", "libcint.vcxproj", "{E685D990-8C5A-4630-B3AB-73BE3D4EB4BC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cint", "cint.vcxproj", "{DC865587-3F08-4F1D-A14B-87843BCB5B31}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stdfunc", "..\stdfunc\stdfunc.vcxproj", "{450D616A-D955-42B0-9779-DD79B75B830C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{DC865587-3F08-4F1D-A14B-87843BCB5B31}.Release|x64.Build.0 = Release|x64
 		{DC865587-3F08-4F1D-A14B-87843BCB5B31}.Release|x86.ActiveCfg = Release|Win32
 		{DC865587-3F08-4F1D-A14B-87843BCB5B31}.Release|x86.Build.0 = Release|Win32
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Debug|x64.ActiveCfg = Debug|x64
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Debug|x64.Build.0 = Debug|x64
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Debug|x86.ActiveCfg = Debug|Win32
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Debug|x86.Build.0 = Debug|Win32
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Release|x64.ActiveCfg = Release|x64
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Release|x64.Build.0 = Release|x64
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Release|x86.ActiveCfg = Release|Win32
+		{450D616A-D955-42B0-9779-DD79B75B830C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
